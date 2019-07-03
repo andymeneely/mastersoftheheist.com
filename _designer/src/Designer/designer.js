@@ -39,7 +39,7 @@ class Designer extends React.Component {
     }
     return {
       tiles: save_str.split(' '),
-      activeType: 'GP',
+      activeType: 'EM',
       showGrid: true
     };
   }
