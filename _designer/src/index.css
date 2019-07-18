@@ -74,17 +74,23 @@ label {
   margin: 0.25em;
 }
 
+.columnBox {
+  width: 12em;
+}
+
 .manage-buttons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-space-around;
+  align-content: stretch;
 }
 
 .manage-buttons button {
   cursor: pointer;
   margin-left: 0.25em;
   margin-right: 0.25em;
+  margin-bottom: 0.25em;
 }
 
 .manage-buttons label {
@@ -166,8 +172,9 @@ label {
 
 .shift-tools{
   margin-top: 0.5em;
+  margin-left: 0.25em;
   padding-top: 0.5em;
-  text-align: center;
+  text-align: left;
 }
 
 .shift-tools button {
@@ -178,20 +185,18 @@ label {
 
 .shift-tools button:nth-child(1) { /* up */
    display: block;
-   margin-left: auto;
-   margin-right: auto;
+   margin-left: 2.2em;
 }
 
-.shift-tools button:nth-child(2) { /* up */
+.shift-tools button:nth-child(2) { /* left */
   margin-right: 1.2em;
 }
 
-.shift-tools button:nth-child(3) { /* up */
+.shift-tools button:nth-child(3) { /* right */
   margin-left: 1.2em;
 }
 
 .shift-tools button:nth-child(4) { /* down */
    display: block;
-   margin-left: auto;
-   margin-right: auto;
+   margin-left: 2.2em;
 }
