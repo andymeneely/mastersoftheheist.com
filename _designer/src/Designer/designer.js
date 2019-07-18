@@ -137,7 +137,6 @@ class Designer extends React.Component {
       default:
         console.log(`ERROR! Shift click not recognized: ${dir}`)
     }
-    console.log(sTiles);
     this.setState({
       tiles: sTiles
     });
