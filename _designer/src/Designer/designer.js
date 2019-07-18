@@ -19,6 +19,10 @@ class Designer extends React.Component {
     this.handleShowGridClick = this.handleShowGridClick.bind(this);
     this.handleShiftClick = this.handleShiftClick.bind(this);
     this.onWheel = this.onWheel.bind(this);
+    window.onpopstate = (e) => {
+      let savekey = new URL(document.location).searchParams.get('savekey');
+      this.setState(this.loadOrInit(savekey));
+    };
   }
 
   initialState(){
