@@ -36,20 +36,13 @@ label {
   width: 100%;
 }
 
-.designer .bottomrow {
-  margin-top: 2em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .tilebox {
   overflow: scroll;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: center;
-  width: 15vh;
-  height: 100%;
+  width: 12vh;
+  height: 103%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -105,6 +98,13 @@ label {
 
 .manage-buttons label input {
   margin-right: 0.25em;
+}
+
+.designer .bottomrow {
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .textmap{
