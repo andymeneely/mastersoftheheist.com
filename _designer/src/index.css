@@ -13,8 +13,13 @@ h1{
 }
 
 button {
+  cursor: pointer;
   font-family: inherit;
   font-size: inherit;
+}
+
+label {
+  cursor: pointer;
 }
 
 .designer{
@@ -38,45 +43,68 @@ button {
   justify-content: center;
 }
 
-.toolbox {
+.tilebox {
   overflow: scroll;
   overflow-y: auto;
   overflow-x: hidden;
   text-align: center;
-  width: 35vh;
-}
-
-.toolbox .tools{
+  width: 15vh;
+  height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.toolbox label,
-.toolbox input {
+.tilebox label,
+.tilebox input {
   cursor: pointer;
 }
 
-.toolbox button.hexbutton{
+.tilebox button.hexbutton{
   width: 4em;
   cursor: pointer;
   background: none;
-  /* border: 1px solid gray; */
   border: 3px solid white;
   margin-bottom: 2px;
 }
 
-.toolbox button.hexbutton.active{
+.tilebox button.hexbutton.active{
   border: 3px solid red;
 }
 
-.toolbox button.hexbutton img{
+.tilebox button.hexbutton img{
   width: 100%;
 }
 
-.toolbox>button{
+.tilebox>button{
   margin: 0.25em;
+}
+
+.manage-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.manage-buttons button {
+  cursor: pointer;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+.manage-buttons label {
+  cursor: pointer;
+  border: 1px solid #a5a5a5;
+  border-radius: 0.5em;
+  padding: 0.35em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+.manage-buttons label input {
+  margin-right: 0.25em;
 }
 
 .textmap{

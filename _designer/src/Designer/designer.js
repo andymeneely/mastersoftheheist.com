@@ -1,9 +1,10 @@
 import React from 'react';
+import ManageButtons from './manageButtons';
 import ScenarioMap from './scenarioMap';
+import ShiftTools from './shiftTools';
 import StatusBox from './statusBox';
 import TextMap from './textMap';
-import Toolbox from './toolbox';
-import ShiftTools from './shiftTools';
+import Tilebox from './tilebox';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import tileData from './tileData';
 
@@ -146,19 +147,18 @@ class Designer extends React.Component {
     return (
       <div className="designer">
         <div className="toprow">
-          <Toolbox onClearClick={this.handleClearClick}
-                   onSaveClick={this.handleSaveClick}
-                   onTypeClick={this.handleTypeClick}
-                   onShowGridClick={this.handleShowGridClick}
+          <Tilebox onTypeClick={this.handleTypeClick}
                    onWheel={this.onWheel}
                    showGrid={this.state.showGrid}
-                   activeType={this.state.activeType}
-          />
+                   activeType={this.state.activeType} />
           <ScenarioMap tiles={this.state.tiles}
                        onWheel={this.onWheel}
                        showGrid={this.state.showGrid}
                        onHexClick={this.handleHexClick}/>
           <div className="columnBox">
+            <ManageButtons onClearClick={this.handleClearClick}
+                           onSaveClick={this.handleSaveClick}
+                           onShowGridClick={this.handleShowGridClick} />
             <StatusBox tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={this.handleShiftClick}/>
           </div>
