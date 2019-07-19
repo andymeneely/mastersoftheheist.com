@@ -24,6 +24,7 @@ class ScenarioMap extends React.Component {
         s={hex.s}
         value={i}
         onClick={() => this.props.onHexClick(i)}
+        onMouseOver={() => this.props.onHoverHex(hex_code)}
         draggable={false}
       />
     );
@@ -51,8 +52,10 @@ class ScenarioMap extends React.Component {
 
   render() {
     return (
-      <div className="scenariomap" onWheel={this.props.onWheel}>
-        <HexGrid viewBox="5 -20 315 325">
+      <div className="scenariomap"
+           onWheel={this.props.onWheel}
+           onMouseLeave={() => this.props.onHoverHex('')} >
+        <HexGrid viewBox="-20 -20 360 305">
           <Layout size={{ x: 19, y: 19 }}
                   spacing={1.03}
                   flat={false}

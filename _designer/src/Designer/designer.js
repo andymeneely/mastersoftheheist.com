@@ -22,6 +22,7 @@ class Designer extends React.Component {
     this.handleShiftClick = this.handleShiftClick.bind(this);
     this.handleUndoClick = this.handleUndoClick.bind(this);
     this.handleRedoClick = this.handleRedoClick.bind(this);
+    this.handleHoverHex = this.handleHoverHex.bind(this);
     this.onWheel = this.onWheel.bind(this);
   }
 
@@ -32,7 +33,8 @@ class Designer extends React.Component {
       redoHistory: [],
       activeType: 'EM',
       showGrid: true,
-      lastAction: ''
+      lastAction: '',
+      hoverHex: ''
     };
   }
 
@@ -51,7 +53,8 @@ class Designer extends React.Component {
       redoHistory: [],
       activeType: 'EM',
       showGrid: true,
-      lastAction: ''
+      lastAction: '',
+      hoverHex: ''
     };
   }
 
@@ -66,11 +69,13 @@ class Designer extends React.Component {
       hist.push(tiles.slice());
     }
     tiles[i] = this.state.activeType;
+    const hex_name = tileData[tiles[i]]['name']
     this.setState({
       tiles: tiles,
       undoHistory: hist,
       redoHistory: [],
-      lastAction: `Place ${tileData[tiles[i]]['name']}`
+      lastAction: `Place ${hex_name}`,
+      hoverHex: hex_name
     });
   }
 
@@ -199,18 +204,34 @@ class Designer extends React.Component {
     });
   }
 
+  handleHoverHex(t) {
+    console.log(t);
+    if(t in tileData) {
+      this.setState({
+        hoverHex: tileData[t]['name']
+      });
+    } else {
+      this.setState({
+        hoverHex: ''
+      });
+    }
+  }
+
   render() {
     return (
       <div className="designer">
         <div className="toprow">
           <Tilebox onTypeClick={this.handleTypeClick}
-                   activeType={this.state.activeType} />
+                   activeType={this.state.activeType}
+                   onHoverHex={this.handleHoverHex}/>
           <div className="centerArea">
             <ScenarioMap tiles={this.state.tiles}
                          onWheel={this.onWheel}
                          showGrid={this.state.showGrid}
-                         onHexClick={this.handleHexClick}/>
-            <StatusBar lastAction={this.state.lastAction}/>
+                         onHexClick={this.handleHexClick}
+                         onHoverHex={this.handleHoverHex} />
+            <StatusBar lastAction={this.state.lastAction}
+                       hoverHex={this.state.hoverHex} />
           </div>
           <div className="columnBox">
             <ManageButtons onClearClick={this.handleClearClick}

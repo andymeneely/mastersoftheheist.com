@@ -11,12 +11,14 @@ class Tilebox extends React.Component {
            hexType={t}
            svgurl={require('./img/hexart/' + tileData[t]['slug'] + '.svg')}
            onHexButtonClick={this.props.onTypeClick}
+           onHoverHex={this.props.onHoverHex}
            isActiveType={this.props.activeType === t}
            key={`hextool-${t}`}
         />)
     }
     return (
-      <div className="tilebox">
+      <div className="tilebox"
+           onMouseLeave={() => this.props.onHoverHex('')}>
           {hexbuttons}
       </div>
     );
