@@ -16,7 +16,7 @@ class ScenarioMap extends React.Component {
     var stroke_state = this.props.showGrid ? ' grid_show' : ' grid_hide';
     return (
       <Hexagon
-        key={i}
+        key={`hex-${i}`}
         className={'hex-' + hex_slug + stroke_state}
         fill={hex_code}
         q={hex.q}
@@ -41,6 +41,7 @@ class ScenarioMap extends React.Component {
           height="120%"
           viewBox="0 0 150 150"
           dangerouslySetInnerHTML={{__html: tileData[t]['svgstr'].default}}
+          key={`pattern-${t}`}
         >
         </pattern>
       )

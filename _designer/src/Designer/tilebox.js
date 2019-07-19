@@ -12,6 +12,7 @@ class Tilebox extends React.Component {
            svgurl={require('./img/hexart/' + tileData[t]['slug'] + '.svg')}
            onHexButtonClick={this.props.onTypeClick}
            isActiveType={this.props.activeType === t}
+           key={`hextool-${t}`}
         />)
     }
     return (
