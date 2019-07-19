@@ -19,12 +19,14 @@ class Designer extends React.Component {
     this.handleTypeClick = this.handleTypeClick.bind(this);
     this.handleShowGridClick = this.handleShowGridClick.bind(this);
     this.handleShiftClick = this.handleShiftClick.bind(this);
+    this.handleUndoClick = this.handleUndoClick.bind(this);
     this.onWheel = this.onWheel.bind(this);
   }
 
   initialState(){
     return {
       tiles: Array(100).fill('GP'),
+      tileHistory: [],
       activeType: 'EM',
       showGrid: true
     };
@@ -41,6 +43,7 @@ class Designer extends React.Component {
     }
     return {
       tiles: save_str.split(' '),
+      tileHistory: [],
       activeType: 'EM',
       showGrid: true
     };
@@ -52,15 +55,21 @@ class Designer extends React.Component {
 
   handleHexClick(i){
     const tiles = this.state.tiles.slice();
+    const hist = this.state.tileHistory;
+    hist.push(tiles.slice());
     tiles[i] = this.state.activeType;
     this.setState({
       tiles: tiles,
+      tileHistory: hist
     });
   }
 
   handleClearClick(i){
+    const hist = this.state.tileHistory;
+    hist.push(this.state.tiles);
     this.setState({
-      tiles: Array(100).fill('GP')
+      tiles: Array(100).fill('GP'),
+      tileHistory: hist
     });
   }
 
@@ -76,8 +85,19 @@ class Designer extends React.Component {
     });
   }
 
+  handleUndoClick(){
+    const hist = this.state.tileHistory;
+    const oldTiles = hist.pop().slice();
+    console.log(this.state);
+    this.setState({
+      tiles: oldTiles,
+      tileHistory: hist
+    });
+    console.log(this.state);
+  }
+
   handleSaveClick(){
-    var svg = document.querySelector(".hexgrid>svg");
+    var svg = document.querySelector(".scenariomap>svg");
     var serializer = new XMLSerializer();
     var svg_blob = new Blob([serializer.serializeToString(svg)],
                           {'type': "image/svg+xml"});
@@ -157,7 +177,9 @@ class Designer extends React.Component {
             <ManageButtons onClearClick={this.handleClearClick}
                            onSaveClick={this.handleSaveClick}
                            onShowGridClick={this.handleShowGridClick}
-                           showGrid={this.state.showGrid} />
+                           showGrid={this.state.showGrid}
+                           onUndoClick={this.handleUndoClick}
+                           tileHistory={this.state.tileHistory}/>
             <StatusBox tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={this.handleShiftClick}/>
           </div>
