@@ -51,7 +51,7 @@ label {
     $hextool-size: 3.5em;
     $max-rowcols: 4;
     @media (orientation: landscape) {
-      max-width: $max-rowcols * $hextool-size;
+      max-width: $max-rowcols * $hextool-size + 1em;
       margin-left: auto;
     }
     overflow: auto;
