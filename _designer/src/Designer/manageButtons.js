@@ -2,7 +2,6 @@ import React from 'react';
 
 class ManageButtons extends React.Component {
   render(){
-    console.log(this.props.tileHistory);
     return (
       <div className="manage-buttons">
         <button onClick={() => this.props.onClearClick()}>Clear</button>
@@ -14,8 +13,12 @@ class ManageButtons extends React.Component {
           Grid
         </label>
         <button onClick={() => this.props.onUndoClick()}
-                disabled={this.props.tileHistory.length === 0}>
+                disabled={this.props.undoHistory.length === 0}>
           ⟲ Undo
+        </button>
+        <button onClick={() => this.props.onRedoClick()}
+                disabled={this.props.redoHistory.length === 0}>
+          ⟳ Redo
         </button>
       </div>
     );

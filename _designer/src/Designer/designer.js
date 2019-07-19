@@ -20,13 +20,15 @@ class Designer extends React.Component {
     this.handleShowGridClick = this.handleShowGridClick.bind(this);
     this.handleShiftClick = this.handleShiftClick.bind(this);
     this.handleUndoClick = this.handleUndoClick.bind(this);
+    this.handleRedoClick = this.handleRedoClick.bind(this);
     this.onWheel = this.onWheel.bind(this);
   }
 
   initialState(){
     return {
       tiles: Array(100).fill('GP'),
-      tileHistory: [],
+      undoHistory: [],
+      redoHistory: [],
       activeType: 'EM',
       showGrid: true
     };
@@ -43,7 +45,8 @@ class Designer extends React.Component {
     }
     return {
       tiles: save_str.split(' '),
-      tileHistory: [],
+      undoHistory: [],
+      redoHistory: [],
       activeType: 'EM',
       showGrid: true
     };
@@ -55,21 +58,25 @@ class Designer extends React.Component {
 
   handleHexClick(i){
     const tiles = this.state.tiles.slice();
-    const hist = this.state.tileHistory;
-    hist.push(tiles.slice());
+    const hist = this.state.undoHistory;
+    if(tiles[i] !== this.state.activeType) {
+      hist.push(tiles.slice());
+    }
     tiles[i] = this.state.activeType;
     this.setState({
       tiles: tiles,
-      tileHistory: hist
+      undoHistory: hist,
+      redoHistory: []
     });
   }
 
   handleClearClick(i){
-    const hist = this.state.tileHistory;
-    hist.push(this.state.tiles);
+    const hist = this.state.undoHistory;
+    hist.push(this.state.tiles.slice());
     this.setState({
       tiles: Array(100).fill('GP'),
-      tileHistory: hist
+      undoHistory: hist,
+      redoHistory: []
     });
   }
 
@@ -86,14 +93,26 @@ class Designer extends React.Component {
   }
 
   handleUndoClick(){
-    const hist = this.state.tileHistory;
-    const oldTiles = hist.pop().slice();
-    console.log(this.state);
+    const undoHist = this.state.undoHistory;
+    const redoHist = this.state.redoHistory;
+    const oldTiles = undoHist.pop().slice();
+    redoHist.push(this.state.tiles.slice());
     this.setState({
       tiles: oldTiles,
-      tileHistory: hist
+      undoHistory: undoHist
     });
-    console.log(this.state);
+  }
+
+  handleRedoClick(){
+    const redoHist = this.state.redoHistory;
+    const undoHist = this.state.undoHistory;
+    const oldTiles = redoHist.pop().slice();
+    undoHist.push(this.state.tiles.slice());
+    this.setState({
+      tiles: oldTiles,
+      redoHistory: redoHist,
+      undoHistory: undoHist
+    });
   }
 
   handleSaveClick(){
@@ -179,7 +198,10 @@ class Designer extends React.Component {
                            onShowGridClick={this.handleShowGridClick}
                            showGrid={this.state.showGrid}
                            onUndoClick={this.handleUndoClick}
-                           tileHistory={this.state.tileHistory}/>
+                           undoHistory={this.state.undoHistory}
+                           onRedoClick={this.handleRedoClick}
+                           redoHistory={this.state.redoHistory}
+                           />
             <StatusBox tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={this.handleShiftClick}/>
           </div>
