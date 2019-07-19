@@ -20,6 +20,9 @@ class ManageButtons extends React.Component {
                 disabled={this.props.redoHistory.length === 0}>
           ⟳ Redo
         </button>
+        <button onClick={() => this.props.onExpand()}>
+          Expand
+        </button>
       </div>
     );
   }

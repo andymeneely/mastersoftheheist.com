@@ -23,6 +23,7 @@ class Designer extends React.Component {
     this.handleUndoClick = this.handleUndoClick.bind(this);
     this.handleRedoClick = this.handleRedoClick.bind(this);
     this.handleHoverHex = this.handleHoverHex.bind(this);
+    this.handleExpand = this.handleExpand.bind(this);
     this.onWheel = this.onWheel.bind(this);
   }
 
@@ -205,7 +206,6 @@ class Designer extends React.Component {
   }
 
   handleHoverHex(t) {
-    console.log(t);
     if(t in tileData) {
       this.setState({
         hoverHex: tileData[t]['name']
@@ -215,6 +215,25 @@ class Designer extends React.Component {
         hoverHex: ''
       });
     }
+  }
+
+  handleExpand(){
+    let stride = Math.sqrt(this.state.tiles.length);
+    let oldTiles = this.state.tiles.slice();
+    let newStride = stride + 1;
+    let newTiles = Array(newStride*newStride).fill('GP');
+    let oldI = 0;
+    for(let i = 0; i < newTiles.length; i++){
+      // not on right side edge nor bottom edge
+      if(i % stride !== stride  && Math.floor(i / stride) !== stride) {
+        newTiles[i] = oldTiles[oldI];
+        oldI++;
+      }
+    }
+    //NOTE! This works, but I'm mid-task here. ScenarioMap can't create new Hexagons
+    // this.setState({
+    //   tiles: newTiles
+    // });
   }
 
   render() {
@@ -242,6 +261,7 @@ class Designer extends React.Component {
                            undoHistory={this.state.undoHistory}
                            onRedoClick={this.handleRedoClick}
                            redoHistory={this.state.redoHistory}
+                           onExpand={this.handleExpand}
                            />
             <Checklist tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={this.handleShiftClick}/>

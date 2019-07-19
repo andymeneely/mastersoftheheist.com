@@ -5,9 +5,10 @@ import tileData from './tileData';
 class ScenarioMap extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hexagons: GridGenerator.rectangle(10,10)
-    };
+    // let stride = Math.sqrt(this.props.tiles.length)
+    // this.state = {
+    //
+    // };
   }
 
   renderHexagon(hex, i) {
@@ -51,6 +52,9 @@ class ScenarioMap extends React.Component {
   }
 
   render() {
+    let stride = Math.sqrt(this.props.tiles.length);
+    let hexagons = GridGenerator.rectangle(stride, stride);
+    console.log(this.props.tiles);
     return (
       <div className="scenariomap"
            onWheel={this.props.onWheel}
@@ -60,7 +64,7 @@ class ScenarioMap extends React.Component {
                   spacing={1.03}
                   flat={false}
                   origin={{x: 0, y: 0}}>
-            { this.state.hexagons.map((hex, i) => this.renderHexagon(hex, i))}
+            { hexagons.map((hex, i) => this.renderHexagon(hex, i))}
             { this.createPatterns() }
           </Layout>
         </HexGrid>
