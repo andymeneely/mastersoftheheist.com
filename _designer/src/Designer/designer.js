@@ -29,7 +29,7 @@ class Designer extends React.Component {
 
   initialState(){
     return {
-      tiles: Array(100).fill('GP'),
+      tiles: Array(9).fill('GP'),
       undoHistory: [],
       redoHistory: [],
       activeType: 'EM',
@@ -224,16 +224,16 @@ class Designer extends React.Component {
     let newTiles = Array(newStride*newStride).fill('GP');
     let oldI = 0;
     for(let i = 0; i < newTiles.length; i++){
-      // not on right side edge nor bottom edge
-      if(i % stride !== stride  && Math.floor(i / stride) !== stride) {
+      let rightEdge = i % newStride === stride;
+      let bottomRow = i >= newStride * stride;
+      if(!rightEdge && !bottomRow) {
         newTiles[i] = oldTiles[oldI];
         oldI++;
       }
     }
-    //NOTE! This works, but I'm mid-task here. ScenarioMap can't create new Hexagons
-    // this.setState({
-    //   tiles: newTiles
-    // });
+    this.setState({
+      tiles: newTiles
+    });
   }
 
   render() {

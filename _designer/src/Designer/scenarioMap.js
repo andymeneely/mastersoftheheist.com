@@ -3,13 +3,6 @@ import { HexGrid, Layout, Hexagon, GridGenerator } from 'react-hexgrid';
 import tileData from './tileData';
 
 class ScenarioMap extends React.Component {
-  constructor(props) {
-    super(props);
-    // let stride = Math.sqrt(this.props.tiles.length)
-    // this.state = {
-    //
-    // };
-  }
 
   renderHexagon(hex, i) {
     const hex_code = this.props.tiles[i];
@@ -54,7 +47,6 @@ class ScenarioMap extends React.Component {
   render() {
     let stride = Math.sqrt(this.props.tiles.length);
     let hexagons = GridGenerator.rectangle(stride, stride);
-    console.log(this.props.tiles);
     return (
       <div className="scenariomap"
            onWheel={this.props.onWheel}
