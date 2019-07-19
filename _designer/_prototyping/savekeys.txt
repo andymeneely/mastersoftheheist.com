@@ -3,3 +3,8 @@ http://localhost:3000/?savekey=OIBQBKYKILIQIhckXLWAUgdTAZQMJJ6EHHRxQCsRqZpptj6wA
 
 
 http://mastersoftheheist.com/design/?savekey=OIBQBKYKILIQIhckXLWAUgdTAZQMJJ6EHHRxQCsRqZpptj6wAQkfnAEpR2GzTUmmHPT5whtACQAmGuAYBBOcqkBGYREKRR5ASvST1DZif1mJpi+ZBA
+
+A replacement for The Docks:
+
+Capture 3 jewels
+http://localhost:3000/?savekey=OIBQBKHpPXUNggJAJjMgjI+S-gGUBhCE4sc-FbAKQHUwj1KBBMAUQFkOBWHf4ABEKJYACERkqpHqTy5AErsO3dn2nguCeWVG59k2ZHJYBBqlo1mE7bFdBA
