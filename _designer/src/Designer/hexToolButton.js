@@ -5,12 +5,13 @@ class HexToolButton extends React.Component {
     var t = this.props.hexType
     var if_active = this.props.isActiveType ? 'active' : ''
     return (
-      <button onClick={() => this.props.onHexButtonClick(t)}
+      <button onMouseDown={() => this.props.onHexButtonClick(t)}
               onMouseOver={() => this.props.onHoverHex(t)}
               className={"hexbutton " + if_active}
               >
       <img src={this.props.svgurl}
            alt={`Hex button ${t}`}
+           draggable={false}
       />
     </button>
    )
