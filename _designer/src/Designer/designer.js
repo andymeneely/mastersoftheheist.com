@@ -7,6 +7,7 @@ import TextMap from './textMap';
 import Tilebox from './tilebox';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import tileData from './tileData';
+import './designer.scss';
 
 class Designer extends React.Component {
   constructor(props) {
@@ -19,10 +20,6 @@ class Designer extends React.Component {
     this.handleShowGridClick = this.handleShowGridClick.bind(this);
     this.handleShiftClick = this.handleShiftClick.bind(this);
     this.onWheel = this.onWheel.bind(this);
-    window.onpopstate = (e) => {
-      let savekey = new URL(document.location).searchParams.get('savekey');
-      this.setState(this.loadOrInit(savekey));
-    };
   }
 
   initialState(){

@@ -1,0 +1,181 @@
+@import-normalize;
+
+h1 {
+  font-family: 'Archivo Black', sans-serif;
+  text-align: center;
+}
+
+label {
+  cursor: pointer;
+}
+
+.designer{
+  font-size: 1.2em;
+  font-family: 'Archivo Narrow', sans-serif;
+  line-height: 1.2;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  user-select: none;
+
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+  }
+
+  .toprow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 78vh;
+    width: 100%;
+  }
+
+  .bottomrow {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .columnBox {
+    width: 12em;
+  }
+
+  .tilebox {
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    width: 32vh;
+    height: 103%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    label, input {
+      cursor: pointer;
+    }
+    button.hexbutton{
+      width: 4em;
+      cursor: pointer;
+      background: none;
+      border: 3px solid white;
+      margin-bottom: 2px;
+      &.active {
+        border: 3px solid red;
+      }
+      img{
+        width: 100%;
+      }
+    }
+  }
+
+  .scenariomap {
+    .hexgrid {
+      border: 1pt solid black;
+      cursor: pointer;
+      pointer-events: visible;
+    }
+    svg {
+      width: 98vh;
+      height: 80vh;
+    }
+    .grid_show .hexagon polygon {
+      stroke: #ccc;
+      stroke-width: 0;
+    }
+
+    .grid_hide .hexagon polygon {
+      stroke: #fff;
+    }
+
+    .grid_hide.hex-gap polygon {
+      fill: #fff;
+    }
+
+    .hexagon polygon:hover{
+      stroke: #c00;
+      stroke-width: 1px;
+    }
+  }
+
+  .manage-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-space-around;
+    align-content: stretch;
+    button {
+      cursor: pointer;
+      margin-left: 0.25em;
+      margin-right: 0.25em;
+      margin-bottom: 0.25em;
+    }
+    label {
+      cursor: pointer;
+      border: 1px solid #a5a5a5;
+      border-radius: 0.5em;
+      padding: 0.35em;
+      margin-left: 0.25em;
+      margin-right: 0.25em;
+      input {
+        margin-right: 0.25em;
+      }
+    }
+  }
+
+  .statusbox {
+    padding-left: 0.5em;
+    padding-right: 1em;
+    .good::before{
+      font-weight: bold;
+      color: green;
+      content: '✓';
+      padding-right: 0.12em;
+    }
+
+    .bad::before {
+      font-weight: bold;
+      color: red;
+      content: '✗';
+    }
+  }
+
+  .shift-tools{
+    margin-top: 0.5em;
+    margin-left: 0.25em;
+    padding-top: 0.5em;
+    text-align: left;
+    button {
+      margin-top: 0.15em;
+      margin-bottom: 0.15em;
+      padding: 0.5em;
+    }
+
+    button:nth-child(1) { /* up */
+       display: block;
+       margin-left: 2.2em;
+    }
+
+    button:nth-child(2) { /* left */
+      margin-right: 1.2em;
+    }
+
+    button:nth-child(3) { /* right */
+      margin-left: 1.2em;
+    }
+
+    button:nth-child(4) { /* down */
+       display: block;
+       margin-left: 2.2em;
+    }
+
+  }
+
+  .textmap{
+    font-size: 75%;
+  }
+}
