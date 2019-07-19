@@ -148,8 +148,6 @@ class Designer extends React.Component {
       <div className="designer">
         <div className="toprow">
           <Tilebox onTypeClick={this.handleTypeClick}
-                   onWheel={this.onWheel}
-                   showGrid={this.state.showGrid}
                    activeType={this.state.activeType} />
           <ScenarioMap tiles={this.state.tiles}
                        onWheel={this.onWheel}
@@ -158,7 +156,8 @@ class Designer extends React.Component {
           <div className="columnBox">
             <ManageButtons onClearClick={this.handleClearClick}
                            onSaveClick={this.handleSaveClick}
-                           onShowGridClick={this.handleShowGridClick} />
+                           onShowGridClick={this.handleShowGridClick}
+                           showGrid={this.state.showGrid} />
             <StatusBox tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={this.handleShiftClick}/>
           </div>

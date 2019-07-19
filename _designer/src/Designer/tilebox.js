@@ -15,7 +15,7 @@ class Tilebox extends React.Component {
         />)
     }
     return (
-      <div className="tilebox" onWheel={this.props.onWheel}>
+      <div className="tilebox">
           {hexbuttons}
       </div>
     );
