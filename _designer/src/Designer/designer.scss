@@ -28,10 +28,17 @@ label {
   }
 
   .toprow {
-    display: grid;
-    grid-template-columns: 1fr 97.75vh 1fr;
-    height: 85vh;
-    width: 100%;
+    @media (orientation: landscape) {
+      display: grid;
+      grid-template-columns: 1fr 97.75vh 1fr;
+      height: 85vh;
+      width: 100%;
+    }
+    @media (orientation: portrait) {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   .bottomrow {
@@ -41,8 +48,10 @@ label {
   }
 
   .tilebox {
-    max-width: 20em;
-    margin-left: auto;
+    @media (orientation: landscape) {
+      max-width: 20em;
+      margin-left: auto;
+    }
     overflow: auto;
     text-align: center;
     display: flex;
@@ -55,10 +64,11 @@ label {
     }
     button.hexbutton{
       width: 3.5em;
+      height: 3.5em;
       cursor: pointer;
       background: none;
       border: 3px solid white;
-      margin-bottom: 2px;
+
       &.active {
         border: 3px solid red;
       }
@@ -70,8 +80,14 @@ label {
 
   .scenariomap {
     cursor: pointer;
-    width: 97.75vh;
-    height: 100%;
+    @media (orientation: landscape) {
+      width: 97.75vh;
+      height: 100%;
+    }
+    @media (orientation: portrait) {
+      width: 100%;
+      height: 50vh;
+    }
     // border: 1pt solid black;
     pointer-events: visible;
     .grid_show .hexagon polygon {
@@ -98,12 +114,20 @@ label {
   }
 
   .columnBox {
-    max-width: 12em;
+    @media (orientation: landscape) {
+      max-width: 12em;
+    }
+    @media (orientation: portrait) {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
   }
 
   .manage-buttons {
+    width: 12em;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-space-around;
     align-content: stretch;
@@ -116,6 +140,7 @@ label {
     }
     label {
       cursor: pointer;
+      text-align: center;
       border: 1px solid #a5a5a5;
       border-radius: 0.5em;
       padding: 0.35em;
