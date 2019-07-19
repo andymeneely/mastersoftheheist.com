@@ -9,3 +9,8 @@ A replacement for The Docks:
 Capture 3 jewels
 v1.0: http://localhost:3000/?savekey=OIBQBKHpPXUNggJAJjMgjI+S-gGUBhCE4sc-FbAKQHUwj1KBBMAUQFkOBWHf4ABEKJYACERkqpHqTy5AErsO3dn2nguCeWVG59k2ZHJYBBqlo1mE7bFdBA
 v2.0: http://localhost:3000/?savekey=OIBQBKHpPXUNggJAJjMgjI+S-gGUBhCE4sc-FbAKQHUwj1KBBMAUQFkOBWHBLhAAiFEsABCoqVUj0plcACV2Hbuz4zwgyOV1jcBsHIVSs-Tf22GLkdthsggA
+
+The Backdoor Job
+Steal the jewel
+Add a required "Close the Gate" special event
+http://localhost:3000/?savekey=OIBQBKHpPXUNo+TIFEAsC0CYIEEwBlAYWXNLDQFkKyAZPAJQA0ApO4s1eSmrsPQDyAknko9OlJmmIsIeACR5JqMv2EDgAEXKSJAIQESUpvWf6qzktADYgA
