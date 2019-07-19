@@ -50,18 +50,16 @@ class ScenarioMap extends React.Component {
 
   render() {
     return (
-      <div className="scenariomap">
-        <div className="hexgrid" onWheel={this.props.onWheel}>
-          <HexGrid viewBox="-15 -30 350 325">
-            <Layout size={{ x: 19, y: 19 }}
-                    spacing={1.03}
-                    flat={false}
-                    origin={{x: 0, y: 0}}>
-              { this.state.hexagons.map((hex, i) => this.renderHexagon(hex, i))}
-              {this.createPatterns()}
-            </Layout>
-          </HexGrid>
-        </div>
+      <div className="scenariomap" onWheel={this.props.onWheel}>
+        <HexGrid viewBox="5 -20 315 325">
+          <Layout size={{ x: 19, y: 19 }}
+                  spacing={1.03}
+                  flat={false}
+                  origin={{x: 0, y: 0}}>
+            { this.state.hexagons.map((hex, i) => this.renderHexagon(hex, i))}
+            { this.createPatterns() }
+          </Layout>
+        </HexGrid>
       </div>
     );
   }
