@@ -184,33 +184,3 @@ for(let t in tileData) {
 }
 
 export default tileData;
-
-
-// {
-//   "GP": "gap",
-//   "EM": "empty",
-//   "SC": "security",
-//   "GU": "security-guard",
-//   "LO": "security-lock",
-//   "CM": "security-camera",
-//   "DO": "security-dog",
-//   "JW": "jewel",
-//   "$1": "1k",
-//   "$2": "2k",
-//   "$3": "3k",
-//   "RE": "reinforcements",
-//   "WT": "watchtower",
-//   "GA": "gate-a",
-//   "GB": "gate-b",
-//   "GC": "gate-c",
-//   "GD": "gate-d",
-//   "E1": "entrance-upper-right",
-//   "E2": "entrance-right",
-//   "E3": "entrance-lower-right",
-//   "E4": "entrance-lower-left",
-//   "E5": "entrance-left",
-//   "E6": "entrance-upper-left",
-//   "G2": "security-2guard",
-//   "L2": "security-2lock",
-//   "C2": "security-2camera"
-// }
