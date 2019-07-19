@@ -10,7 +10,7 @@ var tileData = {
   },
   "SC" : {
     'slug': 'security',
-    'name': 'Security (unknown)'
+    'name': 'Unknown Security'
   },
   "GU" : {
     'slug': 'security-guard',
@@ -26,23 +26,23 @@ var tileData = {
   },
   "DO" : {
     'slug': 'security-dog',
-    'name': ''
+    'name': 'Guard Dog'
   },
   "JW" : {
     'slug': 'jewel',
-    'name': ''
+    'name': 'Jewel'
   },
   "$1" : {
     'slug': '1k',
-    'name': ''
+    'name': '$1k'
   },
   "$2" : {
     'slug': '2k',
-    'name': ''
+    'name': '$2k'
   },
   "$3" : {
     'slug': '3k',
-    'name': ''
+    'name': '$3k'
   },
   "PP" : {
     'slug': 'paper',
@@ -50,71 +50,71 @@ var tileData = {
   },
   "RE" : {
     'slug': 'reinforcements',
-    'name': ''
+    'name': 'Reinforcements'
   },
   "WT" : {
     'slug': 'watchtower',
-    'name': ''
+    'name': 'Watchtower'
   },
   "GA" : {
     'slug': 'gate-a',
-    'name': ''
+    'name': 'Lockdown Gate A'
   },
   "GB" : {
     'slug': 'gate-b',
-    'name': ''
+    'name': 'Lockdown Gate B'
   },
   "GC" : {
     'slug': 'gate-c',
-    'name': ''
+    'name': 'Lockdown Gate C'
   },
   "GD" : {
     'slug': 'gate-d',
-    'name': ''
+    'name': 'Lockdown Gate D'
   },
   "E1" : {
     'slug': 'entrance-upper-right',
-    'name': ''
+    'name': 'Entrance/Exit (Upper Right)'
   },
   "E2" : {
     'slug': 'entrance-right',
-    'name': ''
+    'name': 'Entrance/Exit (Right)'
   },
   "E3" : {
     'slug': 'entrance-lower-right',
-    'name': ''
+    'name': 'Entrance/Exit (Lower Right)'
   },
   "E4" : {
     'slug': 'entrance-lower-left',
-    'name': ''
+    'name': 'Entrance/Exit (Lower Left)'
   },
   "E5" : {
     'slug': 'entrance-left',
-    'name': ''
+    'name': 'Entrance/Exit (Left)'
   },
   "E6" : {
     'slug': 'entrance-upper-left',
-    'name': ''
+    'name': 'Entrance/Exit (Upper Left)'
   },
   "*" : {
     'slug': 'asterisk',
-    'name': 'Story Spot'
+    'name': 'Story Beacon'
   },
   "BE" : {
     'slug': 'beacon',
-    'name': 'Story Beacon'
+    'name': 'Discovery Beacon'
   },
   "G2" : {
     'slug': 'security-2guard',
-    'name': ''
+    'name': 'Two Guards'
   },
   "L2" : {
     'slug': 'security-2lock',
-    'name': ''
+    'name': 'Two Locks'
   },
   "C2" : {
     'slug': 'security-2camera',
-    'name': ''
+    'name': 'Two Camera'
   },
   "SX" : {
     'slug': 'server-x',

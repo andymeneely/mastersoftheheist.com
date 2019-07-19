@@ -2,8 +2,9 @@ import React from 'react';
 import ManageButtons from './manageButtons';
 import ScenarioMap from './scenarioMap';
 import ShiftTools from './shiftTools';
-import StatusBox from './statusBox';
+import Checklist from './checklist';
 import TextMap from './textMap';
+import StatusBar from './statusBar';
 import Tilebox from './tilebox';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import tileData from './tileData';
@@ -30,7 +31,8 @@ class Designer extends React.Component {
       undoHistory: [],
       redoHistory: [],
       activeType: 'EM',
-      showGrid: true
+      showGrid: true,
+      lastAction: ''
     };
   }
 
@@ -48,7 +50,8 @@ class Designer extends React.Component {
       undoHistory: [],
       redoHistory: [],
       activeType: 'EM',
-      showGrid: true
+      showGrid: true,
+      lastAction: ''
     };
   }
 
@@ -66,7 +69,8 @@ class Designer extends React.Component {
     this.setState({
       tiles: tiles,
       undoHistory: hist,
-      redoHistory: []
+      redoHistory: [],
+      lastAction: `Place ${tileData[tiles[i]]['name']}`
     });
   }
 
@@ -76,19 +80,22 @@ class Designer extends React.Component {
     this.setState({
       tiles: Array(100).fill('GP'),
       undoHistory: hist,
-      redoHistory: []
+      redoHistory: [],
+      lastAction: `Clear`
     });
   }
 
   handleTypeClick(hexType){
     this.setState({
-      activeType: hexType
+      activeType: hexType,
+      lastAction: `Use ${tileData[hexType]['name']}`
     });
   }
 
   handleShowGridClick(){
     this.setState({
-      showGrid: !this.state.showGrid
+      showGrid: !this.state.showGrid,
+      lastAction: `Toggle grid`
     });
   }
 
@@ -99,7 +106,8 @@ class Designer extends React.Component {
     redoHist.push(this.state.tiles.slice());
     this.setState({
       tiles: oldTiles,
-      undoHistory: undoHist
+      undoHistory: undoHist,
+      lastAction: `Undo`
     });
   }
 
@@ -111,7 +119,8 @@ class Designer extends React.Component {
     this.setState({
       tiles: oldTiles,
       redoHistory: redoHist,
-      undoHistory: undoHist
+      undoHistory: undoHist,
+      lastAction: `Redo`
     });
   }
 
@@ -128,6 +137,9 @@ class Designer extends React.Component {
     a.setAttribute("href", url);
     a.style["display"] = "none";
     a.click();
+    this.setState({
+      lastAction: `Saved SVG file`
+    });
   }
 
   onWheel(e){ // cycle through tools
@@ -140,13 +152,16 @@ class Designer extends React.Component {
     }
     i = (i + codes.length ) % codes.length; // Wrap around
     this.setState({
-      activeType: codes[i]
+      activeType: codes[i],
+      lastAction: `Use ${tileData[codes[i]]['name']}`
     });
   }
 
   // handle shifting the entire board up or down
   // We're assuming we have a square board with stride x stride rows/cols
   handleShiftClick(dir){
+    const hist = this.state.undoHistory;
+    hist.push(this.state.tiles.slice());
     let stride = Math.sqrt(this.state.tiles.length);
     let len = this.state.tiles.length;
     let tiles = this.state.tiles;
@@ -178,7 +193,9 @@ class Designer extends React.Component {
         console.log(`ERROR! Shift click not recognized: ${dir}`)
     }
     this.setState({
-      tiles: sTiles
+      tiles: sTiles,
+      undoHistory: hist,
+      lastAction: `shift ${dir}`
     });
   }
 
@@ -188,10 +205,13 @@ class Designer extends React.Component {
         <div className="toprow">
           <Tilebox onTypeClick={this.handleTypeClick}
                    activeType={this.state.activeType} />
-          <ScenarioMap tiles={this.state.tiles}
-                       onWheel={this.onWheel}
-                       showGrid={this.state.showGrid}
-                       onHexClick={this.handleHexClick}/>
+          <div className="centerArea">
+            <ScenarioMap tiles={this.state.tiles}
+                         onWheel={this.onWheel}
+                         showGrid={this.state.showGrid}
+                         onHexClick={this.handleHexClick}/>
+            <StatusBar lastAction={this.state.lastAction}/>
+          </div>
           <div className="columnBox">
             <ManageButtons onClearClick={this.handleClearClick}
                            onSaveClick={this.handleSaveClick}
@@ -202,7 +222,7 @@ class Designer extends React.Component {
                            onRedoClick={this.handleRedoClick}
                            redoHistory={this.state.redoHistory}
                            />
-            <StatusBox tiles={this.state.tiles}/>
+            <Checklist tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={this.handleShiftClick}/>
           </div>
         </div>

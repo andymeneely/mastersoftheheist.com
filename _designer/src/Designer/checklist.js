@@ -1,7 +1,7 @@
 import React from 'react';
 import tileData from './tileData';
 
-class StatusBox extends React.Component {
+class Checklist extends React.Component {
 
   good(x){
     return x ? "good" : "bad";
@@ -172,4 +172,4 @@ class StatusBox extends React.Component {
   }
 }
 
-export default StatusBox;
+export default Checklist;

@@ -113,6 +113,12 @@ label {
     }
   }
 
+  .status-bar {
+    font-size: 75%;
+    text-align: right;
+    width: 100%;
+  }
+
   .columnBox {
     @media (orientation: landscape) {
       max-width: 12em;
