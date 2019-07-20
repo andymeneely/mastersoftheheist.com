@@ -94,7 +94,8 @@ class Checklist extends React.Component {
   }
 
   guards(tallies){
-    let numTiles = tallies['GU'];
+    let numTiles = tallies['GU']
+                 + 2 * tallies['G2'];
     return (
       <div className={this.good(numTiles <= 32)}>
         {numTiles} guards
@@ -103,16 +104,18 @@ class Checklist extends React.Component {
   }
 
   cameras(tallies){
-    let numTiles = tallies['CM'];
+    let numTiles = tallies['CM']
+                 + 2* tallies['C2'];
     return (
       <div className={this.good(numTiles <= 15)}>
-        {numTiles} guards
+        {numTiles} cameras
       </div>
     );
   }
 
   locks(tallies){
-    let numTiles = tallies['LO'];
+    let numTiles = tallies['LO']
+                 + 2 * tallies['L2'];
     return (
       <div className={this.good(numTiles <= 10)}>
         {numTiles} locks

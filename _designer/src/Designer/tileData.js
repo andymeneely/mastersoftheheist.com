@@ -114,7 +114,7 @@ var tileData = {
   },
   "C2" : {
     'slug': 'security-2camera',
-    'name': 'Two Camera'
+    'name': 'Two Cameras'
   },
   "SX" : {
     'slug': 'server-x',
