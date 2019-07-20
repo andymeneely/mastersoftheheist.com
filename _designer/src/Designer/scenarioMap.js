@@ -6,11 +6,12 @@ class ScenarioMap extends React.Component {
 
   renderHexagon(hex, i) {
     const hex_code = this.props.tiles[i];
+    const numTiles = this.props.tiles.length;
     const hex_slug = tileData[hex_code]['slug'];
     var stroke_state = this.props.showGrid ? ' grid_show' : ' grid_hide';
     return (
       <Hexagon
-        key={`hex-${i}`}
+        key={`hex-${i}-${numTiles}`}
         className={'hex-' + hex_slug + stroke_state}
         fill={hex_code}
         q={hex.q}
@@ -45,14 +46,16 @@ class ScenarioMap extends React.Component {
   }
 
   render() {
-    let stride = Math.sqrt(this.props.tiles.length);
-    let hexagons = GridGenerator.rectangle(stride, stride);
+    const stride = Math.sqrt(this.props.tiles.length);
+    const hexagons = GridGenerator.rectangle(stride, stride);
+    const hexSize = (360.0 / (2 * stride));  // don't ask me why
     return (
       <div className="scenariomap"
            onWheel={this.props.onWheel}
            onMouseLeave={() => this.props.onHoverHex('')} >
         <HexGrid viewBox="-20 -20 360 305">
-          <Layout size={{ x: 19, y: 19 }}
+          <Layout size={{ x: hexSize,
+                          y: hexSize }}
                   spacing={1.03}
                   flat={false}
                   origin={{x: 0, y: 0}}>

@@ -29,7 +29,7 @@ class Designer extends React.Component {
 
   initialState(){
     return {
-      tiles: Array(9).fill('GP'),
+      tiles: Array(100).fill('GP'),
       undoHistory: [],
       redoHistory: [],
       activeType: 'EM',
@@ -218,6 +218,8 @@ class Designer extends React.Component {
   }
 
   handleExpand(){
+    const hist = this.state.undoHistory;
+    hist.push(this.state.tiles.slice());
     let stride = Math.sqrt(this.state.tiles.length);
     let oldTiles = this.state.tiles.slice();
     let newStride = stride + 1;
@@ -232,7 +234,8 @@ class Designer extends React.Component {
       }
     }
     this.setState({
-      tiles: newTiles
+      tiles: newTiles,
+      undoHistory: hist
     });
   }
 
