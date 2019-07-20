@@ -21,7 +21,10 @@ class ManageButtons extends React.Component {
           ⟳ Redo
         </button>
         <button onClick={() => this.props.onExpand()}>
-          Expand
+           ⇲ Expand
+        </button>
+        <button onClick={() => this.props.onShrink()}>
+          ⇱ Shrink
         </button>
       </div>
     );

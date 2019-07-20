@@ -48,12 +48,13 @@ class ScenarioMap extends React.Component {
   render() {
     const stride = Math.sqrt(this.props.tiles.length);
     const hexagons = GridGenerator.rectangle(stride, stride);
-    const hexSize = (360.0 / (2 * stride));  // don't ask me why
+    const hexSize = 360.0 / (2 * stride);  // don't ask me why
+    const viewBox = `${-hexSize} ${-hexSize} 360 305`
     return (
       <div className="scenariomap"
            onWheel={this.props.onWheel}
            onMouseLeave={() => this.props.onHoverHex('')} >
-        <HexGrid viewBox="-20 -20 360 305">
+        <HexGrid viewBox={viewBox}>
           <Layout size={{ x: hexSize,
                           y: hexSize }}
                   spacing={1.03}

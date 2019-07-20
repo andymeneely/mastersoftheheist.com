@@ -24,6 +24,7 @@ class Designer extends React.Component {
     this.handleRedoClick = this.handleRedoClick.bind(this);
     this.handleHoverHex = this.handleHoverHex.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
+    this.handleShrink = this.handleShrink.bind(this);
     this.onWheel = this.onWheel.bind(this);
   }
 
@@ -220,17 +221,39 @@ class Designer extends React.Component {
   handleExpand(){
     const hist = this.state.undoHistory;
     hist.push(this.state.tiles.slice());
-    let stride = Math.sqrt(this.state.tiles.length);
+    let oldStride = Math.sqrt(this.state.tiles.length);
     let oldTiles = this.state.tiles.slice();
-    let newStride = stride + 1;
+    let newStride = oldStride + 1;
     let newTiles = Array(newStride*newStride).fill('GP');
     let oldI = 0;
     for(let i = 0; i < newTiles.length; i++){
-      let rightEdge = i % newStride === stride;
-      let bottomRow = i >= newStride * stride;
+      let rightEdge = i % newStride === oldStride;
+      let bottomRow = i >= newStride * oldStride;
       if(!rightEdge && !bottomRow) {
         newTiles[i] = oldTiles[oldI];
         oldI++;
+      }
+    }
+    this.setState({
+      tiles: newTiles,
+      undoHistory: hist
+    });
+  }
+
+  handleShrink(){
+    const hist = this.state.undoHistory;
+    hist.push(this.state.tiles.slice());
+    let oldTiles = this.state.tiles.slice();
+    let oldStride = Math.sqrt(oldTiles.length);
+    let newStride = oldStride - 1;
+    let newTiles = Array(newStride*newStride).fill('GP');
+    let newI = 0;
+    for(let i = 0; i < oldTiles.length; i++){
+      let rightEdge = i % oldStride === newStride;
+      let bottomRow = i >= newStride * oldStride;
+      if(!rightEdge && !bottomRow) {
+        newTiles[newI] = oldTiles[i];
+        newI++;
       }
     }
     this.setState({
@@ -265,6 +288,7 @@ class Designer extends React.Component {
                            onRedoClick={this.handleRedoClick}
                            redoHistory={this.state.redoHistory}
                            onExpand={this.handleExpand}
+                           onShrink={this.handleShrink}
                            />
             <Checklist tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={this.handleShiftClick}/>
