@@ -6,12 +6,6 @@ class ManageButtons extends React.Component {
       <div className="manage-buttons">
         <button onClick={() => this.props.onClearClick()}>Clear</button>
         <button onClick={() => this.props.onSaveClick()}>Save SVG</button>
-        <label>
-          <input type="checkbox"
-                 checked={this.props.showGrid}
-                 onChange={this.props.onShowGridClick} />
-          Grid
-        </label>
         <button onClick={() => this.props.onUndoClick()}
                 disabled={this.props.undoHistory.length === 0}>
           ⟲ Undo
@@ -26,6 +20,12 @@ class ManageButtons extends React.Component {
         <button onClick={() => this.props.onShrink()}>
           ⇱ Shrink
         </button>
+        <label>
+          <input type="checkbox"
+                 checked={this.props.showGrid}
+                 onChange={this.props.onShowGridClick} />
+          Show Grid
+        </label>
       </div>
     );
   }
