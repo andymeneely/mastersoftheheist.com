@@ -225,15 +225,17 @@ label {
     overflow: auto;
     button.expand{
       float: left;
-      margin: 0em;
+      margin: 0.25em;
       padding: 0em;
       font-weight: bold;
       font-size: 120%;
       border: none;
       background: none;
+      width: 1em;
     }
     h1 {
       font-size: inherit;
+      text-align:left;
     }
     ul{
       list-style-type: none;
