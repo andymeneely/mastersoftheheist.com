@@ -196,6 +196,7 @@ label {
   }
 
   .shift-tools{
+    width: 10em;
     margin-left: 0.25em;
     padding-top: 0.5em;
     text-align: left;
@@ -221,28 +222,36 @@ label {
   }
 
   .gallery {
+    width: 12em;
     font-size: 90%;
     overflow: auto;
+    user-select: text;
     button.expand{
       float: left;
       margin: 0.25em;
+      margin-left: 0em;
       padding: 0em;
       font-weight: bold;
       font-size: 120%;
       border: none;
       background: none;
       width: 1em;
+      user-select: none;
     }
     h1 {
+      cursor: pointer;
+      user-select: none;
       font-size: inherit;
       text-align:left;
+      width: 100%;
     }
     ul{
       list-style-type: none;
       margin: 0;
       padding: 0;
       &.hide {
-        display: none
+        display: none;
+
       }
     }
     li {

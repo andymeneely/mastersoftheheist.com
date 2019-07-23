@@ -10,7 +10,7 @@ class Gallery extends React.Component {
   }
 
   showCSS(){
-    return this.state.showGallery ? '' : 'hide'
+    return this.state.showGallery ? 'show' : 'hide'
   }
 
   onExpandClick(){
@@ -45,7 +45,7 @@ class Gallery extends React.Component {
         <button className="expand" onClick={() => this.onExpandClick()}>
         {this.expandState()}
         </button>
-        <h1>Gallery</h1>
+        <h1 onClick={() => this.onExpandClick()}>Gallery</h1>
         <ul className={`${this.showCSS()}`}>
           {data.map((d) =>
             <li key={`gallery-${d['name']}`}>
