@@ -142,6 +142,9 @@ label {
       display: flex;
       justify-content: space-around;
     }
+    height: inherit;
+    overflow: auto;
+    font-size: 90%;
   }
 
   .manage-buttons {
@@ -151,11 +154,12 @@ label {
     flex-wrap: wrap;
     justify-content: space-space-around;
     align-content: stretch;
+    font-size: 90%;
     button {
       cursor: pointer;
       margin-left: 0.25em;
       margin-right: 0.25em;
-      margin-bottom: 0.25em;
+      margin-bottom: 0.15em;
       padding: 0.15em;
     }
     label {
@@ -163,10 +167,10 @@ label {
       text-align: center;
       border: 1px solid #a5a5a5;
       border-radius: 0.5em;
-      padding: 0.35em;
+      padding: 0.15em;
       margin-left: 0.25em;
       margin-right: 0.25em;
-      margin-bottom: 0.25em;
+      margin-bottom: 0.15em;
       input {
         cursor: pointer;
         margin-right: 0.25em;
@@ -192,19 +196,18 @@ label {
   }
 
   .shift-tools{
-    margin-top: 0.5em;
     margin-left: 0.25em;
     padding-top: 0.5em;
     text-align: left;
     button {
       margin-top: 0.15em;
       margin-bottom: 0.15em;
-      padding: 0.5em;
+      padding: 0.20em;
     }
 
-    button:nth-child(1) { /* up */
+    button:nth-child(1), button:nth-child(4) { /* up & down*/
        display: block;
-       margin-left: 2.2em;
+       margin-left: 2.8em;
     }
 
     button:nth-child(2) { /* left */
@@ -215,15 +218,41 @@ label {
       margin-left: 1.2em;
     }
 
-    button:nth-child(4) { /* down */
-       display: block;
-       margin-left: 2.2em;
-    }
+  }
 
+  .gallery {
+    font-size: 90%;
+    overflow: auto;
+    button.expand{
+      float: left;
+      margin: 0em;
+      padding: 0em;
+      font-weight: bold;
+      font-size: 120%;
+      border: none;
+      background: none;
+    }
+    h1 {
+      font-size: inherit;
+    }
+    ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      &.hide {
+        display: none
+      }
+    }
+    li {
+      margin-bottom: 1em;
+      button {
+        margin-right: 0.25em;
+      }
+    }
   }
 
   .textmap{
     font-size: 75%;
-
+    overflow: hidden;
   }
 }

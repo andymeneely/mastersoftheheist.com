@@ -6,6 +6,7 @@ import Checklist from './checklist';
 import TextMap from './textMap';
 import StatusBar from './statusBar';
 import Tilebox from './tilebox';
+import Gallery from './gallery';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import tileData from './tileData';
 import './designer.scss';
@@ -26,6 +27,7 @@ class Designer extends React.Component {
     this.handleExpand = this.handleExpand.bind(this);
     this.handleShrink = this.handleShrink.bind(this);
     this.onWheel = this.onWheel.bind(this);
+    this.handleGalleryClick = this.handleGalleryClick.bind(this);
   }
 
   initialState(){
@@ -66,10 +68,9 @@ class Designer extends React.Component {
 
   handleHexClick(i){
     const tiles = this.state.tiles.slice();
-    const hist = this.state.undoHistory;
-    if(tiles[i] !== this.state.activeType) {
-      hist.push(tiles.slice());
-    }
+    if(tiles[i] === this.state.activeType) { return; } // tile already there!
+    let hist = this.state.undoHistory;
+    hist.push(tiles.slice());
     tiles[i] = this.state.activeType;
     const hex_name = tileData[tiles[i]]['name']
     this.setState({
@@ -262,6 +263,14 @@ class Designer extends React.Component {
     });
   }
 
+  handleGalleryClick(savekey){
+    let newState = this.loadOrInit(savekey);
+    const hist = this.state.undoHistory;
+    hist.push(this.state.tiles.slice());
+    newState['undoHistory'] = hist;
+    this.setState(newState);
+  }
+
   render() {
     return (
       <div className="designer">
@@ -292,6 +301,7 @@ class Designer extends React.Component {
                            />
             <Checklist tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={this.handleShiftClick}/>
+            <Gallery onGalleryClick={this.handleGalleryClick}/>
           </div>
         </div>
         <div className="bottomrow">

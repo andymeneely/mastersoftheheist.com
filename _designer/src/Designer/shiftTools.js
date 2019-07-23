@@ -6,6 +6,7 @@ class ShiftTools extends React.Component {
       <div className="shift-tools">
         <button onClick={() => this.props.onShiftClick('up')}>⯅</button>
         <button onClick={() => this.props.onShiftClick('left')}>⯇</button>
+        shift
         <button onClick={() => this.props.onShiftClick('right')}>⯈</button>
         <button onClick={() => this.props.onShiftClick('down')}>⯆</button>
       </div>
