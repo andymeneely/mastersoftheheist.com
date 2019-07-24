@@ -116,6 +116,30 @@ var tileData = {
     'slug': 'security-2camera',
     'name': 'Two Cameras'
   },
+  "2GL" : {
+    'slug': 'security-guardlock',
+    'name': 'Guard and Lock'
+  },
+  "2GC" : {
+    'slug': 'security-guardcamera',
+    'name': 'Guard and Camera'
+  },
+  "2GD" : {
+    'slug': 'security-guarddog',
+    'name': 'Guard and Dog'
+  },
+  "2CL" : {
+    'slug': 'security-cameralock',
+    'name': 'Camera and Lock'
+  },
+  "2CD" : {
+    'slug': 'security-cameradog',
+    'name': 'Camera and Dog'
+  },
+  "2LD" : {
+    'slug': 'security-lockdog',
+    'name': 'Lock and Dog'
+  },
   "SX" : {
     'slug': 'server-x',
     'name': 'Server X'
