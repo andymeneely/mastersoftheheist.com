@@ -15,19 +15,6 @@ class Designer extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.loadOrInit(props.savekey);
-    this.handleHexClick = this.handleHexClick.bind(this);
-    this.handleClearClick = this.handleClearClick.bind(this);
-    this.handleSaveClick = this.handleSaveClick.bind(this);
-    this.handleTypeClick = this.handleTypeClick.bind(this);
-    this.handleShowGridClick = this.handleShowGridClick.bind(this);
-    this.handleShiftClick = this.handleShiftClick.bind(this);
-    this.handleUndoClick = this.handleUndoClick.bind(this);
-    this.handleRedoClick = this.handleRedoClick.bind(this);
-    this.handleHoverHex = this.handleHoverHex.bind(this);
-    this.handleExpand = this.handleExpand.bind(this);
-    this.handleShrink = this.handleShrink.bind(this);
-    this.onWheel = this.onWheel.bind(this);
-    this.handleGalleryClick = this.handleGalleryClick.bind(this);
   }
 
   initialState(){
@@ -66,7 +53,7 @@ class Designer extends React.Component {
     return this.state.tiles.join(' ');
   }
 
-  handleHexClick(i){
+  onHexClick(i){
     const tiles = this.state.tiles.slice();
     if(tiles[i] === this.state.activeType) { return; } // tile already there!
     let hist = this.state.undoHistory;
@@ -82,7 +69,7 @@ class Designer extends React.Component {
     });
   }
 
-  handleClearClick(i){
+  onClearClick(i){
     const hist = this.state.undoHistory;
     hist.push(this.state.tiles.slice());
     this.setState({
@@ -93,21 +80,21 @@ class Designer extends React.Component {
     });
   }
 
-  handleTypeClick(hexType){
+  onTypeClick(hexType){
     this.setState({
       activeType: hexType,
       lastAction: `Use ${tileData[hexType]['name']}`
     });
   }
 
-  handleShowGridClick(){
+  onShowGridClick(){
     this.setState({
       showGrid: !this.state.showGrid,
       lastAction: `Toggle grid`
     });
   }
 
-  handleUndoClick(){
+  onUndoClick(){
     const undoHist = this.state.undoHistory;
     const redoHist = this.state.redoHistory;
     const oldTiles = undoHist.pop().slice();
@@ -119,7 +106,7 @@ class Designer extends React.Component {
     });
   }
 
-  handleRedoClick(){
+  onRedoClick(){
     const redoHist = this.state.redoHistory;
     const undoHist = this.state.undoHistory;
     const oldTiles = redoHist.pop().slice();
@@ -132,7 +119,7 @@ class Designer extends React.Component {
     });
   }
 
-  handleSaveClick(){
+  onSaveClick(){
     var svg = document.querySelector(".scenariomap>svg");
     var serializer = new XMLSerializer();
     var svg_blob = new Blob([serializer.serializeToString(svg)],
@@ -165,9 +152,9 @@ class Designer extends React.Component {
     });
   }
 
-  // handle shifting the entire board up or down
+  // on shifting the entire board up or down
   // We're assuming we have a square board with stride x stride rows/cols
-  handleShiftClick(dir){
+  onShiftClick(dir){
     const hist = this.state.undoHistory;
     hist.push(this.state.tiles.slice());
     let stride = Math.sqrt(this.state.tiles.length);
@@ -207,7 +194,7 @@ class Designer extends React.Component {
     });
   }
 
-  handleHoverHex(t) {
+  onHoverHex(t) {
     if(t in tileData) {
       this.setState({
         hoverHex: tileData[t]['name']
@@ -219,7 +206,7 @@ class Designer extends React.Component {
     }
   }
 
-  handleExpand(){
+  onExpand(){
     const hist = this.state.undoHistory;
     hist.push(this.state.tiles.slice());
     let oldStride = Math.sqrt(this.state.tiles.length);
@@ -241,7 +228,7 @@ class Designer extends React.Component {
     });
   }
 
-  handleShrink(){
+  onShrink(){
     const hist = this.state.undoHistory;
     hist.push(this.state.tiles.slice());
     let oldTiles = this.state.tiles.slice();
@@ -263,7 +250,7 @@ class Designer extends React.Component {
     });
   }
 
-  handleGalleryClick(savekey){
+  onGalleryClick(savekey){
     let newState = this.loadOrInit(savekey);
     const hist = this.state.undoHistory;
     hist.push(this.state.tiles.slice());
@@ -275,33 +262,33 @@ class Designer extends React.Component {
     return (
       <div className="designer">
         <div className="toprow">
-          <Tilebox onTypeClick={this.handleTypeClick}
+          <Tilebox onTypeClick={(e) => this.onTypeClick(e)}
                    activeType={this.state.activeType}
-                   onHoverHex={this.handleHoverHex}/>
+                   onHoverHex={(e) => this.onHoverHex(e)}/>
           <div className="centerArea">
             <ScenarioMap tiles={this.state.tiles}
-                         onWheel={this.onWheel}
+                         onWheel={(e) => this.onWheel(e)}
                          showGrid={this.state.showGrid}
-                         onHexClick={this.handleHexClick}
-                         onHoverHex={this.handleHoverHex} />
+                         onHexClick={(e) => this.onHexClick(e)}
+                         onHoverHex={(e) => this.onHoverHex(e)} />
             <StatusBar lastAction={this.state.lastAction}
                        hoverHex={this.state.hoverHex} />
           </div>
           <div className="columnBox">
-            <ManageButtons onClearClick={this.handleClearClick}
-                           onSaveClick={this.handleSaveClick}
-                           onShowGridClick={this.handleShowGridClick}
+            <ManageButtons onClearClick={(e) => this.onClearClick(e)}
+                           onSaveClick={(e) => this.onSaveClick(e)}
+                           onShowGridClick={(e) => this.onShowGridClick(e)}
                            showGrid={this.state.showGrid}
-                           onUndoClick={this.handleUndoClick}
+                           onUndoClick={(e) => this.onUndoClick(e)}
                            undoHistory={this.state.undoHistory}
-                           onRedoClick={this.handleRedoClick}
+                           onRedoClick={(e) => this.onRedoClick(e)}
                            redoHistory={this.state.redoHistory}
-                           onExpand={this.handleExpand}
-                           onShrink={this.handleShrink}
+                           onExpand={(e) => this.onExpand(e)}
+                           onShrink={(e) => this.onShrink(e)}
                            />
             <Checklist tiles={this.state.tiles}/>
-            <ShiftTools onShiftClick={this.handleShiftClick}/>
-            <Gallery onGalleryClick={this.handleGalleryClick}/>
+            <ShiftTools onShiftClick={(e) => this.onShiftClick(e)}/>
+            <Gallery onGalleryClick={(e) => this.onGalleryClick(e)}/>
           </div>
         </div>
         <div className="bottomrow">
