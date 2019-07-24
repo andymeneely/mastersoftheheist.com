@@ -38,6 +38,10 @@ class Gallery extends React.Component {
           name : 'The Crown Jewels',
           savekey : 'OIBQBKHpPXUNggJAJjMgjI+S-gGUBhCE4sc-FbAKQHUwj1KBBMAUQFkOBWHBLhAAiFEsABCoqVUj0plcACV2Hbuz4zwgyOV1jcBsHIVSs-Tf22GLkdthsggA',
           desc : 'Steal all 3 jewels.'
+        }, {
+          name : 'Tough Prison Break',
+          savekey : 'OIBQBKHpPXUNggogZkfJyAsG9OAFV9NiDN4BlAYTBolvqcdvLGQCYJj7JeBBfACFu7AKx5eVVhToySCKYvkwAInIWQA6gBUIXADJdmYDsFpHNsyAFktCOw-tsX1t1Y+vP7r7CA',
+          desc : 'Everyone must exit out a different door.'
         }
     ]
     return (
