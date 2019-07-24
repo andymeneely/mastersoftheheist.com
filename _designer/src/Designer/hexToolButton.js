@@ -7,12 +7,10 @@ class HexToolButton extends React.Component {
     return (
       <button onMouseDown={() => this.props.onHexButtonClick(t)}
               onMouseOver={() => this.props.onHoverHex(t)}
-              className={"hexbutton " + if_active}
-              >
-      <img src={this.props.svgurl}
-           alt={`Hex button ${t}`}
-           draggable={false}
-      />
+              className={"hexbutton " + if_active}>
+        <svg viewBox='0 0 150 150'
+             dangerouslySetInnerHTML={{__html: this.props.svgstr}}>
+        </svg>
     </button>
    )
   }

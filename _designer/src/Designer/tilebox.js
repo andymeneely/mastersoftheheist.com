@@ -6,10 +6,11 @@ class Tilebox extends React.Component {
   render() {
     var hexbuttons = [];
     for(var t in tileData) {
+
       hexbuttons.push(
         <HexToolButton
            hexType={t}
-           svgurl={require('./img/hexart/' + tileData[t]['slug'] + '.svg')}
+           svgstr={tileData[t]['svgstr'].default}
            onHexButtonClick={this.props.onTypeClick}
            onHoverHex={this.props.onHoverHex}
            isActiveType={this.props.activeType === t}

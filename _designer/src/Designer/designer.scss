@@ -72,6 +72,11 @@ label {
       border: 3px solid white;
       margin: 0;
 
+      svg path[style*="fill:none"] {
+        stroke: #ccc !important;
+        stroke-width: 3px !important;
+      }
+
       &.active {
         border: 3px solid red;
       }

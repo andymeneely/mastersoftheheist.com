@@ -14,7 +14,7 @@
    viewBox="0 0 150 150"
    version="1.1"
    id="svg5256"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="entrance-upper-right.svg">
   <defs
      id="defs5250">
@@ -41,17 +41,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="42.932948"
+     inkscape:cx="-1.2612255"
      inkscape:cy="90.301178"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:pagecheckerboard="true"
      units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1137"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:window-width="3840"
+     inkscape:window-height="2066"
+     inkscape:window-x="2869"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:snap-global="false">
     <sodipodi:guide
@@ -118,7 +118,7 @@
     <path
        id="path829"
        d="M 74.810658,4.6529238 135.56645,39.965569 135.8102,110.30724 75.119595,145.34698 14.323797,109.96505 14.18933,39.652664 Z"
-       style="fill:none;stroke:#868686;stroke-width:1.03999233px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#ffffff;stroke-width:1.03999233px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:connector-curvature="0" />
   </g>
 </svg>

@@ -14,7 +14,7 @@
    viewBox="0 0 150 150"
    version="1.1"
    id="svg5256"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="entrance-left.svg">
   <defs
      id="defs5250">
@@ -34,17 +34,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="-33.38973"
+     inkscape:cx="-95.88973"
      inkscape:cy="55.398744"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:pagecheckerboard="true"
      units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1137"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:window-width="3840"
+     inkscape:window-height="2066"
+     inkscape:window-x="2869"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:snap-global="false">
     <sodipodi:guide
@@ -116,7 +116,7 @@
     <path
        id="path823-6"
        d="M 14.154839,110.32742 14.35859,40.055028 75.154387,4.6730984 135.845,39.712839 135.60125,110.05451 74.776177,145.32716 Z"
-       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#868686;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-opacity:1"
        inkscape:connector-curvature="0" />
   </g>
 </svg>
