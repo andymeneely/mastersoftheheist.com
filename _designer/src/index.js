@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Designer from './Designer/designer';
+import DesignerApp from './Designer/app';
 
 ReactDOM.render(
-  <Designer
-    savekey={new URL(document.location).searchParams.get('savekey')}
-  />,
+  <DesignerApp/>,
   document.getElementById('root')
 );

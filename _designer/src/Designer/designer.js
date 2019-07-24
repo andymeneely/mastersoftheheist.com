@@ -8,6 +8,8 @@ import StatusBar from './statusBar';
 import Tilebox from './tilebox';
 import Gallery from './gallery';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
+import {saveSvgAsPng} from 'save-svg-as-png';
+import {svgAsPngUri} from 'save-svg-as-png';
 import tileData from './tileData';
 import './designer.scss';
 
@@ -131,7 +133,15 @@ class Designer extends React.Component {
     a.setAttribute("download", "scenario.svg");
     a.setAttribute("href", url);
     a.style["display"] = "none";
-    a.click();
+    // a.click();
+    // saveSvgAsPng(svg);
+    const options = {
+      width: 500,
+      height: 500
+    };
+    svgAsPngUri(svg, options).then(uri => {
+      console.log(uri);
+    });
     this.setState({
       lastAction: `Saved SVG file`
     });
