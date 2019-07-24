@@ -32,7 +32,7 @@ class Gallery extends React.Component {
           desc : 'Steal the Jewel. Needs a Special Event "Close the Gates!" at around the 12-15 mark.'
         }, {
           name : 'The Docks',
-          savekey : 'OIBQBKYKILIQIhckXLWAUgdTAZQMJJ6EHHRxQCsRqZpptj6wAQkfnAEpR2GzTUmmHPT5whtACQAmGuAYBBOcqkBGYREKRR5ASvST1DZif1mJpi+ZBA',
+          savekey : 'OIBQBKYKILIQIhckXPAKQOpgMoGElcD8jo4oBWQyE2g1atCAIULzgCUpSTZoqGWHgT4MGAEgBMjUsACCMseHEBGMEOD1wdMv0XK1JJfpPHQQA',
           desc : 'Steal 2 out of 3 jewels.'
         }, {
           name : 'The Crown Jewels',
@@ -54,9 +54,8 @@ class Gallery extends React.Component {
           {data.map((d) =>
             <li key={`gallery-${d['name']}`}>
                 <button onClick={() => this.props.onGalleryClick(d['savekey'])}>
-                {d['name']}
+                  <b>{d['name']}</b>. {d['desc']}
                 </button>
-                {d['desc']}
             </li>
           )}
             </ul>
