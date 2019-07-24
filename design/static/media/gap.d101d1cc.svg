@@ -14,7 +14,7 @@
    viewBox="0 0 150 150"
    version="1.1"
    id="svg5256"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="gap.svg">
   <defs
      id="defs5250">
@@ -34,17 +34,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="102.79542"
+     inkscape:cx="40.29542"
      inkscape:cy="82.571128"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:pagecheckerboard="true"
      units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1137"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:window-width="2880"
+     inkscape:window-height="1526"
+     inkscape:window-x="-11"
+     inkscape:window-y="1609"
      inkscape:window-maximized="1"
      inkscape:snap-global="false">
     <sodipodi:guide
@@ -96,7 +96,7 @@
      id="layer1">
     <path
        transform="matrix(1,0,0,0.99357434,7.6293945e-6,0.12707977)"
-       style="fill:none;stroke:#6e6e6e;stroke-width:1.1251328;stroke-opacity:1"
+       style="fill:none;stroke:#ffffff;stroke-width:1.1251328;stroke-opacity:1"
        d="m 136.01382,110.58349 -61.013828,35.22635 -61.013832,-35.22635 0,-70.452703 L 74.999993,4.9044342 136.01383,40.130787 Z"
        id="path16" />
   </g>

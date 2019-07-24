@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "17468912606e4c3ccca08d4399ac3db7",
+    "revision": "a58589c492bb87e78eb2bb5a535ff8d3",
     "url": "/design/index.html"
   },
   {
-    "revision": "659a0463114e63bf0de6",
-    "url": "/design/static/css/main.f3d106cf.chunk.css"
+    "revision": "ec1ccc3dc0e848e584db",
+    "url": "/design/static/css/main.bc56498d.chunk.css"
   },
   {
     "revision": "9a1d72804d091c246716",
     "url": "/design/static/js/2.67ba5375.chunk.js"
   },
   {
-    "revision": "659a0463114e63bf0de6",
-    "url": "/design/static/js/main.00c16344.chunk.js"
+    "revision": "ec1ccc3dc0e848e584db",
+    "url": "/design/static/js/main.1182c2ce.chunk.js"
   },
   {
     "revision": "91bbae28a0d604b40337",
@@ -92,8 +92,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/design/static/media/entrance-upper-right.edae3e46.svg"
   },
   {
-    "revision": "e8cb1849f8f94a62279de9428182148c",
-    "url": "/design/static/media/gap.e8cb1849.svg"
+    "revision": "d101d1cc0fe2881bbc90cb49c6fa4f69",
+    "url": "/design/static/media/gap.d101d1cc.svg"
   },
   {
     "revision": "fabc68a608afe216b4b673cbf2c7e34a",
@@ -168,6 +168,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/design/static/media/security-camera.f42167e1.svg"
   },
   {
+    "revision": "04ad1c5736c6ce861f5e4b844d2ae678",
+    "url": "/design/static/media/security-cameradog.04ad1c57.svg"
+  },
+  {
+    "revision": "1a455abc80a3b5c5069efd89740281aa",
+    "url": "/design/static/media/security-cameralock.1a455abc.svg"
+  },
+  {
     "revision": "300380c54d3ac742cea91626122c4fb3",
     "url": "/design/static/media/security-dog.300380c5.svg"
   },
@@ -176,8 +184,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/design/static/media/security-guard.917d75f3.svg"
   },
   {
+    "revision": "e12248f87b28ddf9e0f6709df4d6808e",
+    "url": "/design/static/media/security-guardcamera.e12248f8.svg"
+  },
+  {
+    "revision": "511a3b7da4b711f7dda4eb05cc8a9ea7",
+    "url": "/design/static/media/security-guarddog.511a3b7d.svg"
+  },
+  {
+    "revision": "fdd85d71011de4c4c506fc9ac22dbcd0",
+    "url": "/design/static/media/security-guardlock.fdd85d71.svg"
+  },
+  {
     "revision": "b56f08c75214d13d2776ae45f8b277be",
     "url": "/design/static/media/security-lock.b56f08c7.svg"
+  },
+  {
+    "revision": "8d75c87495443bcd4f42acbdd2a2410f",
+    "url": "/design/static/media/security-lockdog.8d75c874.svg"
   },
   {
     "revision": "a761cfeb1cd1c805602f98620bbe497a",
