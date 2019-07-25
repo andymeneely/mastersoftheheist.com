@@ -46,6 +46,10 @@ class Gallery extends React.Component {
           name : 'The North Wing',
           savekey : 'OIBQBKYFIOpgygYQuJDmxVyPzACLoQCC2e5ZRaiATFcrpZpGmpMxY4wDJ0BKAUSJdOFVgwBClEZXERkbUZQEBZYagUMlM1dPACAbHqwCAjMZm4gA',
           desc : 'Steal 3 jewels.'
+        }, {
+          name : 'The Courtyard',
+          savekey : 'OIBQBKHpDKAaVGWdVYYGEICF1c3oSkuAQcceWmVgKICyitAzIlSWACSvu0BsTRsABMHWPiwVqktBQCChchKKzpEACKKZY1YgBKcAFI6TU07tBA',
+          desc : 'Steal the jewel.'
         }
     ]
     return (
