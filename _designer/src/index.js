@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DesignerApp from './Designer/app';
+import Designer from './Designer/designer';
 
 ReactDOM.render(
-  <DesignerApp/>,
+  <Designer/>,
   document.getElementById('root')
 );

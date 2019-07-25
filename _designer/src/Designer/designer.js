@@ -1,22 +1,22 @@
 import React from 'react';
+import Checklist from './checklist';
+import Gallery from './gallery';
 import ManageButtons from './manageButtons';
 import ScenarioMap from './scenarioMap';
 import ShiftTools from './shiftTools';
-import Checklist from './checklist';
-import TextMap from './textMap';
 import StatusBar from './statusBar';
+import TextMap from './textMap';
 import Tilebox from './tilebox';
-import Gallery from './gallery';
+import TwitterCard from './twitterCard';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
-import {saveSvgAsPng} from 'save-svg-as-png';
-import {svgAsPngUri} from 'save-svg-as-png';
 import tileData from './tileData';
 import './designer.scss';
 
 class Designer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.loadOrInit(props.savekey);
+    const savekey = new URL(document.location).searchParams.get('savekey');
+    this.state = this.loadOrInit(savekey);
   }
 
   initialState(){
@@ -133,15 +133,7 @@ class Designer extends React.Component {
     a.setAttribute("download", "scenario.svg");
     a.setAttribute("href", url);
     a.style["display"] = "none";
-    // a.click();
-    // saveSvgAsPng(svg);
-    const options = {
-      width: 500,
-      height: 500
-    };
-    svgAsPngUri(svg, options).then(uri => {
-      console.log(uri);
-    });
+    a.click();
     this.setState({
       lastAction: `Saved SVG file`
     });
@@ -304,6 +296,7 @@ class Designer extends React.Component {
         <div className="bottomrow">
           <TextMap value={this.makeSaveString()}/>
         </div>
+        <TwitterCard/>
       </div>
     );
   }
