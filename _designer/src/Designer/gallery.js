@@ -42,6 +42,10 @@ class Gallery extends React.Component {
           name : 'Tough Prison Break',
           savekey : 'OIBQBKHpPXUNmAogZkfJyAsG8wFV9MilI0EBlAYTBolvqcdrOiPsk4EF8AhCEWQBWKq3idM4ScTrix+ACJzZAdQAqEAExgAMjuZgtwWvtlswAWVUJrtmxcdTzzpy6hA',
           desc : 'Everyone must exit out a different door.'
+        }, {
+          name : 'The North Wing',
+          savekey : 'OIBQBKYFIOpgygYQuJDmxVyPzACLoQCC2e5ZRaiATFcrpZpGmpMxY4wDJ0BKAUSJdOFVgwBClEZXERkbUZQEBZYagUMlM1dPACAbHqwCAjMZm4gA',
+          desc : 'Steal 3 jewels.'
         }
     ]
     return (
