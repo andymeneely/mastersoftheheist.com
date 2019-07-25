@@ -50,6 +50,11 @@ class Gallery extends React.Component {
           name : 'The Courtyard',
           savekey : 'OIBQBKHpDKAaVGWdVYYGEICF1c3oSkuAQcceWmVgKICyitAzIlSWACSvu0BsTRsABMHWPiwVqktBQCChchKKzpEACKKZY1YgBKcAFI6TU07tBA',
           desc : 'Steal the jewel.'
+        }, {
+          name : 'High Security',
+          savekey :
+          'OIBQBKHpPXUNmAygTTAJVQKRQYQgBFF4lkCyCtckkMANAWQXJLcleAM4EF8V6CAKIAmMEOaUEAGTGz24VkoIB1ACr9O8CfwAkY4ACEw+-jqRCAjAptCAbEA',
+          desc : 'Steal both jewels. The NPC is a prisoner.'
         }
     ]
     return (
