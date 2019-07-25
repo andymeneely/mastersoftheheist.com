@@ -136,7 +136,7 @@ label {
 
   .columnBox {
     @media (orientation: landscape) {
-      max-width: 12em;
+      max-width: 10em;
     }
     @media (orientation: portrait) {
       width: 100%;
@@ -149,7 +149,7 @@ label {
   }
 
   .manage-buttons {
-    width: 12em;
+    width: inherit;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -159,8 +159,8 @@ label {
     button {
       display: inline-block;
       cursor: pointer;
+      margin: 0;
       margin-bottom: 0.15em;
-      padding: 0.15em;
       width: 50%;
 
     }
@@ -170,8 +170,6 @@ label {
       border: 1px solid #a5a5a5;
       border-radius: 0.5em;
       padding: 0.5em;
-      margin-left: 0.25em;
-      margin-right: 0.25em;
       margin-bottom: 0.15em;
       input {
         cursor: pointer;
@@ -181,6 +179,8 @@ label {
   }
 
   .statusbox {
+    width: inherit;
+    margin: 0;
     padding-left: 0.5em;
     padding-right: 1em;
     .good::before{
@@ -198,7 +198,7 @@ label {
   }
 
   .shift-tools{
-    width: 10em;
+    width: inherit;
     margin-left: 0.25em;
     padding-top: 0.5em;
     text-align: left;
@@ -224,7 +224,7 @@ label {
   }
 
   .gallery {
-    width: 12em;
+    width: 10em;
     font-size: 90%;
     overflow: auto;
     user-select: text;
@@ -260,7 +260,9 @@ label {
       margin-bottom: 0.25em;
       button {
         text-align: left;
-        margin-right: 0.25em;
+        margin-right: 0em;
+        margin-left: 0em;
+        line-height: 1;
       }
     }
   }
