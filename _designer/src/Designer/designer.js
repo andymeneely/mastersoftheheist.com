@@ -286,8 +286,8 @@ class Designer extends React.Component {
                            onExpand={(e) => this.onExpand(e)}
                            onShrink={(e) => this.onShrink(e)}
                            />
-            <Checklist tiles={this.state.tiles}/>
             <ShiftTools onShiftClick={(e) => this.onShiftClick(e)}/>
+            <Checklist tiles={this.state.tiles}/>
             <Gallery onGalleryClick={(e) => this.onGalleryClick(e)}/>
           </div>
         </div>
