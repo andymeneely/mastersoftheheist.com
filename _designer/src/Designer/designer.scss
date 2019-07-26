@@ -141,7 +141,9 @@ label {
     @media (orientation: portrait) {
       width: 100%;
       display: flex;
+      flex-direction: row;
       justify-content: space-around;
+      flex-wrap: wrap;
     }
     height: inherit;
     overflow: auto;
@@ -149,7 +151,6 @@ label {
   }
 
   .manage-buttons {
-    width: inherit;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -179,7 +180,6 @@ label {
   }
 
   .statusbox {
-    width: inherit;
     margin: 0;
     padding-left: 0.5em;
     padding-right: 1em;
@@ -198,7 +198,6 @@ label {
   }
 
   .shift-tools{
-    width: inherit;
     margin-left: 0.25em;
     padding-top: 0.5em;
     text-align: left;
@@ -224,13 +223,15 @@ label {
   }
 
   .gallery {
-    width: 10em;
+    max-width: 15em;
+    min-width: 8em;
     font-size: 90%;
     overflow: auto;
     user-select: text;
     button.expand{
       float: left;
       margin: 0.25em;
+      margin-top: -0.25em;
       margin-left: 0em;
       padding: 0em;
       font-weight: bold;
@@ -246,6 +247,7 @@ label {
       font-size: inherit;
       text-align:left;
       width: 100%;
+      margin-top: 0;
     }
     ul{
       list-style-type: none;
