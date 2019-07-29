@@ -14,7 +14,6 @@ class Gallery extends React.Component {
   }
 
   onExpandClick(){
-    console.log(this.state);
     this.setState({
       showGallery: !this.state.showGallery
     });
