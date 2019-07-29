@@ -5,9 +5,11 @@ import ShiftTools from './shiftTools';
 import Checklist from './checklist';
 import TextMap from './textMap';
 import StatusBar from './statusBar';
+import Namer from './namer';
 import Tilebox from './tilebox';
 import Gallery from './gallery';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
+import {compressToEncodedURIComponent as compress} from 'lz-string';
 import tileData from './tileData';
 import './designer.scss';
 
@@ -25,7 +27,10 @@ class Designer extends React.Component {
       activeType: 'EM',
       showGrid: true,
       lastAction: '',
-      hoverHex: ''
+      hoverHex: '',
+      name: '',
+      nameX: 0,
+      nameY: 0
     };
   }
 
@@ -33,24 +38,41 @@ class Designer extends React.Component {
     if(savekey == null || savekey.length === 0 ) { // init
       return this.initialState();
     }
-    let save_str = decompress(savekey); // load
-    if(save_str == null || save_str.length === 0){ //decompressing went awry
+    let [nameURI, nameX, nameY, comp_tile_str] = savekey.split('|');
+    if(savekey.indexOf('|') < 0) { // has no title - legacy savekeys
+      comp_tile_str = nameURI;
+      nameURI = '';
+      nameX = 0;
+      nameY = 0
+    }
+    let tile_str = decompress(comp_tile_str); // load
+    if(tile_str == null || tile_str.length === 0){ //decompressing went awry
       console.log(`Savekey ${savekey} failed to decompress properly.`)
       return this.initialState();
     }
     return {
-      tiles: save_str.split(' '),
+      tiles: tile_str.split(' '),
       undoHistory: [],
       redoHistory: [],
       activeType: 'EM',
       showGrid: true,
       lastAction: '',
-      hoverHex: ''
+      hoverHex: '',
+      name: this.scrub(nameURI.replace('+',' ')),
+      nameX: parseInt(nameX),
+      nameY: parseInt(nameY)
     };
   }
 
-  makeSaveString(i) {
-    return this.state.tiles.join(' ');
+  makeSaveString() {
+    let savekey = this.state.name.slice().replace(' ','+');
+    savekey += '|';
+    savekey += this.state.nameX;
+    savekey += '|';
+    savekey += this.state.nameY;
+    savekey += '|';
+    savekey += compress(this.state.tiles.join(' '));
+    return savekey;
   }
 
   onHexClick(i){
@@ -258,21 +280,56 @@ class Designer extends React.Component {
     this.setState(newState);
   }
 
+  scrub(str){
+    return str.replace(/[^a-zA-Z0-9\s]/g,'').substring(0, 40);
+  }
+
+  onNameChange(e){
+    this.setState({
+      name: this.scrub(e.target.value),
+    });
+  }
+
+  onNudgeName(dir){
+    this.setState((state, props) => {
+      let nameX = state.nameX;
+      let nameY = state.nameY;
+      const delta = 5;
+      switch(dir){
+        case 'up': nameY-=delta; break;
+        case 'down': nameY+=delta; break;
+        case 'left': nameX-=delta; break;
+        case 'right': nameX+=delta; break;
+        default: break;
+      }
+      return {
+        nameX: nameX,
+        nameY: nameY
+      }
+    });
+  }
+
   render() {
     return (
       <div className="designer">
         <div className="toprow">
           <Tilebox onTypeClick={(e) => this.onTypeClick(e)}
                    activeType={this.state.activeType}
-                   onHoverHex={(e) => this.onHoverHex(e)}/>
+                   onHoverHex={(e) => this.onHoverHex(e)}
+                   />
           <div className="centerArea">
             <ScenarioMap tiles={this.state.tiles}
                          onWheel={(e) => this.onWheel(e)}
                          showGrid={this.state.showGrid}
                          onHexClick={(e) => this.onHexClick(e)}
-                         onHoverHex={(e) => this.onHoverHex(e)} />
+                         onHoverHex={(e) => this.onHoverHex(e)}
+                         name={this.state.name}
+                         nameX={this.state.nameX}
+                         nameY={this.state.nameY}
+                         />
             <StatusBar lastAction={this.state.lastAction}
-                       hoverHex={this.state.hoverHex} />
+                       hoverHex={this.state.hoverHex}
+                       />
           </div>
           <div className="columnBox">
             <ManageButtons onClearClick={(e) => this.onClearClick(e)}
@@ -286,13 +343,17 @@ class Designer extends React.Component {
                            onExpand={(e) => this.onExpand(e)}
                            onShrink={(e) => this.onShrink(e)}
                            />
+            <Namer onNameChange={(e) => this.onNameChange(e)}
+                   onNudgeName={(e) => this.onNudgeName(e)}
+                   name={this.state.name}
+                   />
             <ShiftTools onShiftClick={(e) => this.onShiftClick(e)}/>
             <Checklist tiles={this.state.tiles}/>
             <Gallery onGalleryClick={(e) => this.onGalleryClick(e)}/>
           </div>
         </div>
         <div className="bottomrow">
-          <TextMap value={this.makeSaveString()}/>
+          <TextMap savekey={this.makeSaveString()}/>
         </div>
       </div>
     );

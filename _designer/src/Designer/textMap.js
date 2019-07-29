@@ -1,10 +1,9 @@
 import React from 'react';
-import {compressToEncodedURIComponent as compress} from 'lz-string';
 
 class TextMap extends React.Component {
   render() {
     let url = new URL(document.location);
-    let savekey = compress(this.props.value);
+    let savekey = this.props.savekey;
     let save_url =`${url.origin}${url.pathname}?savekey=${savekey}`
     return (
       <div className="textmap">

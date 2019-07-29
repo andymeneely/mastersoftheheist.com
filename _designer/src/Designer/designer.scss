@@ -179,6 +179,17 @@ label {
     }
   }
 
+  .namer{
+    width: 100%;
+    text-align: center;
+    input {
+      width: 95%;
+      height: 100%;
+      font-size: 100%;
+      margin: 0;
+    }
+  }
+
   .statusbox {
     margin: 0;
     padding-left: 0.5em;

@@ -25,6 +25,17 @@ class ScenarioMap extends React.Component {
     );
   }
 
+  renderScenarioName(){
+    return (
+      <text x={this.props.nameX}
+            y={this.props.nameY}
+            className="scenario-name"
+            font-family="Archivo Black"
+            font-style="italic"
+            >{this.props.name}</text>
+    );
+  }
+
   createPatterns(){
     var defs = [];
     for(var t in tileData) {
@@ -61,6 +72,7 @@ class ScenarioMap extends React.Component {
                   flat={false}
                   origin={{x: 0, y: 0}}>
             { hexagons.map((hex, i) => this.renderHexagon(hex, i))}
+            { this.renderScenarioName() }
             { this.createPatterns() }
           </Layout>
         </HexGrid>
