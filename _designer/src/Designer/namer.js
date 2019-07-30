@@ -7,6 +7,7 @@ class Namer extends React.Component {
         <input type="text"
                value={this.props.name}
                onChange={this.props.onNameChange}
+               placeholder="Type name here"
                />
         <button onClick={() => this.props.onNudgeName('left')}>⯇</button>
         <button onClick={() => this.props.onNudgeName('up')}>⯅</button>

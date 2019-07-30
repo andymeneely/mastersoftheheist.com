@@ -58,14 +58,14 @@ class Designer extends React.Component {
       showGrid: true,
       lastAction: '',
       hoverHex: '',
-      name: this.scrub(nameURI.replace('+',' ')),
+      name: this.scrub(nameURI.replace(/\+/g,' ')),
       nameX: parseInt(nameX),
       nameY: parseInt(nameY)
     };
   }
 
   makeSaveString() {
-    let savekey = this.state.name.slice().replace(' ','+');
+    let savekey = this.state.name.slice().replace(/\s/g,'+');
     savekey += '|';
     savekey += this.state.nameX;
     savekey += '|';
@@ -281,7 +281,7 @@ class Designer extends React.Component {
   }
 
   scrub(str){
-    return str.replace(/[^a-zA-Z0-9\s]/g,'').substring(0, 40);
+    return str.replace(/[^a-zA-Z0-9\s:']/g,'').substring(0, 40);
   }
 
   onNameChange(e){
