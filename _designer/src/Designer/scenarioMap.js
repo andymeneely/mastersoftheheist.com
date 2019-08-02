@@ -30,8 +30,8 @@ class ScenarioMap extends React.Component {
       <text x={this.props.nameX}
             y={this.props.nameY}
             className="scenario-name"
-            font-family="Archivo Black"
-            font-style="italic"
+            fontFamily="Archivo Black"
+            fontStyle="italic"
             >{this.props.name}</text>
     );
   }
