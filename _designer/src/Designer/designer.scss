@@ -204,6 +204,7 @@ label {
 
   .statusbox {
     margin: 0;
+    margin-bottom: 0.25em;
     padding-left: 0.5em;
     padding-right: 1em;
     .good::before{
@@ -222,25 +223,29 @@ label {
 
   .shift-tools{
     margin-left: 0.25em;
-    padding-top: 0.5em;
-    text-align: left;
-    button {
-      margin-top: 0.15em;
-      margin-bottom: 0.15em;
-      padding: 0.20em;
-    }
+    margin-bottom: 0.25em;
+    display: flex;
+    justify-content: center;
+    .shift-buttons {
+      position: relative;
+      width: 6em;
+      height: 6em;
 
-    button:nth-child(1), button:nth-child(4) { /* up & down*/
-       display: block;
-       margin-left: 2.8em;
-    }
-
-    button:nth-child(2) { /* left */
-      margin-right: 1.2em;
-    }
-
-    button:nth-child(3) { /* right */
-      margin-left: 1.2em;
+      button {
+        margin: 0.5em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        img{
+          height: 1em;
+        }
+        &.upleft{    transform: translate(0.9em, 0em) rotate(-30deg); }
+        &.upright{   transform: translate(2.8em, 0em) rotate(30deg) ; }
+        &.left{      transform: translate(0em, 1.6em) rotate(-90deg); }
+        &.right{     transform: translate(3.7em, 1.6em) rotate(90deg); }
+        &.downleft{  transform: translate(0.9em, 3.2em) rotate(-150deg); }
+        &.downright{ transform: translate(2.8em, 3.2em) rotate(150deg); }
+      }
     }
 
   }

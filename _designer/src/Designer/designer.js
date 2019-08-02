@@ -184,14 +184,14 @@ class Designer extends React.Component {
     let tiles = this.state.tiles;
     let sTiles = Array(len).fill('GP'); //s(hifted)Tiles
     switch(dir){
-      case 'up':
+      case 'upleft':
         for(let i = 0; i < len; i++){
-          sTiles[i] = tiles[(i + 2 * stride) % len];
+          sTiles[i] = tiles[(i + stride + (Math.floor(i / stride) % 2)) % len];
         }
         break;
-      case 'down':
+      case 'upright':
         for(let i = 0; i < len; i++){
-          sTiles[i] = tiles[(i + 2 * stride * (stride - 1)) % len];
+          sTiles[i] = tiles[(i + stride - 1 + (Math.floor(i / stride) % 2)) % len];
         }
         break;
       case 'left':
@@ -204,6 +204,16 @@ class Designer extends React.Component {
         for(let i = 0; i < len; i++){
           let row = Math.floor(i / stride);
           sTiles[i] = tiles[(i + stride - 1) % stride + row * stride ];
+        }
+        break;
+      case 'downleft':
+        for(let i = 0; i < len; i++){
+          sTiles[i] = tiles[(i + stride * (stride - 1) + (Math.floor(i / stride) % 2)) % len];
+        }
+        break;
+      case 'downright':
+        for(let i = 0; i < len; i++){
+          sTiles[i] = tiles[(i + stride * (stride - 1) - 1 + (Math.floor(i / stride) % 2)) % len];
         }
         break;
       default:
