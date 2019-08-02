@@ -47,6 +47,10 @@ class Gallery extends React.Component {
           savekey : 'Museum:+North+Wing|85|250|OIBQBKYFIOpgygYQuJDmxVyPzACLoQCC2e5ZRaiATFcrpZpGmpMxY4wDJ0BKAUSJdOFVgwBClEZXERkbUZQEBZYagUMlM1dPACAbHqwCAjMZm4gA',
           desc : 'Steal 3 jewels.'
         }, {
+          name : 'The Exhibition Floor',
+          savekey : 'The+Exhibition+Floor|55|5|OIBQBKHpPXUNo8BBFywoBIaZAygMJhFgBKAGgLInGn0UYp3EECaCpe89r8SXHsRTBa5RigAy5DqRT4MAJmB9c-cMukEWajLwwBRGt11GEBgIy6TkAwDYoQA',
+          desc : 'Steal as many paintings as you want. NPC is a Guide.'
+        }, {
           name : 'The Courtyard',
           savekey : 'The+Courtyard|120|230|OIBQBKHpDKAaVGWdVYYGEICF1c3oSkuAQcceWmVgKICyitAzIlSWACSvu0BsTRsABMHWPiwVqktBQCChchKKzpEACKKZY1YgBKcAFI6TU07tBA',
           desc : 'Steal the jewel.'
