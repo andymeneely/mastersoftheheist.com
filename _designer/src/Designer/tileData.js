@@ -160,6 +160,10 @@ var tileData = {
     'slug': 'remote-lock-x-jewel',
     'name': 'Remote Lock X Covering Jewel'
   },
+  "RXD" : {
+    'slug': 'remote-lock-x-document',
+    'name': 'Remote Lock X Covering Document'
+  },
   "RYJ" : {
     'slug': 'remote-lock-y-jewel',
     'name': 'Remote Lock Y Covering Jewel'
@@ -171,6 +175,18 @@ var tileData = {
   "RYM" : {
     'slug': 'remote-lock-y-meeple',
     'name': 'Remote Lock Y Covering Character'
+  },
+  "RYD" : {
+    'slug': 'remote-lock-y-document',
+    'name': 'Remote Lock Y Document'
+  },
+  "KC" : {
+    'slug': 'keycard',
+    'name': 'Keycard'
+  },
+  "KCL" : {
+    'slug': 'keycard-lock',
+    'name': 'Keycard Door'
   },
   "AA" : {
     'slug': 'art-apple',

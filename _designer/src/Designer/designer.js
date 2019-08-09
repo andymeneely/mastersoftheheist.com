@@ -171,10 +171,8 @@ class Designer extends React.Component {
   onSavePNGClick(){
     var svg = document.querySelector(".scenariomap>svg");
     const opts = {
-      width: 300,
-      height: 300,
       top: -30,
-      scale: 5.0,
+      scale: 5,
       backgroundColor: '#fff'
     };
     saveSvgAsPng(svg, `${this.makeFilename()}.png`, opts);
