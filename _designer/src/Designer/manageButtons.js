@@ -6,6 +6,7 @@ class ManageButtons extends React.Component {
       <div className="manage-buttons">
         <button onClick={() => this.props.onClearClick()}>Clear</button>
         <button onClick={() => this.props.onSaveClick()}>Save SVG</button>
+        <button onClick={() => this.props.onSavePNGClick()}>Save PNG</button>
         <button onClick={() => this.props.onUndoClick()}
                 disabled={this.props.undoHistory.length === 0}>
           ⟲ Undo

@@ -10,6 +10,7 @@ import Tilebox from './tilebox';
 import Gallery from './gallery';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import {compressToEncodedURIComponent as compress} from 'lz-string';
+import {saveSvgAsPng} from 'save-svg-as-png';
 import tileData from './tileData';
 import './designer.scss';
 
@@ -141,22 +142,42 @@ class Designer extends React.Component {
     });
   }
 
+  makeFilename() {
+    if(this.state.name) {
+      const n = this.state.name.trim().toLowerCase();
+      return n.replace(/\s/g, "-");
+    } else {
+      return 'scenario';
+    }
+  }
+
   onSaveClick(){
     var svg = document.querySelector(".scenariomap>svg");
     var serializer = new XMLSerializer();
     var svg_blob = new Blob([serializer.serializeToString(svg)],
                           {'type': "image/svg+xml"});
     var url = URL.createObjectURL(svg_blob);
-    // var svg_win = window.open(url, "svg_win");
     var a = document.createElement("a");
     document.body.appendChild(a);
-    a.setAttribute("download", "scenario.svg");
+    a.setAttribute("download", `${this.makeFilename()}.svg`);
     a.setAttribute("href", url);
     a.style["display"] = "none";
     a.click();
     this.setState({
       lastAction: `Saved SVG file`
     });
+  }
+
+  onSavePNGClick(){
+    var svg = document.querySelector(".scenariomap>svg");
+    const opts = {
+      width: 300,
+      height: 300,
+      top: -30,
+      scale: 5.0,
+      backgroundColor: '#fff'
+    };
+    saveSvgAsPng(svg, `${this.makeFilename()}.png`, opts);
   }
 
   onWheel(e){ // cycle through tools
@@ -344,6 +365,7 @@ class Designer extends React.Component {
           <div className="columnBox">
             <ManageButtons onClearClick={(e) => this.onClearClick(e)}
                            onSaveClick={(e) => this.onSaveClick(e)}
+                           onSavePNGClick={(e) => this.onSavePNGClick(e)}
                            onShowGridClick={(e) => this.onShowGridClick(e)}
                            showGrid={this.state.showGrid}
                            onUndoClick={(e) => this.onUndoClick(e)}

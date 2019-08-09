@@ -96,7 +96,7 @@
      id="layer1">
     <path
        transform="matrix(1,0,0,0.99357434,7.6293945e-6,0.12707977)"
-       style="fill:none;stroke:#ffffff;stroke-width:1.1251328;stroke-opacity:1"
+       style="fill:none;stroke:none;stroke-width:1.1251328;stroke-opacity:1"
        d="m 136.01382,110.58349 -61.013828,35.22635 -61.013832,-35.22635 0,-70.452703 L 74.999993,4.9044342 136.01383,40.130787 Z"
        id="path16" />
   </g>

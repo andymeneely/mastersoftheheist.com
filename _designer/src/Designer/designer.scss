@@ -106,7 +106,8 @@ label {
       height: 100%;
     }
     .grid_hide .hexagon polygon {
-      stroke: #fff;
+      stroke: none;
+      stroke-width: 0;
     }
     .grid_hide.hex-gap polygon {
       fill: #fff;
