@@ -151,6 +151,10 @@ class Designer extends React.Component {
     }
   }
 
+  onCopyTTSClick(e){
+    
+  }
+
   onSaveClick(){
     var svg = document.querySelector(".scenariomap>svg");
     var serializer = new XMLSerializer();
@@ -362,6 +366,7 @@ class Designer extends React.Component {
           </div>
           <div className="columnBox">
             <ManageButtons onClearClick={(e) => this.onClearClick(e)}
+                           onCopyTTSClick={(e) => this.onCopyTTSClick(e)}
                            onSaveClick={(e) => this.onSaveClick(e)}
                            onSavePNGClick={(e) => this.onSavePNGClick(e)}
                            onShowGridClick={(e) => this.onShowGridClick(e)}

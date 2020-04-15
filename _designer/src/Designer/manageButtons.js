@@ -4,9 +4,6 @@ class ManageButtons extends React.Component {
   render(){
     return (
       <div className="manage-buttons">
-        <button onClick={() => this.props.onClearClick()}>Clear</button>
-        <button onClick={() => this.props.onSaveClick()}>Save SVG</button>
-        <button onClick={() => this.props.onSavePNGClick()}>Save PNG</button>
         <button onClick={() => this.props.onUndoClick()}
                 disabled={this.props.undoHistory.length === 0}>
           ⟲ Undo
@@ -15,6 +12,10 @@ class ManageButtons extends React.Component {
                 disabled={this.props.redoHistory.length === 0}>
           ⟳ Redo
         </button>
+        <button onClick={() => this.props.onClearClick()}>Clear</button>
+        <button onClick={() => this.props.onClearClick()}>Copy for TTS</button>
+        <button onClick={() => this.props.onSaveClick()}>Save SVG</button>
+        <button onClick={() => this.props.onSavePNGClick()}>Save PNG</button>
         <button onClick={() => this.props.onExpand()}>
            ⇲ Expand
         </button>
