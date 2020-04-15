@@ -5,8 +5,9 @@ class StatusBar extends React.Component {
   render() {
     return (
       <div className="status-bar">
-        <span className="left">{version}</span>
-        <span className="right">{this.props.hoverHex}</span>
+        <span>{version}</span>
+        <span>{this.props.hoverHex}</span>
+        <span>{this.props.lastAction}</span>
       </div>
     );
   }

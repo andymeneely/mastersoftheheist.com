@@ -65,14 +65,18 @@ class Designer extends React.Component {
     };
   }
 
-  makeSaveString() {
+  makeSaveString(compressKey) {
     let savekey = this.state.name.slice().replace(/\s/g,'+');
     savekey += '|';
     savekey += this.state.nameX;
     savekey += '|';
     savekey += this.state.nameY;
     savekey += '|';
-    savekey += compress(this.state.tiles.join(' '));
+    if(compressKey) {
+      savekey += compress(this.state.tiles.join(' '));
+    } else {
+      savekey += this.state.tiles.join(' ');
+    }
     return savekey;
   }
 
@@ -125,7 +129,7 @@ class Designer extends React.Component {
     this.setState({
       tiles: oldTiles,
       undoHistory: undoHist,
-      lastAction: `Undo`
+      lastAction: ``
     });
   }
 
@@ -151,8 +155,15 @@ class Designer extends React.Component {
     }
   }
 
+  /*
+    Copy a savestring for the Tabletop Simulator mod.
+  */
   onCopyTTSClick(e){
-    
+    const ttsSaveString = this.makeSaveString(false);
+    navigator.clipboard.writeText(ttsSaveString);
+    this.setState({
+      lastAction: 'Copied Tabletop Simulator save to clipboard'
+    })
   }
 
   onSaveClick(){
@@ -377,6 +388,7 @@ class Designer extends React.Component {
                            redoHistory={this.state.redoHistory}
                            onExpand={(e) => this.onExpand(e)}
                            onShrink={(e) => this.onShrink(e)}
+                           lastAction={this.state.lastAction}
                            />
             <Namer onNameChange={(e) => this.onNameChange(e)}
                    onNudgeName={(e) => this.onNudgeName(e)}
@@ -388,7 +400,7 @@ class Designer extends React.Component {
           </div>
         </div>
         <div className="bottomrow">
-          <TextMap savekey={this.makeSaveString()}/>
+          <TextMap savekey={this.makeSaveString(true)}/>
         </div>
       </div>
     );
