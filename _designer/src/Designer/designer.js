@@ -167,13 +167,11 @@ class Designer extends React.Component {
   }
 
   onSaveClick(){
-    var svg = document.querySelector(".scenariomap>svg");
-    var serializer = new XMLSerializer();
-    var svg_blob = new Blob([serializer.serializeToString(svg)],
-                          {'type': "image/svg+xml"});
-    var url = URL.createObjectURL(svg_blob);
-    var a = document.createElement("a");
-    document.body.appendChild(a);
+    const svg = document.querySelector(".scenariomap>svg");
+    const svg_blob = new Blob([new XMLSerializer().serializeToString(svg)],
+                              {'type': "image/svg+xml"});
+    const url = URL.createObjectURL(svg_blob);
+    let a = document.createElement("a");
     a.setAttribute("download", `${this.makeFilename()}.svg`);
     a.setAttribute("href", url);
     a.style["display"] = "none";
@@ -187,7 +185,10 @@ class Designer extends React.Component {
     var svg = document.querySelector(".scenariomap>svg");
     const opts = {
       top: -30,
-      scale: 5,
+      left: -30,
+      width: 360,
+      height: 305,
+      scale: 5, // so technically ~1500x1500
       backgroundColor: '#fff'
     };
     saveSvgAsPng(svg, `${this.makeFilename()}.png`, opts);
