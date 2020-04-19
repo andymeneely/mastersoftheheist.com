@@ -160,6 +160,9 @@ class Designer extends React.Component {
   */
   onCopyTTSClick(e){
     const ttsSaveString = this.makeSaveString(false);
+    console.log('Tabletop Simulator save string being copied: ');
+    console.log(ttsSaveString);
+
     navigator.clipboard.writeText(ttsSaveString);
     this.setState({
       lastAction: 'Copied Tabletop Simulator save to clipboard'
