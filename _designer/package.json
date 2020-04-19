@@ -19,6 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "react-scripts start",
+    "serve": "react-scripts start",
+    "s": "react-scripts start",
     "build": "react-scripts build",
     "release": "react-scripts build && mv build ../design || move build ../design",
     "test": "react-scripts test --env=jsdom",
