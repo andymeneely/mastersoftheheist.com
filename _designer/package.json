@@ -22,7 +22,7 @@
     "serve": "react-scripts start",
     "s": "react-scripts start",
     "build": "react-scripts build",
-    "release": "react-scripts build && mv build ../design || move build ../design",
+    "release": "react-scripts build && xcopy /y /s build ..\\design",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
