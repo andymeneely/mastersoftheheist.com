@@ -7,6 +7,7 @@
     "lodash": "^4.17.15",
     "lodash.template": "4.5.0",
     "lz-string": "^1.4.4",
+    "mvy": "^0.2.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
@@ -18,6 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "release": "react-scripts build && mv build ../design || move build ../design",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
