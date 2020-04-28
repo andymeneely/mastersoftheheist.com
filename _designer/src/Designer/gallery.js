@@ -59,6 +59,11 @@ class Gallery extends React.Component {
           savekey :
           'The+Jeweler+Keep|55|5|OIBQBKHpPXUNmAygTTAJVQKRQYQgBFF4lkCyCtckkMANAWQXJLcleAM4EF8V6CAKIAmMEOaUEAGTGz24VkoIB1ACr9O8CfwAkY4ACEw+-jqRCAjAptCAbEA',
           desc : 'Steal both jewels. The NPC is a prisoner.'
+        }, {
+          name : 'Junkyard',
+          savekey :
+          'Junkyard|-5|160|OIBQBKHpkCQExSTa4BSB1MBhAsmAZWzACUANNMAEQHllUkAZRSIsTQ4lJNtmK4FR5cGrMpzDxGQ+IImtiAQUX1hpAKKTgxPqL0T42RhN2rup3gE0z+yOoBsYdQEYbQA',
+          desc : 'Steal two jewels.'
         }
     ]
     return (

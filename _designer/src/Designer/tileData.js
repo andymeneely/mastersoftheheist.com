@@ -128,6 +128,10 @@ var tileData = {
     'slug': 'security-guarddog',
     'name': 'Guard and Dog'
   },
+  "GDGD" : {
+    'slug': 'security-2guarddog',
+    'name': 'Two Guard Dogs'
+  },
   "2CL" : {
     'slug': 'security-cameralock',
     'name': 'Camera and Lock'
