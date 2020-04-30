@@ -12,7 +12,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-hexgrid": "^1.0.3",
-    "react-scripts": "3.0.1",
+    "react-scripts": "3.4.1",
     "save-svg-as-png": "^1.4.14",
     "webpack-cli": "^3.3.5"
   },
@@ -27,7 +27,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "raw-loader": "^3.0.0"
+    "raw-loader": "^4.0.1"
   },
   "browserslist": [
     ">0.2%",
