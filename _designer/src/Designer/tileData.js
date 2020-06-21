@@ -45,8 +45,8 @@ var tileData = {
     'name': '$3k'
   },
   "PP" : {
-    'slug': 'paper',
-    'name': 'Document'
+    'slug': 'folder',
+    'name': 'Documents'
   },
   "RE" : {
     'slug': 'reinforcements',
@@ -128,6 +128,22 @@ var tileData = {
     'slug': 'security-guarddog',
     'name': 'Guard and Dog'
   },
+  "G1K" : {
+    'slug': 'security-guard-1k',
+    'name': 'Guard and $1k'
+  },
+  "G2K" : {
+    'slug': 'security-guard-2k',
+    'name': 'Guard and $1k'
+  },
+  "G3K" : {
+    'slug': 'security-guard-3k',
+    'name': 'Guard and $3k'
+  },
+  "GKC" : {
+    'slug': 'security-guard-keycard',
+    'name': 'Guard and Keycard'
+  },
   "GDGD" : {
     'slug': 'security-2guarddog',
     'name': 'Two Guard Dogs'
@@ -143,6 +159,18 @@ var tileData = {
   "2LD" : {
     'slug': 'security-lockdog',
     'name': 'Lock and Dog'
+  },
+  "G2X" : {
+    'slug': 'security-guard-2x',
+    'name': 'Elite Guard'
+  },
+  "C2X" : {
+    'slug': 'security-camera-2x',
+    'name': 'Elite Camera'
+  },
+  "L2X" : {
+    'slug': 'security-lock-2x',
+    'name': 'Elite Lock'
   },
   "SX" : {
     'slug': 'server-x',
