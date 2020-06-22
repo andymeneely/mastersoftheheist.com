@@ -11,18 +11,17 @@ class Namer extends React.Component {
         <input type="text"
                value={this.props.name}
                onChange={this.props.onNameChange}
-               placeholder="Type name here"
-               />
-        <button onClick={() => this.props.onNudgeName('left')}>
+               placeholder="Type name here"/>
+        <button onClick={(e) => this.props.onNudgeName('left', e)}>
           <img src={LeftLogo} alt="Nudge name left"/>
         </button>
-        <button onClick={() => this.props.onNudgeName('up')}>
+        <button onClick={(e) => this.props.onNudgeName('up', e)}>
           <img src={UpLogo} alt="Nudge name up"/>
         </button>
-        <button onClick={() => this.props.onNudgeName('down')}>
+        <button onClick={(e) => this.props.onNudgeName('down', e)}>
           <img src={DownLogo} alt="Nudge name down"/>
         </button>
-        <button onClick={() => this.props.onNudgeName('right')}>
+        <button onClick={(e) => this.props.onNudgeName('right', e)}>
           <img src={RightLogo} alt="Nudge name right"/>
         </button>
       </div>

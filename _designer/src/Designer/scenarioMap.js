@@ -52,7 +52,7 @@ class ScenarioMap extends React.Component {
       const w = w_each * n
       if(n > 0){
         rows.push(
-          <g id="bagRow">
+          <g id="bagRow" key={`bagRow${i}`}>
             <rect x={x_0} y={y - 1} width={logoH} height={logoH} fill={`url(#bag${bagRow})`}/>
             <rect x={x_0 + logoH} y={y} width={w} height={h} rx={radius} ry={radius} />
             <text x={x_0 + w + gap + logoH} y={y + h}

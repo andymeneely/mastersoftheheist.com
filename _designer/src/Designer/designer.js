@@ -34,9 +34,9 @@ class Designer extends React.Component {
       nameX: 0,
       nameY: 0,
       bag: {
-        guards: 5,
-        cameras: 4,
-        locks: 3,
+        guards: 0,
+        cameras: 0,
+        locks: 0,
       },
       bagX: 250,
       bagY: 200,
@@ -47,14 +47,15 @@ class Designer extends React.Component {
     if(savekey == null || savekey.length === 0 ) { // init
       return this.initialState();
     }
-    let [nameURI, nameX, nameY, comp_tile_str] = savekey.split('|');
-    if(savekey.indexOf('|') < 0) { // has no title - legacy savekeys
-      comp_tile_str = nameURI;
-      nameURI = '';
-      nameX = 0;
-      nameY = 0
+    let save_parts = savekey.split('|')
+    let tile_str = decompress(save_parts.pop()) // tilestr always at the last
+    var [nameURI, nameX, nameY, guards, cameras, locks, bagX, bagY] = save_parts
+    if(save_parts.length < 4) { //legacy - no bag data
+      guards = 0; cameras = 0; locks = 0; bagX = 250; bagY = 200
     }
-    let tile_str = decompress(comp_tile_str); // load
+    if(save_parts.length == 0){ // legacy - no title data either
+      nameURI = ''; nameX = 0; nameY = 0
+    }
     if(tile_str == null || tile_str.length === 0){ //decompressing went awry
       console.log(`Savekey ${savekey} failed to decompress properly.`)
       return this.initialState();
@@ -71,12 +72,12 @@ class Designer extends React.Component {
       nameX: parseInt(nameX),
       nameY: parseInt(nameY),
       bag: {
-        guards: 5,
-        cameras: 4,
-        locks: 3,
+        guards: guards,
+        cameras: cameras,
+        locks: locks,
       },
-      bagX: 250,
-      bagY: 200,
+      bagX: parseInt(bagX),
+      bagY: parseInt(bagY),
     };
   }
 
@@ -86,6 +87,16 @@ class Designer extends React.Component {
     savekey += this.state.nameX;
     savekey += '|';
     savekey += this.state.nameY;
+    savekey += '|';
+    savekey += this.state.bag.guards;
+    savekey += '|';
+    savekey += this.state.bag.cameras;
+    savekey += '|';
+    savekey += this.state.bag.locks;
+    savekey += '|';
+    savekey += this.state.bagX;
+    savekey += '|';
+    savekey += this.state.bagY;
     savekey += '|';
     if(compressKey) {
       savekey += compress(this.state.tiles.join(' '));
@@ -353,41 +364,37 @@ class Designer extends React.Component {
     });
   }
 
-  onNudgeName(dir){
-    this.setState((state, props) => {
-      let nameX = state.nameX;
-      let nameY = state.nameY;
-      const delta = 5;
-      switch(dir){
-        case 'up': nameY-=delta; break;
-        case 'down': nameY+=delta; break;
-        case 'left': nameX-=delta; break;
-        case 'right': nameX+=delta; break;
-        default: break;
-      }
-      return {
-        nameX: nameX,
-        nameY: nameY
-      }
-    });
+  onNudgeName(dir, e){
+    const delta = e.ctrlKey ? 25 : 5
+    let nameX = this.state.nameX
+    let nameY = this.state.nameY
+    switch(dir){
+      case 'up': nameY-=delta; break;
+      case 'down': nameY+=delta; break;
+      case 'left': nameX-=delta; break;
+      case 'right': nameX+=delta; break;
+      default: break;
+    }
+    this.setState({
+      nameX: nameX,
+      nameY: nameY
+    })
   }
 
   onNudgeBag(dir, e){
     const delta = e.ctrlKey ? 25 : 5
-    this.setState((state, props) => {
-      let bagX = state.bagX;
-      let bagY = state.bagY;
-      switch(dir){
-        case 'up': bagY-=delta; break;
-        case 'down': bagY+=delta; break;
-        case 'left': bagX-=delta; break;
-        case 'right': bagX+=delta; break;
-        default: break;
-      }
-      return {
-        bagX: bagX,
-        bagY: bagY
-      }
+    let bagX = this.state.bagX;
+    let bagY = this.state.bagY;
+    switch(dir){
+      case 'up': bagY-=delta; break;
+      case 'down': bagY+=delta; break;
+      case 'left': bagX-=delta; break;
+      case 'right': bagX+=delta; break;
+      default: break;
+    }
+    this.setState({
+      bagX: bagX,
+      bagY: bagY,
     });
   }
 
@@ -440,7 +447,7 @@ class Designer extends React.Component {
                            lastAction={this.state.lastAction}
                            />
             <Namer onNameChange={(e) => this.onNameChange(e)}
-                   onNudgeName={(e) => this.onNudgeName(e)}
+                   onNudgeName={(dir, e) => this.onNudgeName(dir, e)}
                    name={this.state.name}
                    />
             <ShiftTools onShiftClick={(e) => this.onShiftClick(e)}/>

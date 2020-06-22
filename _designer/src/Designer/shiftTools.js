@@ -7,7 +7,8 @@ class ShiftTools extends React.Component {
     return (
       <button onClick={() => this.props.onShiftClick(name)}
               className={name}
-              id={`shift_${name}`}>
+              id={`shift_${name}`}
+              key={`shift_${name}`}>
         <img src={UpLogo} alt={alt} id={`shift_img_${name}`} />
       </button>
     );

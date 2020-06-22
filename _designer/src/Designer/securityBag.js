@@ -41,8 +41,8 @@ class SecurityBag extends React.Component {
     return (
       <div className="security-bag">
         { this.bagRow("guards") }
-        { this.bagRow("locks") }
         { this.bagRow("cameras") }
+        { this.bagRow("locks") }
         { this.nudgeBag("left", LeftLogo) }
         { this.nudgeBag("up", UpLogo) }
         { this.nudgeBag("down", DownLogo) }
