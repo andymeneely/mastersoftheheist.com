@@ -71,12 +71,12 @@ class Designer extends React.Component {
       nameX: parseInt(nameX),
       nameY: parseInt(nameY),
       bag: {
-        locks: 3,
-        cameras: 4,
         guards: 5,
+        cameras: 4,
+        locks: 3,
       },
-      bagX: 0,
-      bagY: 150,
+      bagX: 250,
+      bagY: 200,
     };
   }
 
