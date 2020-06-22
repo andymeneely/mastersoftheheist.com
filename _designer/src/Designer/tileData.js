@@ -14,19 +14,23 @@ var tileData = {
   },
   "GU" : {
     'slug': 'security-guard',
-    'name': 'Guard'
+    'name': 'Guard',
+    'guards': 1,
   },
   "LO" : {
     'slug': 'security-lock',
-    'name': 'Lock'
+    'name': 'Lock',
+    'locks': 1,
   },
   "CM" : {
     'slug': 'security-camera',
-    'name': 'Camera'
+    'name': 'Camera',
+    'cameras': 1,
   },
   "DO" : {
     'slug': 'security-dog',
-    'name': 'Guard Dog'
+    'name': 'Guard Dog',
+    'guardDogs': 1,
   },
   "JW" : {
     'slug': 'jewel',
@@ -34,19 +38,26 @@ var tileData = {
   },
   "$1" : {
     'slug': '1k',
-    'name': '$1k'
+    'name': '$1k',
+    'cash': 1
   },
   "$2" : {
     'slug': '2k',
-    'name': '$2k'
+    'name': '$2k',
+    'cash': 2
   },
   "$3" : {
     'slug': '3k',
-    'name': '$3k'
+    'name': '$3k',
+    'cash': 3
   },
   "PP" : {
     'slug': 'folder',
     'name': 'Documents'
+  },
+  "USB" : {
+    'slug': 'usb',
+    'name': 'USB drive'
   },
   "RE" : {
     'slug': 'reinforcements',
@@ -106,59 +117,82 @@ var tileData = {
   },
   "G2" : {
     'slug': 'security-2guard',
-    'name': 'Two Guards'
+    'name': 'Two Guards',
+    'guards': 2
   },
   "L2" : {
     'slug': 'security-2lock',
-    'name': 'Two Locks'
+    'name': 'Two Locks',
+    'locks': 2
   },
   "C2" : {
     'slug': 'security-2camera',
-    'name': 'Two Cameras'
+    'name': 'Two Cameras',
+    'cameras': 2
   },
   "2GL" : {
     'slug': 'security-guardlock',
-    'name': 'Guard and Lock'
+    'name': 'Guard and Lock',
+    'guards': 1,
+    'locks':  1,
   },
   "2GC" : {
     'slug': 'security-guardcamera',
-    'name': 'Guard and Camera'
+    'name': 'Guard and Camera',
+    'guards': 1,
+    'cameras': 1,
   },
   "2GD" : {
     'slug': 'security-guarddog',
-    'name': 'Guard and Dog'
+    'name': 'Guard and Dog',
+    'guards': 1,
+    'guardDogs':  1,
   },
   "G1K" : {
     'slug': 'security-guard-1k',
-    'name': 'Guard and $1k'
+    'name': 'Guard and $1k',
+    'guards':  1,
+    'cash' : 1
   },
   "G2K" : {
     'slug': 'security-guard-2k',
-    'name': 'Guard and $1k'
+    'name': 'Guard and $2k',
+    'guards':  1,
+    'cash' : 2,
   },
   "G3K" : {
     'slug': 'security-guard-3k',
-    'name': 'Guard and $3k'
+    'name': 'Guard and $3k',
+    'guards':  1,
+    'cash' : 3,
   },
   "GKC" : {
     'slug': 'security-guard-keycard',
-    'name': 'Guard and Keycard'
+    'name': 'Guard and Keycard',
+    'guards':  1,
   },
   "GDGD" : {
     'slug': 'security-2guarddog',
-    'name': 'Two Guard Dogs'
+    'name': 'Two Guard Dogs',
+    'guardDogs': 2
   },
   "2CL" : {
     'slug': 'security-cameralock',
-    'name': 'Camera and Lock'
+    'name': 'Camera and Lock',
+    'cameras': 1,
+    'locks': 1,
   },
   "2CD" : {
     'slug': 'security-cameradog',
-    'name': 'Camera and Dog'
+    'name': 'Camera and Dog',
+    'cameras': 1,
+    'dog': 1,
   },
   "2LD" : {
     'slug': 'security-lockdog',
-    'name': 'Lock and Dog'
+    'name': 'Lock and Dog',
+    'guardDogs': 1,
+    'locks': 1,
   },
   "G2X" : {
     'slug': 'security-guard-2x',

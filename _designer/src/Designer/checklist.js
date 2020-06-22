@@ -7,6 +7,22 @@ class Checklist extends React.Component {
     return x ? "good" : "bad";
   }
 
+  // A utility method to stay DRY. Goes through the tallies and adds up counts
+  // according to the given subkey (e.g. guards, cash, locks)
+  //
+  countKeys(tallies, subkey){
+    const reducer = function(total, pair) {
+      const [tileKey, count] = pair
+      if(tileData[tileKey][subkey]){ // defined, not zero, etc.
+        return total + tileData[tileKey][subkey] * count
+      } else {
+        return total
+      }
+    }
+    return Object.entries(tallies).reduce(reducer, 0)
+  }
+
+  // is it a hex tile? i.e. not a gap or exits
   isTile(t) {
     return t !== 'GP'
         && t !== 'E1'
@@ -33,18 +49,19 @@ class Checklist extends React.Component {
   }
 
   lockdownGates(tallies){
-    let lockdownCorrect = tallies['GA'] === 1
-                       && tallies['GB'] === 1
-                       && tallies['GC'] === 1
-                       && tallies['GD'] === 1;
+    const n = tallies['GA']
+            + tallies['GB']
+            + tallies['GC']
+            + tallies['GD']
     return (
-      <div className={this.good(lockdownCorrect)}>
-        lockdown gates
+      <div className={this.good(n <= 4)}>
+        {n} lockdown gates
       </div>
     );
   }
 
-  numberOfTiles(tallies) {
+
+  numberOfHexTiles(tallies) {
     let numTiles = 0;
     for(let t in tallies){
       if(this.isTile(t)) {
@@ -81,68 +98,79 @@ class Checklist extends React.Component {
     );
   }
 
-  totalSecurityTiles(tallies){
-    let numTiles = tallies['SC']
-                 + tallies['GU']
-                 + tallies['LO']
-                 + tallies['CM'];
+  totalSecurity(tallies){
+    const n = this.countKeys(tallies, 'guards')
+              + this.countKeys(tallies, 'cameras')
+              + this.countKeys(tallies, 'locks')
+              + tallies['SC']
     return (
-      <div className={this.good(numTiles <= 32)}>
-        {numTiles} total security
+      <div className={this.good(n <= 32)}>
+        {n} total security
       </div>
     );
   }
 
   guards(tallies){
-    let numTiles = tallies['GU']
-                 + 2 * tallies['G2'];
+    const n = this.countKeys(tallies, 'guards')
+                   + parseInt(this.props.bag['guards'])
     return (
-      <div className={this.good(numTiles <= 32)}>
-        {numTiles} guards
+      <div className={this.good(n <= 25)}>
+        {n} guards
       </div>
     );
   }
 
   cameras(tallies){
-    let numTiles = tallies['CM']
-                 + 2* tallies['C2'];
+    const n = this.countKeys(tallies, 'cameras')
+                   + parseInt(this.props.bag['cameras'])
     return (
-      <div className={this.good(numTiles <= 15)}>
-        {numTiles} cameras
+      <div className={this.good(n <= 15)}>
+        {n} cameras
       </div>
     );
   }
 
   locks(tallies){
-    let numTiles = tallies['LO']
-                 + 2 * tallies['L2'];
+    const n = this.countKeys(tallies, 'locks')
+                   + parseInt(this.props.bag['locks'])
     return (
-      <div className={this.good(numTiles <= 10)}>
-        {numTiles} locks
+      <div className={this.good(n <= 10)}>
+        {n} locks
       </div>
     );
   }
 
   jewels(tallies){
-    let numTiles = tallies['JW'];
+    const n = tallies['JW']
+               + tallies['RXJ']
+               + tallies['RYJ']
     return (
-      <div className={this.good(numTiles <= 4)}>
-        {numTiles} jewels
+      <div className={this.good(n <= 4)}>
+        {n} jewels
       </div>
     );
   }
 
   cash(tallies){
-    let totalCash = tallies['$1']
-                  + 2 * tallies['$2']
-                  + 3 * tallies['$3'];
+    const t = this.countKeys(tallies, 'cash')
     return (
-      <div className={this.good(totalCash <= 15)}>
-        ${totalCash}k total cash
+      <div className={this.good(t <= 12)}>
+        ${t}k total cash
       </div>
     );
   }
 
+  bagSize(tallies){
+    const reducer = (total, count) => total + parseInt(count)
+    const n = Object.values(this.props.bag).reduce(reducer, 0)
+    return(
+      <div className={this.good(n >= tallies['SC'])}>
+        {n} chits in bag
+      </div>
+    )
+  }
+
+  // Count up the frequency of every hex tile
   tallyUp(){
     let tallies = {};
     for(let t in tileData) {
@@ -159,17 +187,17 @@ class Checklist extends React.Component {
     let tallies = this.tallyUp();
     return (
       <div className="statusbox">
-        { this.numberOfTiles(tallies) }
+        { this.numberOfHexTiles(tallies) }
         { this.numberOfExits(tallies) }
         { this.lockdownGates(tallies) }
         { this.unknownSecurityTiles(tallies) }
         { this.guards(tallies) }
         { this.cameras(tallies) }
         { this.locks(tallies) }
-        { this.unknownSecurityTiles(tallies) }
-        { this.totalSecurityTiles(tallies) }
+        { this.totalSecurity(tallies) }
         { this.jewels(tallies) }
         { this.cash(tallies) }
+        { this.bagSize(tallies)}
       </div>
     );
   }
