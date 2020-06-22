@@ -53,7 +53,7 @@ class Designer extends React.Component {
     if(save_parts.length < 4) { //legacy - no bag data
       guards = 0; cameras = 0; locks = 0; bagX = 250; bagY = 200
     }
-    if(save_parts.length == 0){ // legacy - no title data either
+    if(save_parts.length === 0){ // legacy - no title data either
       nameURI = ''; nameX = 0; nameY = 0
     }
     if(tile_str == null || tile_str.length === 0){ //decompressing went awry

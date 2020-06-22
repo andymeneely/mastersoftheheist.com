@@ -17,11 +17,10 @@ class SecurityBag extends React.Component {
     }
     return (
       <div className="bag-row">
-        <img src={imgDict[stateVal]}/>
+        <img src={imgDict[stateVal]} alt={stateVal}/>
         <input type="range" id={stateVal} name={stateVal}
                min="0" max="10" step="1"
                value={this.props.counts[stateVal]}
-               name={stateVal}
                onChange={this.props.onBagChange}
                />
              <span>{this.props.counts[stateVal]}</span>

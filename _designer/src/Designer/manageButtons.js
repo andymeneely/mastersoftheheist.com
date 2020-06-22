@@ -3,7 +3,7 @@ import React from 'react';
 class ManageButtons extends React.Component {
 
   titleTextUndo(){
-    if(this.props.undoHistory.length == 0) {
+    if(this.props.undoHistory.length === 0) {
       return 'Nothing to undo'
     } else {
       return `Undo ${this.props.lastAction}`
@@ -11,7 +11,7 @@ class ManageButtons extends React.Component {
   }
 
   titleTextRedo(){
-    return (this.props.redoHistory.length == 0) ? 'Nothing to redo' : 'Redo';
+    return (this.props.redoHistory.length === 0) ? 'Nothing to redo' : 'Redo';
   }
 
   render(){
