@@ -27,42 +27,39 @@ class Gallery extends React.Component {
     const data = [
         {
           name : 'The Backdoor Job',
-          savekey : 'The+Backdoor+Job|60|230|OIBQBKHpPXUNo+TIFEAsC0CYIEEwBlAYWXNLDQFkKyAZPAJQA0ApO4s1eSmrsPQDyAknko9OlJmmIsIeACR5JqMv2EDgAEXKSJAIQESUpvWf6qzktADYgA',
+          savekey : 'The+Backdoor+Job|60|230|0|0|0|250|200|OIBQBKHpPXUNo+TIFEAsC0CYIEEwBlAYWXNLDQFkKyAZPAJQA0ApO4s1eSmrsPQDyAknko9OlJmmIsIeACR5JqMv2EDgAEXKSJAIQESUpvWf6qzktADYgA',
           desc : 'Steal the Jewel. Needs a Special Event "Close the Gates!" at around the 12-15 mark.'
         }, {
           name : 'The Docks',
-          savekey : 'The+Docks|130|5|OIBQBKYKILIQIhckXPAKQOpgMoGElcD8jo4oBWQyE2g1atCAIULzgCUpSTZoqGWHgT4MGAEgBMjUsACCMseHEBGMEOD1wdMv0XK1JJfpPHQQA',
+          savekey : 'The+Docks|130|5|0|0|0|250|200|OIBQBKYKILIQIhckXPAKQOpgMoGElcD8jo4oBWQyE2g1atCAIULzgCUpSTZoqGWHgT4MGAEgBMjUsACCMseHEBGMEOD1wdMv0XK1JJfpPHQQA',
           desc : 'Steal 2 out of 3 jewels.'
         }, {
-
           name : 'The Crown Jewels',
-          savekey : 'The+Crown+Jewels|30|5|OIBQBKHpPXUNggJAJjMgjI+S-gGUBhCE4sc-FbAKQHUwj1KBBMAUQFkOBWHBLhAAiFEsABCoqVUj0plcACV2Hbuz4zwgyOV1jcBsHIVSs-Tf22GLkdthsggA',
+          savekey : 'The+Crown+Jewels|30|5|0|0|0|250|200|OIBQBKHpPXUNggJAJjMgjI+S-gGUBhCE4sc-FbAKQHUwj1KBBMAUQFkOBWHBLhAAiFEsABCoqVUj0plcACV2Hbuz4zwgyOV1jcBsHIVSs-Tf22GLkdthsggA',
           desc : 'Steal all 3 jewels.'
         }, {
           name : 'A Tough Prison Break',
-          savekey : 'Cell+Block+North|70|235|OIBQBKHpPXUNmAogZkfJyAsG8wFV9MilI0EBlAYTBolvqcdrOiPsk4EF8AhCEWQBWKq3idM4ScTrix+ACJzZAdQAqEAExgAMjuZgtwWvtlswAWVUJrtmxcdTzzpy6hA',
+          savekey : 'Cell+Block+North|70|235|0|0|0|250|200|OIBQBKHpPXUNmAogZkfJyAsG8wFV9MilI0EBlAYTBolvqcdrOiPsk4EF8AhCEWQBWKq3idM4ScTrix+ACJzZAdQAqEAExgAMjuZgtwWvtlswAWVUJrtmxcdTzzpy6hA',
           desc : 'Everyone must exit out a different door.'
         }, {
           name : 'The North Wing',
-          savekey : 'Museum:+North+Wing|85|250|OIBQBKYFIOpgygYQuJDmxVyPzACLoQCC2e5ZRaiATFcrpZpGmpMxY4wDJ0BKAUSJdOFVgwBClEZXERkbUZQEBZYagUMlM1dPACAbHqwCAjMZm4gA',
+          savekey : 'Museum:+North+Wing|85|250|0|0|0|250|200|OIBQBKYFIOpgygYQuJDmxVyPzACLoQCC2e5ZRaiATFcrpZpGmpMxY4wDJ0BKAUSJdOFVgwBClEZXERkbUZQEBZYagUMlM1dPACAbHqwCAjMZm4gA',
           desc : 'Steal 3 jewels.'
         }, {
           name : 'The Exhibition Floor',
-          savekey : 'The+Exhibition+Floor|55|5|OIBQBKHpPXUNo8BBFywoBIaZAygMJhFgBKAGgLInGn0UYp3EECaCpe89r8SXHsRTBa5RigAy5DqRT4MAJmB9c-cMukEWajLwwBRGt11GEBgIy6TkAwDYoQA',
+          savekey : 'The+Exhibition+Floor|55|5|0|0|0|250|200|OIBQBKHpPXUNo8BBFywoBIaZAygMJhFgBKAGgLInGn0UYp3EECaCpe89r8SXHsRTBa5RigAy5DqRT4MAJmB9c-cMukEWajLwwBRGt11GEBgIy6TkAwDYoQA',
           desc : 'Steal as many paintings as you want. NPC is a Guide.'
         }, {
           name : 'The Courtyard',
-          savekey : 'The+Courtyard|120|230|OIBQBKHpDKAaVGWdVYYGEICF1c3oSkuAQcceWmVgKICyitAzIlSWACSvu0BsTRsABMHWPiwVqktBQCChchKKzpEACKKZY1YgBKcAFI6TU07tBA',
+          savekey : 'The+Courtyard|120|230|0|0|0|250|200|OIBQBKHpDKAaVGWdVYYGEICF1c3oSkuAQcceWmVgKICyitAzIlSWACSvu0BsTRsABMHWPiwVqktBQCChchKKzpEACKKZY1YgBKcAFI6TU07tBA',
           desc : 'Steal the jewel.'
         }, {
           name : 'High Security',
-          savekey :
-          'The+Jeweler+Keep|55|5|OIBQBKHpPXUNmAygTTAJVQKRQYQgBFF4lkCyCtckkMANAWQXJLcleAM4EF8V6CAKIAmMEOaUEAGTGz24VkoIB1ACr9O8CfwAkY4ACEw+-jqRCAjAptCAbEA',
+          savekey : 'The+Jeweler+Keep|55|5|0|0|0|250|200|OIBQBKHpPXUNmAygTTAJVQKRQYQgBFF4lkCyCtckkMANAWQXJLcleAM4EF8V6CAKIAmMEOaUEAGTGz24VkoIB1ACr9O8CfwAkY4ACEw+-jqRCAjAptCAbEA',
           desc : 'Steal both jewels. The NPC is a prisoner.'
         }, {
           name : 'Junkyard',
-          savekey :
-          'Junkyard|-5|160|OIBQBKHpkCQExSTa4BSB1MBhAsmAZWzACUANNMAEQHllUkAZRSIsTQ4lJNtmK4FR5cGrMpzDxGQ+IImtiAQUX1hpAKKTgxPqL0T42RhN2rup3gE0z+yOoBsYdQEYbQA',
+          savekey : 'Junkyard|-5|160|0|0|0|250|200|OIBQBKHpkCQExSTa4BSB1MBhAsmAZWzACUANNMAEQHllUkAZRSIsTQ4lJNtmK4FR5cGrMpzDxGQ+IImtiAQUX1hpAKKTgxPqL0T42RhN2rup3gE0z+yOoBsYdQEYbQA',
           desc : 'Steal two jewels.'
         }
     ]
