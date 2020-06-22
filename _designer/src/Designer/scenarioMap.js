@@ -36,6 +36,37 @@ class ScenarioMap extends React.Component {
     );
   }
 
+  renderSecurityBag(){
+    const x_0 = this.props.bagX
+    const y_0 = this.props.bagY
+    const h = 7
+    const gap = 2
+    const radius = 1
+    const w_each = h
+    const logoH = h + gap
+    var i = 0
+    var rows = []
+    for(var bagRow in this.props.bag) {
+      const n = this.props.bag[bagRow]
+      const y = y_0 + i * (h + gap)
+      const w = w_each * n
+      if(n > 0){
+        rows.push(
+          <g id="bagRow">
+            <rect x={x_0} y={y - 1} width={logoH} height={logoH} fill={`url(#bag${bagRow})`}/>
+            <rect x={x_0 + logoH} y={y} width={w} height={h} rx={radius} ry={radius} />
+            <text x={x_0 + w + gap + logoH} y={y + h}
+              className="bagNum"
+              fontFamily="Archivo Narrow" fontSize={h + gap}
+              fill="black">{n}</text>
+          </g>
+        )
+        i = i + 1
+      }
+    }
+    return (<g id="bag">{rows}</g>)
+  }
+
   createPatterns(){
     var defs = [];
     for(var t in tileData) {
@@ -48,11 +79,30 @@ class ScenarioMap extends React.Component {
           height="120%"
           viewBox="0 0 150 150"
           dangerouslySetInnerHTML={{__html: tileData[t]['svgstr'].default}}
-          key={`pattern-${t}`}
-        >
-        </pattern>
+          key={`pattern-${t}`} />
       )
     }
+    defs.push(
+      <pattern id="bagguards" key="bagguards" patternUnits="objectBoundingBox"
+               x="-10%" y="-10%" width="120%" height="120%" viewBox="0 0 72 72"
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/guard.svg`).default
+               }} />
+    )
+    defs.push(
+      <pattern id="baglocks" key="baglocks" patternUnits="objectBoundingBox"
+               x="-10%" y="-10%" width="120%" height="120%" viewBox="0 0 72 72"
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/locked.svg`).default
+               }} />
+    )
+    defs.push(
+      <pattern id="bagcameras" key="bagcameras" patternUnits="objectBoundingBox"
+               x="-10%" y="-10%" width="120%" height="120%" viewBox="0 0 72 72"
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/camera.svg`).default
+               }} />
+    )
     return (<defs>{defs}</defs>)
   }
 
@@ -73,6 +123,7 @@ class ScenarioMap extends React.Component {
                   origin={{x: 0, y: 0}}>
             { hexagons.map((hex, i) => this.renderHexagon(hex, i))}
             { this.renderScenarioName() }
+            { this.renderSecurityBag() }
             { this.createPatterns() }
           </Layout>
         </HexGrid>

@@ -295,4 +295,18 @@ label {
     font-size: 75%;
     overflow: hidden;
   }
+
+  .security-bag{
+    text-align: center;
+    .bag-row img {
+      width: 1.5em;
+    }
+    .bag-row input{
+    }
+    button {
+      width: 1em;
+      img { height: 0.65em; }
+    }
+
+  }
 }

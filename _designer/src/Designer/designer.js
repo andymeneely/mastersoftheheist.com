@@ -8,6 +8,7 @@ import StatusBar from './statusBar';
 import Namer from './namer';
 import Tilebox from './tilebox';
 import Gallery from './gallery';
+import SecurityBag from './securityBag';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import {compressToEncodedURIComponent as compress} from 'lz-string';
 import {saveSvgAsPng} from 'save-svg-as-png';
@@ -31,7 +32,14 @@ class Designer extends React.Component {
       hoverHex: '',
       name: '',
       nameX: 0,
-      nameY: 0
+      nameY: 0,
+      bag: {
+        guards: 5,
+        cameras: 4,
+        locks: 3,
+      },
+      bagX: 250,
+      bagY: 200,
     };
   }
 
@@ -61,7 +69,14 @@ class Designer extends React.Component {
       hoverHex: '',
       name: this.scrub(nameURI.replace(/\+/g,' ')),
       nameX: parseInt(nameX),
-      nameY: parseInt(nameY)
+      nameY: parseInt(nameY),
+      bag: {
+        locks: 3,
+        cameras: 4,
+        guards: 5,
+      },
+      bagX: 0,
+      bagY: 150,
     };
   }
 
@@ -357,6 +372,33 @@ class Designer extends React.Component {
     });
   }
 
+  onNudgeBag(dir, e){
+    const delta = e.ctrlKey ? 25 : 5
+    this.setState((state, props) => {
+      let bagX = state.bagX;
+      let bagY = state.bagY;
+      switch(dir){
+        case 'up': bagY-=delta; break;
+        case 'down': bagY+=delta; break;
+        case 'left': bagX-=delta; break;
+        case 'right': bagX+=delta; break;
+        default: break;
+      }
+      return {
+        bagX: bagX,
+        bagY: bagY
+      }
+    });
+  }
+
+  onBagChange(e){
+    const newBag = this.state.bag
+    newBag[e.target.name] = e.target.value
+    this.setState({
+      bag: newBag
+    })
+  }
+
   render() {
     return (
       <div className="designer">
@@ -371,6 +413,9 @@ class Designer extends React.Component {
                          showGrid={this.state.showGrid}
                          onHexClick={(e) => this.onHexClick(e)}
                          onHoverHex={(e) => this.onHoverHex(e)}
+                         bag={this.state.bag}
+                         bagX={this.state.bagX}
+                         bagY={this.state.bagY}
                          name={this.state.name}
                          nameX={this.state.nameX}
                          nameY={this.state.nameY}
@@ -399,6 +444,12 @@ class Designer extends React.Component {
                    name={this.state.name}
                    />
             <ShiftTools onShiftClick={(e) => this.onShiftClick(e)}/>
+            <SecurityBag counts={this.state.bag}
+                         x={this.state.bagX}
+                         y={this.state.bagY}
+                         onBagChange={(e) => this.onBagChange(e)}
+                         onNudgeBag={(dir, e) => this.onNudgeBag(dir, e)}
+                         />
             <Checklist tiles={this.state.tiles}/>
             <Gallery onGalleryClick={(e) => this.onGalleryClick(e)}/>
           </div>
