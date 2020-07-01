@@ -39,7 +39,7 @@ class ScenarioMap extends React.Component {
   renderSecurityBag(){
     const x_0 = this.props.bagX
     const y_0 = this.props.bagY
-    const h = 7
+    const h = 9
     const gap = 2
     const radius = 1
     const w_each = h
