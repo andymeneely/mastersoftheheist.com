@@ -11,6 +11,17 @@ h1{
   text-align: center;
 }
 
+h2{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.6em;
+}
+
+h3{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.2em;
+  text-align: left;
+}
+
 #logo{
   display: block;
   text-indent: -9999px;
@@ -68,10 +79,7 @@ h1{
   fill: #282828 !important;
 }
 
-h2{
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 1.6em;
-}
+
 
 .col-fat{
   margin-top: 2%;
@@ -111,8 +119,13 @@ footer{
   margin-bottom: 10px;
 }
 
+
 .heist-buttons a{
-  min-width: 100%;
+  /* margin: 0.5em; */
+  display: inline-block;
+  font-size: 125%;
+  text-align: center;
+  font-family: 'Archivo Black'
 }
 
 .maker img{
