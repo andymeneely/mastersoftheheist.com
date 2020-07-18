@@ -6,6 +6,7 @@ import UpLogo from './img/up.svg';
 import DownLogo from './img/down.svg';
 import LeftLogo from './img/left.svg';
 import RightLogo from './img/right.svg';
+import SecurityBagLogo from './img/security_bag.svg';
 
 class SecurityBag extends React.Component {
 
@@ -39,6 +40,7 @@ class SecurityBag extends React.Component {
   render() {
     return (
       <div className="security-bag">
+        <img src={SecurityBagLogo} alt={"Security Bag"} class="logo"/>
         { this.bagRow("guards") }
         { this.bagRow("cameras") }
         { this.bagRow("locks") }
@@ -46,6 +48,7 @@ class SecurityBag extends React.Component {
         { this.nudgeBag("up", UpLogo) }
         { this.nudgeBag("down", DownLogo) }
         { this.nudgeBag("right", RightLogo) }
+
       </div>
     );
   }

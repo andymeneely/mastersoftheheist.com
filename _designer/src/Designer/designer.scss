@@ -298,6 +298,7 @@ label {
 
   .security-bag{
     text-align: center;
+    display: inline-block;
     .bag-row img {
       width: 1.5em;
     }
@@ -307,6 +308,8 @@ label {
       width: 1em;
       img { height: 0.65em; }
     }
-
+    .logo {
+      width: 1em;
+    }
   }
 }

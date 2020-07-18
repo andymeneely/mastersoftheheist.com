@@ -64,7 +64,19 @@ class ScenarioMap extends React.Component {
         i = i + 1
       }
     }
-    return (<g id="bag">{rows}</g>)
+    if(rows.length > 0){
+      const logo_size = rows.length * logoH
+      rows.push(
+        <rect x={x_0 - logo_size/1.3} y={y_0}
+              width={logo_size} height={logo_size}
+              fill={`url(#baglogo)`}/>
+      )
+    }
+    return (
+      <g id="bag">
+        {rows}
+      </g>
+    )
   }
 
   createPatterns(){
@@ -101,6 +113,13 @@ class ScenarioMap extends React.Component {
                x="-10%" y="-10%" width="120%" height="120%" viewBox="0 0 72 72"
                dangerouslySetInnerHTML={{
                  __html: require(`!!raw-loader!./img/camera.svg`).default
+               }} />
+    )
+    defs.push(
+      <pattern id="baglogo" key="baglogo" patternUnits="objectBoundingBox"
+               x="0" y="0" width="120%" height="120%" viewBox="0 0 300 300"
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/security_bag.svg`).default
                }} />
     )
     return (<defs>{defs}</defs>)
