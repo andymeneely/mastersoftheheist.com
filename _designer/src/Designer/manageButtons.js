@@ -46,8 +46,15 @@ class ManageButtons extends React.Component {
           <input type="checkbox"
                  checked={this.props.showGrid}
                  onChange={this.props.onShowGridClick} />
-          Show Grid
+          Grid
         </label>
+        <select value={this.props.difficulty}
+                title='Difficulty'
+                onChange={this.props.changeDifficulty}>
+          <option value="A">Amateur</option>
+          <option value="S">Semi-Pro</option>
+          <option value="P">Pro</option>
+        </select>
       </div>
     );
   }

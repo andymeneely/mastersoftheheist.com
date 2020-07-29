@@ -159,12 +159,21 @@ label {
       width: 50%;
 
     }
+    select {
+      border-radius: 0.5em;
+      width: 50%;
+      cursor: pointer;
+      margin-left: 0.5em;
+      text-align: center;
+      option{
+      }
+    }
     label {
       cursor: pointer;
       text-align: center;
       border: 1px solid #a5a5a5;
       border-radius: 0.5em;
-      padding: 0.5em;
+      padding: 0.25em;
       margin-bottom: 0.15em;
       input {
         cursor: pointer;
@@ -310,6 +319,31 @@ label {
     }
     .logo {
       width: 1em;
+    }
+  }
+
+  .events {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 100%;
+    max-width: 10em;
+    margin-bottom: 0.25em;
+    text-align: center;
+    input {
+      width: calc(100% - 5em);
+      max-height: 1em;
+      font-size: 100%;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+    }
+
+    button {
+      width: 1em;
+
+      img {
+        height: 0.65em;
+      }
     }
   }
 }

@@ -40,7 +40,7 @@ class SecurityBag extends React.Component {
   render() {
     return (
       <div className="security-bag">
-        <img src={SecurityBagLogo} alt={"Security Bag"} class="logo"/>
+        <img src={SecurityBagLogo} alt={"Security Bag"} className="logo"/>
         { this.bagRow("guards") }
         { this.bagRow("cameras") }
         { this.bagRow("locks") }

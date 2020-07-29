@@ -36,6 +36,47 @@ class ScenarioMap extends React.Component {
     );
   }
 
+  renderEventString(){
+    var items = []
+    if(this.props.eventStr.length > 0){
+      items.push(
+        <rect
+          key="eventLogoRect"
+          x={this.props.eventX - 33}
+          y={this.props.eventY - 13}
+          width={30} height={30}
+          fill={`url(#eventsLogo)`}/>
+      )
+      items.push(
+        <text
+          key="eventLogoText"
+          x={this.props.eventX}
+          y={this.props.eventY}
+          className="events"
+          fontFamily="Archivo Narrow"
+          fontSize="10"
+          >{this.props.eventStr}</text>
+      )
+    }
+    return (<g>{items}</g>)
+  }
+
+  renderDifficulty(){
+    const logo = {
+      'A':"url(#amateurLogo)",
+      'S':"url(#semiproLogo)",
+      'P':"url(#proLogo)",
+    }
+    return (
+      <rect
+        key="difficulty"
+        x='300'
+        y='-15'
+        width={30} height={30}
+        fill={logo[this.props.difficulty]}/>
+    )
+  }
+
   renderSecurityBag(){
     const x_0 = this.props.bagX
     const y_0 = this.props.bagY
@@ -53,8 +94,8 @@ class ScenarioMap extends React.Component {
       if(n > 0){
         rows.push(
           <g id="bagRow" key={`bagRow${i}`}>
-            <rect x={x_0} y={y - 1} width={logoH} height={logoH} fill={`url(#bag${bagRow})`}/>
-            <rect x={x_0 + logoH} y={y} width={w} height={h} rx={radius} ry={radius} />
+            <rect x={x_0}         y={y - 1} width={logoH} height={logoH} fill={`url(#bag${bagRow})`}/>
+            <rect x={x_0 + logoH} y={y}     width={w}     height={h} rx={radius} ry={radius} />
             <text x={x_0 + w + gap + logoH} y={y + h}
               className="bagNum"
               fontFamily="Archivo Narrow" fontSize={h + gap}
@@ -67,8 +108,9 @@ class ScenarioMap extends React.Component {
     if(rows.length > 0){
       const logo_size = rows.length * logoH
       rows.push(
-        <rect x={x_0 - logo_size/1.3} y={y_0}
+        <rect x={x_0 - logo_size/1.3}  y={y_0}
               width={logo_size} height={logo_size}
+              key="bagLogoRect"
               fill={`url(#baglogo)`}/>
       )
     }
@@ -122,6 +164,34 @@ class ScenarioMap extends React.Component {
                  __html: require(`!!raw-loader!./img/security_bag.svg`).default
                }} />
     )
+    defs.push(
+      <pattern id="eventsLogo" key="eventsLogo" patternUnits="objectBoundingBox"
+               x="0" y="0" width="101%" height="101%" viewBox="0 0 300 300"
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/events_logo.svg`).default
+               }} />
+    )
+    defs.push(
+      <pattern id="amateurLogo" key="amateurLogo" patternUnits="objectBoundingBox"
+               x="0" y="0" width="101%" height="101%" viewBox="0 0 250 400"
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/amateur.svg`).default
+               }} />
+    )
+    defs.push(
+      <pattern id="semiproLogo" key="semiproLogo" patternUnits="objectBoundingBox"
+               x="0" y="0" width="101%" height="101%" viewBox="0 0 250 400"
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/semi-pro.svg`).default
+               }} />
+    )
+    defs.push(
+      <pattern id="proLogo" key="proLogo" patternUnits="objectBoundingBox"
+               x="0" y="0" width="101%" height="101%" viewBox="0 0 250 400"
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/pro.svg`).default
+               }} />
+    )
     return (<defs>{defs}</defs>)
   }
 
@@ -143,6 +213,8 @@ class ScenarioMap extends React.Component {
             { hexagons.map((hex, i) => this.renderHexagon(hex, i))}
             { this.renderScenarioName() }
             { this.renderSecurityBag() }
+            { this.renderEventString() }
+            { this.renderDifficulty() }
             { this.createPatterns() }
           </Layout>
         </HexGrid>

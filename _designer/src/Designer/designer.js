@@ -9,6 +9,7 @@ import Namer from './namer';
 import Tilebox from './tilebox';
 import Gallery from './gallery';
 import SecurityBag from './securityBag';
+import Events from './events';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import {compressToEncodedURIComponent as compress} from 'lz-string';
 import {saveSvgAsPng} from 'save-svg-as-png';
@@ -40,6 +41,10 @@ class Designer extends React.Component {
       },
       bagX: 250,
       bagY: 200,
+      eventStr: '',
+      eventX: 100,
+      eventY: 250,
+      difficulty: 'A'
     };
   }
 
@@ -49,11 +54,14 @@ class Designer extends React.Component {
     }
     let save_parts = savekey.split('|')
     let tile_str = decompress(save_parts.pop()) // tilestr always at the last
-    var [nameURI, nameX, nameY, guards, cameras, locks, bagX, bagY] = save_parts
+    var [nameURI, nameX, nameY, guards, cameras, locks, bagX, bagY, eventStr, eventX, eventY, difficulty] = save_parts
     if(save_parts.length < 4) { //legacy - no bag data
       guards = 0; cameras = 0; locks = 0; bagX = 250; bagY = 200
     }
-    if(save_parts.length === 0){ // legacy - no title data either
+    if(save_parts.length < 9) { //legacy - no events, difficulty
+      eventStr = ''; eventX = 50; eventY = 200; difficulty = 'A'
+    }
+    if(save_parts.length === 0){ // legacy - no title data
       nameURI = ''; nameX = 0; nameY = 0
     }
     if(tile_str == null || tile_str.length === 0){ //decompressing went awry
@@ -78,6 +86,10 @@ class Designer extends React.Component {
       },
       bagX: parseInt(bagX),
       bagY: parseInt(bagY),
+      eventStr: this.scrubEvents(eventStr),
+      eventX: parseInt(eventX),
+      eventY: parseInt(eventY),
+      difficulty: this.scrubDifficulty(difficulty)
     };
   }
 
@@ -97,6 +109,14 @@ class Designer extends React.Component {
     savekey += this.state.bagX;
     savekey += '|';
     savekey += this.state.bagY;
+    savekey += '|';
+    savekey += this.state.eventStr;
+    savekey += '|';
+    savekey += this.state.eventX;
+    savekey += '|';
+    savekey += this.state.eventY;
+    savekey += '|';
+    savekey += this.state.difficulty;
     savekey += '|';
     if(compressKey) {
       savekey += compress(this.state.tiles.join(' '));
@@ -364,6 +384,16 @@ class Designer extends React.Component {
     });
   }
 
+  scrubEvents(str){
+    return str.replace(/[^a-zA-Z0-9\-,']/g,'').substring(0, 40);
+  }
+
+  onEventsChange(e){
+    this.setState({
+      eventStr: this.scrubEvents(e.target.value),
+    });
+  }
+
   onNudgeName(dir, e){
     const delta = e.ctrlKey ? 25 : 5
     let nameX = this.state.nameX
@@ -398,11 +428,41 @@ class Designer extends React.Component {
     });
   }
 
+  onNudgeEvents(dir, e){
+    console.log('he')
+    const delta = e.ctrlKey ? 25 : 5
+    let eventX = this.state.eventX;
+    let eventY = this.state.eventY;
+    switch(dir){
+      case 'up': eventY-=delta; break;
+      case 'down': eventY+=delta; break;
+      case 'left': eventX-=delta; break;
+      case 'right': eventX+=delta; break;
+      default: break;
+    }
+    this.setState({
+      eventX: eventX,
+      eventY: eventY,
+    });
+  }
+
   onBagChange(e){
     const newBag = this.state.bag
     newBag[e.target.name] = e.target.value
     this.setState({
       bag: newBag
+    })
+  }
+
+  scrubDifficulty(str) {
+    let d = str.replace(/[^ASP]/g,'')
+    d = (d.length === 0) ? 'A' : d
+    return d;
+  }
+
+  changeDifficulty(e){
+    this.setState({
+      difficulty: this.scrubDifficulty(e.target.value)
     })
   }
 
@@ -426,6 +486,10 @@ class Designer extends React.Component {
                          name={this.state.name}
                          nameX={this.state.nameX}
                          nameY={this.state.nameY}
+                         eventStr={this.state.eventStr}
+                         eventX={this.state.eventX}
+                         eventY={this.state.eventY}
+                         difficulty={this.state.difficulty}
                          />
             <StatusBar lastAction={this.state.lastAction}
                        hoverHex={this.state.hoverHex}
@@ -437,6 +501,7 @@ class Designer extends React.Component {
                            onSaveClick={(e) => this.onSaveClick(e)}
                            onSavePNGClick={(e) => this.onSavePNGClick(e)}
                            onShowGridClick={(e) => this.onShowGridClick(e)}
+                           changeDifficulty={(e) => this.changeDifficulty(e)}
                            showGrid={this.state.showGrid}
                            onUndoClick={(e) => this.onUndoClick(e)}
                            undoHistory={this.state.undoHistory}
@@ -445,6 +510,7 @@ class Designer extends React.Component {
                            onExpand={(e) => this.onExpand(e)}
                            onShrink={(e) => this.onShrink(e)}
                            lastAction={this.state.lastAction}
+                           difficulty={this.state.difficulty}
                            />
             <Namer onNameChange={(e) => this.onNameChange(e)}
                    onNudgeName={(dir, e) => this.onNudgeName(dir, e)}
@@ -452,10 +518,11 @@ class Designer extends React.Component {
                    />
             <ShiftTools onShiftClick={(e) => this.onShiftClick(e)}/>
             <SecurityBag counts={this.state.bag}
-                         x={this.state.bagX}
-                         y={this.state.bagY}
                          onBagChange={(e) => this.onBagChange(e)}
                          onNudgeBag={(dir, e) => this.onNudgeBag(dir, e)}/>
+            <Events eventStr={this.state.eventStr}
+                    onEventsChange={(e) => this.onEventsChange(e)}
+                    onNudgeEvents={(dir, e) => this.onNudgeEvents(dir, e)} />
             <Checklist tiles={this.state.tiles}
                        bag={this.state.bag} />
             <Gallery onGalleryClick={(e) => this.onGalleryClick(e)}/>
