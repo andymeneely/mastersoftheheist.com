@@ -308,17 +308,17 @@ label {
   .security-bag{
     text-align: center;
     display: inline-block;
-    .bag-row img {
-      width: 1.5em;
-    }
-    .bag-row input{
+    .bag-row{
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      img { width: 1.2em; }
+      span { width: 1em; display: inline-block;}
+      input[type=range] { width: calc(100% - 3em;); }
     }
     button {
       width: 1em;
       img { height: 0.65em; }
-    }
-    .logo {
-      width: 1em;
     }
   }
 

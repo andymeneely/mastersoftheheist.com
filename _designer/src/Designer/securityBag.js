@@ -2,11 +2,16 @@ import React from 'react';
 import GuardImg from './img/guard.svg'
 import CameraImg from './img/camera.svg'
 import LockImg from './img/locked.svg'
+import JewelImg from './img/jewel.svg'
+import KeycardImg from './img/keycard.svg'
+import GuardDogImg from './img/guard-dog.svg'
+import DocsImg from './img/folder.svg'
+import USBKeyImg from './img/usb-key.svg'
+
 import UpLogo from './img/up.svg';
 import DownLogo from './img/down.svg';
 import LeftLogo from './img/left.svg';
 import RightLogo from './img/right.svg';
-import SecurityBagLogo from './img/security_bag.svg';
 
 class SecurityBag extends React.Component {
 
@@ -15,16 +20,31 @@ class SecurityBag extends React.Component {
       "guards": GuardImg,
       "locks": LockImg,
       "cameras": CameraImg,
+      "jewel": JewelImg,
+      "keycard": KeycardImg,
+      "dog": GuardDogImg,
+      "docs": DocsImg,
+      "usb": USBKeyImg,
+    }
+    var maxRange = {
+      "guards": 14,
+      "locks": 12,
+      "cameras": 12,
+      "jewel": 4,
+      "keycard": 1,
+      "dog": 6,
+      "docs": 4,
+      "usb": 1,
     }
     return (
       <div className="bag-row">
         <img src={imgDict[stateVal]} alt={stateVal}/>
         <input type="range" id={stateVal} name={stateVal}
-               min="0" max="10" step="1"
+               min="0" max={maxRange[stateVal]} step="1"
                value={this.props.counts[stateVal]}
                onChange={this.props.onBagChange}
                />
-             <span>{this.props.counts[stateVal]}</span>
+        <span>{this.props.counts[stateVal]}</span>
       </div>
     )
   }
@@ -40,10 +60,14 @@ class SecurityBag extends React.Component {
   render() {
     return (
       <div className="security-bag">
-        <img src={SecurityBagLogo} alt={"Security Bag"} className="logo"/>
         { this.bagRow("guards") }
         { this.bagRow("cameras") }
         { this.bagRow("locks") }
+        { this.bagRow("jewel") }
+        { this.bagRow("keycard") }
+        { this.bagRow("dog") }
+        { this.bagRow("docs") }
+        { this.bagRow("usb") }
         { this.nudgeBag("left", LeftLogo) }
         { this.nudgeBag("up", UpLogo) }
         { this.nudgeBag("down", DownLogo) }

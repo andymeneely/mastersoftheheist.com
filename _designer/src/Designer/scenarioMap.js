@@ -121,6 +121,16 @@ class ScenarioMap extends React.Component {
     )
   }
 
+  svgPattern(id, viewBox, filename){
+    return (
+      <pattern id={id} key={id} patternUnits="objectBoundingBox"
+               x="0" y="0" width="101%" height="101%" viewBox={viewBox}
+               dangerouslySetInnerHTML={{
+                 __html: require(`!!raw-loader!./img/${filename}.svg`).default
+               }} />
+    )
+  }
+
   createPatterns(){
     var defs = [];
     for(var t in tileData) {
@@ -136,62 +146,19 @@ class ScenarioMap extends React.Component {
           key={`pattern-${t}`} />
       )
     }
-    defs.push(
-      <pattern id="bagguards" key="bagguards" patternUnits="objectBoundingBox"
-               x="-10%" y="-10%" width="120%" height="120%" viewBox="0 0 72 72"
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/guard.svg`).default
-               }} />
-    )
-    defs.push(
-      <pattern id="baglocks" key="baglocks" patternUnits="objectBoundingBox"
-               x="-10%" y="-10%" width="120%" height="120%" viewBox="0 0 72 72"
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/locked.svg`).default
-               }} />
-    )
-    defs.push(
-      <pattern id="bagcameras" key="bagcameras" patternUnits="objectBoundingBox"
-               x="-10%" y="-10%" width="120%" height="120%" viewBox="0 0 72 72"
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/camera.svg`).default
-               }} />
-    )
-    defs.push(
-      <pattern id="baglogo" key="baglogo" patternUnits="objectBoundingBox"
-               x="0" y="0" width="120%" height="120%" viewBox="0 0 300 300"
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/security_bag.svg`).default
-               }} />
-    )
-    defs.push(
-      <pattern id="eventsLogo" key="eventsLogo" patternUnits="objectBoundingBox"
-               x="0" y="0" width="101%" height="101%" viewBox="0 0 300 300"
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/events_logo.svg`).default
-               }} />
-    )
-    defs.push(
-      <pattern id="amateurLogo" key="amateurLogo" patternUnits="objectBoundingBox"
-               x="0" y="0" width="101%" height="101%" viewBox="0 0 250 400"
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/amateur.svg`).default
-               }} />
-    )
-    defs.push(
-      <pattern id="semiproLogo" key="semiproLogo" patternUnits="objectBoundingBox"
-               x="0" y="0" width="101%" height="101%" viewBox="0 0 250 400"
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/semi-pro.svg`).default
-               }} />
-    )
-    defs.push(
-      <pattern id="proLogo" key="proLogo" patternUnits="objectBoundingBox"
-               x="0" y="0" width="101%" height="101%" viewBox="0 0 250 400"
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/pro.svg`).default
-               }} />
-    )
+    defs.push(this.svgPattern('bagguards', "0 0 72 72", 'guard'))
+    defs.push(this.svgPattern("bagcameras", "0 0 72 72", "camera"))
+    defs.push(this.svgPattern("baglocks", "0 0 72 72", "locked"))
+    defs.push(this.svgPattern("bagjewel", "0 0 72 72", "jewel"))
+    defs.push(this.svgPattern("bagkeycard", "0 0 72 72", "keycard"))
+    defs.push(this.svgPattern("bagdog", "0 0 72 72", "guard-dog"))
+    defs.push(this.svgPattern("bagdocs", "0 0 72 72", "folder"))
+    defs.push(this.svgPattern("bagusb", "0 0 72 72", "usb-key"))
+    defs.push(this.svgPattern("baglogo", "0 0 300 300", "security_bag"))
+    defs.push(this.svgPattern("eventsLogo", "0 0 300 300", "events_logo"))
+    defs.push(this.svgPattern("amateurLogo", "0 0 250 400", "amateur"))
+    defs.push(this.svgPattern("semiproLogo", "0 0 250 400", "semi-pro"))
+    defs.push(this.svgPattern("proLogo", "0 0 250 400", "pro"))
     return (<defs>{defs}</defs>)
   }
 

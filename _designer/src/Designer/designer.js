@@ -38,6 +38,11 @@ class Designer extends React.Component {
         guards: 0,
         cameras: 0,
         locks: 0,
+        jewel: 0,
+        keycard: 0,
+        dog: 0,
+        docs: 0,
+        usb: 0,
       },
       bagX: 250,
       bagY: 200,
@@ -54,15 +59,18 @@ class Designer extends React.Component {
     }
     let save_parts = savekey.split('|')
     let tile_str = decompress(save_parts.pop()) // tilestr always at the last
-    var [nameURI, nameX, nameY, guards, cameras, locks, bagX, bagY, eventStr, eventX, eventY, difficulty] = save_parts
+    var [nameURI, nameX, nameY,
+         guards, cameras, locks, jewel, keycard, dog, docs, usb, bagX, bagY,
+         eventStr, eventX, eventY, difficulty] = save_parts
+    if(save_parts.length === 0){ // legacy - no title data
+      nameURI = ''; nameX = 0; nameY = 0
+    }
     if(save_parts.length < 4) { //legacy - no bag data
       guards = 0; cameras = 0; locks = 0; bagX = 250; bagY = 200
     }
-    if(save_parts.length < 9) { //legacy - no events, difficulty
+    if(save_parts.length < 12) { //legacy - no events, difficulty, extra bag
       eventStr = ''; eventX = 50; eventY = 200; difficulty = 'A'
-    }
-    if(save_parts.length === 0){ // legacy - no title data
-      nameURI = ''; nameX = 0; nameY = 0
+      jewel = 0; keycard = 0; dog = 0; docs = 0; usb = 0
     }
     if(tile_str == null || tile_str.length === 0){ //decompressing went awry
       console.log(`Savekey ${savekey} failed to decompress properly.`)
@@ -83,6 +91,11 @@ class Designer extends React.Component {
         guards: guards,
         cameras: cameras,
         locks: locks,
+        jewel: jewel,
+        keycard: keycard,
+        dog: dog,
+        docs: docs,
+        usb: usb,
       },
       bagX: parseInt(bagX),
       bagY: parseInt(bagY),
@@ -105,6 +118,16 @@ class Designer extends React.Component {
     savekey += this.state.bag.cameras;
     savekey += '|';
     savekey += this.state.bag.locks;
+    savekey += '|';
+    savekey += this.state.bag.jewel;
+    savekey += '|';
+    savekey += this.state.bag.keycard;
+    savekey += '|';
+    savekey += this.state.bag.dog;
+    savekey += '|';
+    savekey += this.state.bag.docs;
+    savekey += '|';
+    savekey += this.state.bag.usb;
     savekey += '|';
     savekey += this.state.bagX;
     savekey += '|';
