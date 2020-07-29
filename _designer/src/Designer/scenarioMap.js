@@ -83,7 +83,7 @@ class ScenarioMap extends React.Component {
     const h = 9
     const gap = 2
     const radius = 1
-    const w_each = h
+    const w_each = h * 0.85
     const logoH = h + gap
     var i = 0
     var rows = []
@@ -108,7 +108,7 @@ class ScenarioMap extends React.Component {
     if(rows.length > 0){
       const logo_size = rows.length * logoH
       rows.push(
-        <rect x={x_0 - logo_size/1.3}  y={y_0}
+        <rect x={x_0 - logo_size/1.5}  y={y_0}
               width={logo_size} height={logo_size}
               key="bagLogoRect"
               fill={`url(#baglogo)`}/>
@@ -122,13 +122,12 @@ class ScenarioMap extends React.Component {
   }
 
   svgPattern(id, viewBox, filename){
-    return (
-      <pattern id={id} key={id} patternUnits="objectBoundingBox"
-               x="0" y="0" width="101%" height="101%" viewBox={viewBox}
-               dangerouslySetInnerHTML={{
-                 __html: require(`!!raw-loader!./img/${filename}.svg`).default
-               }} />
-    )
+    return (<pattern
+              id={id} key={id} patternUnits="objectBoundingBox"
+              x="0" y="0" width="101%" height="101%" viewBox={viewBox}
+              dangerouslySetInnerHTML={{
+                __html: require(`!!raw-loader!./img/${filename}.svg`).default
+    }} />)
   }
 
   createPatterns(){
