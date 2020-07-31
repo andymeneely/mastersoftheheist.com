@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 71.999998 71.999998"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="usb-key.svg"
+   width="0.75in"
+   height="0.75in"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview8"
+     showgrid="false"
+     units="in"
+     inkscape:zoom="6.8445727"
+     inkscape:cx="94.488858"
+     inkscape:cy="102.27492"
+     inkscape:current-layer="svg6" />
+  <path
+     fill="#ffffff"
+     d="m 57.720013,1.1168976 -9.907374,9.9119474 13.153945,13.152419 9.922615,-9.907373 z m -0.960253,5.4932579 2.591159,2.591159 -1.95099,1.9387975 -2.591161,-2.591159 z M 44.13929,11.243758 42.41693,12.963069 59.030835,29.56173 60.753193,27.854612 Z M 37.676633,12.109509 1.1108004,48.67534 v 9.221479 L 14.097081,70.883102 h 9.221481 L 59.899634,34.317271 Z m 25.134245,0.548718 2.575917,2.591159 -1.95099,1.920505 -2.575916,-2.591159 z"
+     id="path4"
+     style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1" />
+</svg>

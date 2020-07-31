@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="guard-dog.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 67.500001 67.500002"
+   height="0.75in"
+   width="0.75in">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="1017"
+     inkscape:window-width="1920"
+     units="in"
+     showgrid="false"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="50.502281"
+     inkscape:cx="48.378239"
+     inkscape:zoom="5.6"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-984.86215)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       inkscape:connector-curvature="0"
+       d="m 65.573181,1016.6911 c 0.392903,4.0599 0.679609,8.1116 0.51955,12.2419 l -8.983696,8.9838 c 2.601287,-9.3688 3.442844,-19.9501 -1.430183,-31.0361 l 0.0754,-0.013 z m -11.376056,-7.073 c 4.44051,11.5129 2.543112,22.3621 -0.75585,31.9665 l -6.224773,6.2248 c -1.157297,-0.985 -2.346239,-1.8289 -3.581731,-2.535 1.161515,-0.2358 2.280083,-0.567 3.216066,-1.0558 1.309241,-0.6838 2.431277,-1.928 3.366256,-3.0246 0.934885,-1.0967 1.61724,-2.0616 1.61724,-2.0616 l -1.995091,-1.4112 c 0,0 -0.626792,0.8825 -1.483522,1.8874 -0.857173,1.0049 -2.010184,2.117 -2.636213,2.4438 -1.156252,0.6039 -3.614809,1.0605 -5.683354,1.2636 -0.281872,0.028 -0.564386,0.051 -0.84678,0.074 -1.113533,-0.3217 -2.267991,-0.5539 -3.475815,-0.6983 -5.826607,-0.6954 -12.765889,0.5314 -22.105996,3.023 -2.223154,-0.9746 -4.881423,-2.9903 -7.1853436,-5.1878 0.230621,-0.043 0.4588583,-0.1031 0.6805604,-0.1798 1.3468587,-0.4687 2.5303903,-1.7076 2.6578941,-3.3694 0.1210623,-1.5734 0.063076,-3.5144 -0.6021646,-5.2781 -0.290871,-0.7717 -0.7405693,-1.5177 -1.3474746,-2.1368 l -0.019017,-0.019 7.7601093,-4.2575 c 1.249299,-0.4824 2.173417,-1.3617 2.804093,-2.3566 0.648005,-1.0225 1.035297,-2.1605 1.368366,-3.2952 0.664557,-2.2663 1.158516,-4.5258 2.253366,-5.8929 2.310081,-2.8 5.789833,-3.3342 9.430395,-4.7777 l 0.344974,-0.1367 0.207828,-0.3047 c 3.200706,-4.6304 3.972639,-10.3945 4.680237,-16.27621 5.23209,4.28206 9.196519,12.14531 12.344354,18.01151 l 0.512895,0.9511 1.005219,-0.3901 c 1.277194,-0.4927 2.508615,-0.8898 3.696084,-1.1972 z m -38.648092,15.6643 c -0.0379,0.013 -0.06924,0.028 -0.106733,0.037 l 0.171308,-0.078 z M 32.71235,992.82164 c 0.424214,0.42278 0.833871,0.86069 1.219931,1.31924 -0.655973,4.83298 -1.540277,9.23252 -3.796684,12.67312 -0.244856,0.092 -0.494547,0.1813 -0.747225,0.2686 0.815885,-5.5912 1.18534,-11.48281 -0.846726,-17.66769 1.6478,1.12498 3.023947,2.26413 4.170852,3.40659 z M 5.9433392,1030.8416 c -4.1257619,2.9358 -2.4689887,5.002 -0.8083322,7.2947 -1.0904314,-0.6235 -4.21420161,-3.0213 -3.7204307,-5.0534 0.3976443,-1.6369 3.1663965,-2.0781 4.5287629,-2.2413 z m 22.8252318,-13.8502 c -1.866061,0.7427 -3.39225,2.0609 -4.915439,3.4137 1.20769,1.4837 2.40973,1.5728 3.900028,1.3017 1.711238,-1.2773 2.63478,-3.1682 2.670081,-5.1904 -0.582934,0.1058 -1.132656,0.2672 -1.654911,0.4751 z"
+       style="font-variation-settings:normal;display:inline;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="path25834" />
+  </g>
+</svg>
