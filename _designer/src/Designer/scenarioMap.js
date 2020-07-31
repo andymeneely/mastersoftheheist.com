@@ -38,24 +38,48 @@ class ScenarioMap extends React.Component {
 
   renderEventString(){
     var items = []
+    const h = 10
     if(this.props.eventStr.length > 0){
       items.push(
         <rect
           key="eventLogoRect"
           x={this.props.eventX - 33}
           y={this.props.eventY - 13}
-          width={30} height={30}
+          width={h * 3} height={h * 3}
           fill={`url(#eventsLogo)`}/>
       )
-      items.push(
-        <text
+      // ... because SVG lacks word wrapping...
+      // We'll always have two lines of event text
+      // So let's split it at a comma
+      // e.g. 1-8,G1,9-12,G2,13-14,G4,G1,C4,15-20,C1,Z1
+      // e.g.              to
+      // e.g. 1-8,G1,9-12,G2,13-14,
+      // e.g. G4,G1,C4,15-20,C1,Z
+      // so split at ~20 characters
+      // With splitAt we'll always try to divide it in half
+      const splitAt = this.props.eventStr.length / 2 + 1
+      let str1 = this.props.eventStr.split(',').reduce((str, s) => {
+        if (str.length < splitAt) { str += s + ',' }
+        return str
+      },"");
+      items.push(<text
           key="eventLogoText"
           x={this.props.eventX}
           y={this.props.eventY}
           className="events"
           fontFamily="Archivo Narrow"
-          fontSize="10"
-          >{this.props.eventStr}</text>
+          fontSize={h}
+          >{str1}</text>
+      )
+      let str2 = this.props.eventStr.replace(str1, '');
+      items.push(<text
+          key="eventLogoText"
+          x={this.props.eventX}
+          y={this.props.eventY + h}
+          className="events"
+          fontFamily="Archivo Narrow"
+          fontSize={h}
+          >{str2}</text>
       )
     }
     return (<g>{items}</g>)

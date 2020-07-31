@@ -408,7 +408,7 @@ class Designer extends React.Component {
   }
 
   scrubEvents(str){
-    return str.replace(/[^a-zA-Z0-9\-,']/g,'').substring(0, 40);
+    return str.replace(/[^a-zA-Z0-9\-,']/g,'');
   }
 
   onEventsChange(e){
