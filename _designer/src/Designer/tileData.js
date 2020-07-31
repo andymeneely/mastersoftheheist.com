@@ -34,7 +34,9 @@ var tileData = {
   },
   "JW" : {
     'slug': 'jewel',
-    'name': 'Jewel'
+    'name': 'Jewel',
+    'jewel': 1,
+
   },
   "$1" : {
     'slug': '1k',
@@ -53,11 +55,13 @@ var tileData = {
   },
   "PP" : {
     'slug': 'folder',
-    'name': 'Documents'
+    'name': 'Documents',
+    'docs': 1,
   },
   "USB" : {
     'slug': 'usb',
-    'name': 'USB drive'
+    'name': 'USB drive',
+    'usb': 1,
   },
   "RE" : {
     'slug': 'reinforcements',
@@ -170,6 +174,7 @@ var tileData = {
     'slug': 'security-guard-keycard',
     'name': 'Guard and Keycard',
     'guards':  1,
+    'keycard':  1,
   },
   "GDGD" : {
     'slug': 'security-2guarddog',
@@ -228,11 +233,13 @@ var tileData = {
   },
   "RXD" : {
     'slug': 'remote-lock-x-document',
-    'name': 'Remote Lock X Covering Document'
+    'name': 'Remote Lock X Covering Document',
+    'docs': 1,
   },
   "RYJ" : {
     'slug': 'remote-lock-y-jewel',
-    'name': 'Remote Lock Y Covering Jewel'
+    'name': 'Remote Lock Y Covering Jewel',
+    'jewel': 1,
   },
   "RXM" : {
     'slug': 'remote-lock-x-meeple',
@@ -248,7 +255,8 @@ var tileData = {
   },
   "KC" : {
     'slug': 'keycard',
-    'name': 'Keycard'
+    'name': 'Keycard',
+    'keycard': 1,
   },
   "KCL" : {
     'slug': 'keycard-lock',

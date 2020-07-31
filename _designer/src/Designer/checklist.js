@@ -102,9 +102,14 @@ class Checklist extends React.Component {
     const n = this.countKeys(tallies, 'guards')
               + this.countKeys(tallies, 'cameras')
               + this.countKeys(tallies, 'locks')
+              + this.countKeys(tallies, 'guardDogs')
+              + parseInt(this.props.bag['guards'])
+              + parseInt(this.props.bag['cameras'])
+              + parseInt(this.props.bag['locks'])
+              + parseInt(this.props.bag['dog'])
               + tallies['SC']
     return (
-      <div className={this.good(n <= 32)}>
+      <div className={this.good(n <= 40)}>
         {n} total security
       </div>
     );
@@ -141,12 +146,51 @@ class Checklist extends React.Component {
   }
 
   jewels(tallies){
-    const n = tallies['JW']
-               + tallies['RXJ']
-               + tallies['RYJ']
+    const n = this.countKeys(tallies, 'jewel')
+                   + parseInt(this.props.bag['jewel'])
     return (
       <div className={this.good(n <= 4)}>
         {n} jewels
+      </div>
+    );
+  }
+
+  keycard(tallies){
+    const n = this.countKeys(tallies, 'keycard')
+                   + parseInt(this.props.bag['keycard'])
+    return (
+      <div className={this.good(n <= 1)}>
+        {n} keycards
+      </div>
+    );
+  }
+
+  dogs(tallies){
+    const n = this.countKeys(tallies, 'guardDogs')
+                   + parseInt(this.props.bag['dog'])
+    return (
+      <div className={this.good(n <= 6)}>
+        {n} dogs
+      </div>
+    );
+  }
+
+  docs(tallies){
+    const n = this.countKeys(tallies, 'docs')
+                   + parseInt(this.props.bag['docs'])
+    return (
+      <div className={this.good(n <= 4)}>
+        {n} documents
+      </div>
+    );
+  }
+
+  usb(tallies){
+    const n = this.countKeys(tallies, 'usb')
+                   + parseInt(this.props.bag['usb'])
+    return (
+      <div className={this.good(n <= 1)}>
+        {n} USB keys
       </div>
     );
   }
@@ -183,6 +227,54 @@ class Checklist extends React.Component {
     return tallies;
   }
 
+  isNumber(str){
+    return !isNaN(parseInt(str))
+  }
+
+  isEvent(str){
+    return this.isNumber(str.charAt(0))
+            || str.charAt(0) === 'A'
+            || str.charAt(0) === 'B'
+            || str.charAt(0) === 'G'
+            || str.charAt(0) === 'M'
+  }
+
+  isCrisis(str){ return str.charAt(0) === 'C' || str.charAt(0) === 'Z' }
+
+  events(){
+    let n = 0;
+    for(let eventRange in this.props.events.split(',')) {
+      if(eventRange.length > 0){ // ignore ""
+        if(eventRange.includes('-')){
+          let [lower, upper] = eventRange.split('-')
+          lower = parseInt(lower);
+          upper = parseInt(upper);
+          if(!isNaN(lower) && !isNaN(upper)){
+            n += upper - lower + 1
+          }
+        } else { // just a single card
+          if(this.isEvent(eventRange)){
+            n++;
+          }
+        }
+      }
+    }
+    return(
+      <div className={this.good(n >= 0)}>
+        {n} events
+      </div>
+    )
+  }
+
+  crises(){
+    const n = 0;
+    return(
+      <div className={this.good(n >= 0)}>
+        {n} crises
+      </div>
+    )
+  }
+
   render() {
     let tallies = this.tallyUp();
     return (
@@ -194,9 +286,15 @@ class Checklist extends React.Component {
         { this.guards(tallies) }
         { this.cameras(tallies) }
         { this.locks(tallies) }
+        { this.dogs(tallies) }
         { this.totalSecurity(tallies) }
         { this.jewels(tallies) }
         { this.cash(tallies) }
+        { this.keycard(tallies) }
+        { this.docs(tallies) }
+        { this.usb(tallies) }
+        { this.events(tallies) }
+        { this.crises(tallies) }
         { this.bagSize(tallies)}
       </div>
     );

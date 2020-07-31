@@ -547,7 +547,9 @@ class Designer extends React.Component {
                     onEventsChange={(e) => this.onEventsChange(e)}
                     onNudgeEvents={(dir, e) => this.onNudgeEvents(dir, e)} />
             <Checklist tiles={this.state.tiles}
-                       bag={this.state.bag} />
+                       bag={this.state.bag}
+                       events={this.state.eventStr}
+                        />
             <Gallery onGalleryClick={(e) => this.onGalleryClick(e)}/>
           </div>
         </div>
