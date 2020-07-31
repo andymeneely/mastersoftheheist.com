@@ -243,7 +243,7 @@ class Checklist extends React.Component {
 
   events(){
     let n = 0;
-    for(let eventRange in this.props.events.split(',')) {
+    for(let eventRange of this.props.events.split(',')) {
       if(eventRange.length > 0){ // ignore ""
         if(eventRange.includes('-')){
           let [lower, upper] = eventRange.split('-')
@@ -251,6 +251,8 @@ class Checklist extends React.Component {
           upper = parseInt(upper);
           if(!isNaN(lower) && !isNaN(upper)){
             n += upper - lower + 1
+          } else {
+            console.log(`Event range parse error on: ${eventRange}`)
           }
         } else { // just a single card
           if(this.isEvent(eventRange)){
@@ -267,7 +269,12 @@ class Checklist extends React.Component {
   }
 
   crises(){
-    const n = 0;
+    let n = 0;
+    for(let eventRange of this.props.events.split(',')) {
+      if(eventRange.length > 0 && this.isCrisis(eventRange)){
+            n++;
+      }
+    }
     return(
       <div className={this.good(n >= 0)}>
         {n} crises
@@ -281,8 +288,6 @@ class Checklist extends React.Component {
       <div className="statusbox">
         { this.numberOfHexTiles(tallies) }
         { this.numberOfExits(tallies) }
-        { this.lockdownGates(tallies) }
-        { this.unknownSecurityTiles(tallies) }
         { this.guards(tallies) }
         { this.cameras(tallies) }
         { this.locks(tallies) }
@@ -295,7 +300,9 @@ class Checklist extends React.Component {
         { this.usb(tallies) }
         { this.events(tallies) }
         { this.crises(tallies) }
+        { this.unknownSecurityTiles(tallies) }
         { this.bagSize(tallies)}
+        { this.lockdownGates(tallies) }
       </div>
     );
   }
