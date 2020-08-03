@@ -71,8 +71,9 @@ class ScenarioMap extends React.Component {
           fontSize={h}
           >{str1}</text>
       )
-      let str2 = this.props.eventStr.replace(str1, '');
-      items.push(<text
+      if(this.props.eventStr.includes(",")){
+        let str2 = this.props.eventStr.replace(str1, '');
+        items.push(<text
           key="eventLogoText"
           x={this.props.eventX}
           y={this.props.eventY + h}
@@ -80,7 +81,8 @@ class ScenarioMap extends React.Component {
           fontFamily="Archivo Narrow"
           fontSize={h}
           >{str2}</text>
-      )
+        )
+      }
     }
     return (<g>{items}</g>)
   }
