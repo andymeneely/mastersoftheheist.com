@@ -262,6 +262,10 @@ var tileData = {
     'slug': 'keycard-lock',
     'name': 'Keycard Door'
   },
+  "DK" : {
+    'slug': 'kennel',
+    'name': 'Kennel'
+  },
   "AA" : {
     'slug': 'art-apple',
     'name': 'Painting of Apple'
