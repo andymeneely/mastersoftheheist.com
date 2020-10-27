@@ -266,6 +266,10 @@ var tileData = {
     'slug': 'kennel',
     'name': 'Kennel'
   },
+  "S" : {
+    'slug': 'safe',
+    'name': 'Safe'
+  },
   "AA" : {
     'slug': 'art-apple',
     'name': 'Painting of Apple'
