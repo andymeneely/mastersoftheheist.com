@@ -10,6 +10,7 @@ import Tilebox from './tilebox';
 import Gallery from './gallery';
 import SecurityBag from './securityBag';
 import Events from './events';
+import EventViewer from './eventViewer';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import {compressToEncodedURIComponent as compress} from 'lz-string';
 import {saveSvgAsPng} from 'save-svg-as-png';
@@ -546,10 +547,11 @@ class Designer extends React.Component {
             <Events eventStr={this.state.eventStr}
                     onEventsChange={(e) => this.onEventsChange(e)}
                     onNudgeEvents={(dir, e) => this.onNudgeEvents(dir, e)} />
+            <EventViewer eventStr={this.state.eventStr} />
             <Checklist tiles={this.state.tiles}
                        bag={this.state.bag}
-                       events={this.state.eventStr}
-                        />
+                       events={this.state.eventStr} />
+
             <Gallery onGalleryClick={(e) => this.onGalleryClick(e)}/>
           </div>
         </div>

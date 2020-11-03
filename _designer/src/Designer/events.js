@@ -8,7 +8,6 @@ import RightLogo from './img/right.svg';
 class Events extends React.Component {
 
   render(){
-
       return (
         <div className="events">
           <input type="text"

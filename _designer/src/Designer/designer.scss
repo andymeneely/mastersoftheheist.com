@@ -9,7 +9,7 @@ label {
   cursor: pointer;
 }
 
-.designer{
+.designer {
   font-size: 1.2em;
   font-family: 'Archivo Narrow', sans-serif;
   line-height: 1.2;
@@ -346,6 +346,30 @@ label {
       img {
         height: 0.65em;
       }
+    }
+  }
+
+  .eventViewer {
+    font-size: 90%;
+    text-align: center;
+    label {
+      border: 1px solid #a5a5a5;
+      border-radius: 0.5em;
+      padding: 0.25em;
+      margin-bottom: 0.25em;
+      text-align: center;
+      display: inline-block;
+    }
+    ul {
+      text-align: left;
+      list-style: none;
+      line-height: 1;
+      margin: 0;
+      margin-bottom: 0.25em;
+      padding: 0em;
+      li { margin-bottom: 00em; }
+      .eventID{ font-family: 'Archivo Black' }
+      .eventName{ font-weight: bold; }
     }
   }
 }
