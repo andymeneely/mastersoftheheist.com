@@ -298,6 +298,10 @@ var tileData = {
     'slug': 'meeple-white',
     'name': 'Non-Player Character'
   },
+  "I" : {
+    'slug': 'item',
+    'name': 'Item'
+  },
 };
 
 for(let t in tileData) {
