@@ -305,7 +305,7 @@ var tileData = {
 };
 
 for(let t in tileData) {
-  let svgstr = require(`!!raw-loader!./img/hexart/${tileData[t]['slug']}.svg`);
+  let svgstr = require(`!!raw-loader!../img/hexart/${tileData[t]['slug']}.svg`);
   tileData[t]['svgstr'] = svgstr;
 }
 

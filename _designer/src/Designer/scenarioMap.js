@@ -1,6 +1,6 @@
 import React from 'react';
 import { HexGrid, Layout, Hexagon, GridGenerator } from 'react-hexgrid';
-import tileData from './tileData';
+import tileData from './data/tileData';
 
 class ScenarioMap extends React.Component {
 

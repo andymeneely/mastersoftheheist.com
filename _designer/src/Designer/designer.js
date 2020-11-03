@@ -13,7 +13,7 @@ import Events from './events';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import {compressToEncodedURIComponent as compress} from 'lz-string';
 import {saveSvgAsPng} from 'save-svg-as-png';
-import tileData from './tileData';
+import tileData from './data/tileData';
 import './designer.scss';
 
 class Designer extends React.Component {

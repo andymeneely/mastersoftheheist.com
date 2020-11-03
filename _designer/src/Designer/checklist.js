@@ -1,5 +1,5 @@
 import React from 'react';
-import tileData from './tileData';
+import tileData from './data/tileData';
 
 class Checklist extends React.Component {
 
