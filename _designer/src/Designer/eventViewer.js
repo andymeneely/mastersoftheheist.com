@@ -7,7 +7,7 @@ class EventViewer extends React.Component {
     super(props);
     this.state = {
       showDescriptions: false,
-      showAll: true,
+      showAll: false,
     }
   }
 
@@ -24,7 +24,6 @@ class EventViewer extends React.Component {
     let events = []
 
     for (const eItem of eventItems) {
-      console.log(eItem)
       let data = eItem.startsWith('C') ? crisisData : eventData
       if (eItem.includes('-')) {
         let eRange = eItem.split('-')
