@@ -165,8 +165,6 @@ label {
       cursor: pointer;
       margin-left: 0.5em;
       text-align: center;
-      option{
-      }
     }
     label {
       cursor: pointer;
@@ -316,7 +314,7 @@ label {
       margin: 0;
       img { width: 1.2em; }
       span { width: 1em; display: inline-block;}
-      input[type=range] { width: calc(100% - 3em;); }
+      input[type=range] { width: calc(100% - 3em); }
     }
     button {
       width: 1em;
