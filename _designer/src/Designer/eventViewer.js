@@ -19,12 +19,15 @@ class EventViewer extends React.Component {
     this.setState({ showAll: !this.state.showAll });
   }
 
+  isCrisis(eItem){
+    return eItem.startsWith('C') || eItem.startsWith('Z')
+  }
+
   eventsFromStr() {
     const eventItems = this.props.eventStr.split(',') // 1,2-3
     let events = []
-
     for (const eItem of eventItems) {
-      let data = eItem.startsWith('C') ? crisisData : eventData
+      let data = this.isCrisis(eItem) ? crisisData : eventData
       if (eItem.includes('-')) {
         let eRange = eItem.split('-')
         let start = parseInt(eRange[0])
@@ -53,25 +56,31 @@ class EventViewer extends React.Component {
   }
 
   renderDeckList() {
-    let events = this.eventsFromStr()
-    return (
-      <ul>
-        {events.map((e, index) =>
-          <li key={index} >
-            <span className="eventID"> {e.id} </span>
-            <span className="eventName"> {e.name} </span>
-            <span className="eventDesc">
-              {this.state.showDescriptions ? e.description : ''}
-            </span>
-          </li>
-        )}
-      </ul>
-    )
+    let events = []
+    try {
+      events = this.eventsFromStr()
+    } catch(e) {
+      console.log(e)
+    } finally{
+      return (
+        <ul>
+          {events.map((e, index) =>
+            <li key={index} >
+              <span className="eventID"> {e.id} </span>
+              <span className="eventName"> {e.name} </span>
+              <span className="eventDesc">
+                {this.state.showDescriptions ? e.description : ''}
+              </span>
+            </li>
+          )}
+        </ul>
+      )
+    }
   }
 
   render() {
     return (
-      <div class="eventViewer">
+      <div className="eventViewer">
         <label title='Descriptions'>
           <input type="checkbox"
             checked={this.state.showDescriptions}

@@ -166,15 +166,34 @@ class Designer extends React.Component {
     });
   }
 
-  onClearClick(i){
+  onClearClick(e){
     const hist = this.state.undoHistory;
     hist.push(this.state.tiles.slice());
-    this.setState({
-      tiles: Array(100).fill('GP'),
-      undoHistory: hist,
-      redoHistory: [],
-      lastAction: `Clear`
-    });
+    if(e.ctrlKey){ //clear everything
+      this.setState({
+        tiles: Array(100).fill('GP'),
+        name: '',
+        bag: {
+          guards: 0,
+          cameras: 0,
+          locks: 0,
+          jewel: 0,
+          keycard: 0,
+          dog: 0,
+          docs: 0,
+          usb: 0,
+        },
+        eventStr: '',
+        lastAction: `Clear`
+      });
+    } else { // just the hexes
+      this.setState({
+        tiles: Array(100).fill('GP'),
+        undoHistory: hist,
+        redoHistory: [],
+        lastAction: `Clear`
+      });
+    }
   }
 
   onTypeClick(hexType){

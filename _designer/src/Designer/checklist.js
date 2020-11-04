@@ -118,6 +118,7 @@ class Checklist extends React.Component {
   guards(tallies){
     const n = this.countKeys(tallies, 'guards')
                    + parseInt(this.props.bag['guards'])
+                   + parseInt(this.props.bag['keycard'])
     return (
       <div className={this.good(n <= 25)}>
         {n} guards

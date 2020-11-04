@@ -27,7 +27,7 @@ class ManageButtons extends React.Component {
                 title={this.titleTextRedo()}>
           ⟳ Redo
         </button>
-        <button onClick={() => this.props.onClearClick()}>Clear</button>
+        <button onClick={(e) => this.props.onClearClick(e)}>Clear</button>
         <button onClick={() => this.props.onCopyTTSClick()}
                 title='Copy Tabletop Simulator save to clipboard'>
           Copy TTS

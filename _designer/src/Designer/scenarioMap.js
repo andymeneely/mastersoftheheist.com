@@ -74,7 +74,7 @@ class ScenarioMap extends React.Component {
       if(this.props.eventStr.includes(",")){
         let str2 = this.props.eventStr.replace(str1, '');
         items.push(<text
-          key="eventLogoText"
+          key="eventLogoText2"
           x={this.props.eventX}
           y={this.props.eventY + h}
           className="events"
