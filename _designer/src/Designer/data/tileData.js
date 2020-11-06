@@ -302,6 +302,10 @@ var tileData = {
     'slug': 'item',
     'name': 'Item'
   },
+  "T" : {
+    'slug': 'tunnel',
+    'name': 'Tunnel (potential entrance)'
+  },
 };
 
 for(let t in tileData) {

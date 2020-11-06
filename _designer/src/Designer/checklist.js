@@ -22,7 +22,7 @@ class Checklist extends React.Component {
     return Object.entries(tallies).reduce(reducer, 0)
   }
 
-  // is it a hex tile? i.e. not a gap or exits
+  // is it a hex tile? e.g. not a gap, exit, or tunnel
   isTile(t) {
     return t !== 'GP'
         && t !== 'E1'
@@ -31,6 +31,7 @@ class Checklist extends React.Component {
         && t !== 'E4'
         && t !== 'E5'
         && t !== 'E6'
+        && t !== 'T'
     ;
   }
 
@@ -109,7 +110,7 @@ class Checklist extends React.Component {
               + parseInt(this.props.bag['dog'])
               + tallies['SC']
     return (
-      <div className={this.good(n <= 40)}>
+      <div className={this.good(n <= 50)}>
         {n} total security
       </div>
     );
