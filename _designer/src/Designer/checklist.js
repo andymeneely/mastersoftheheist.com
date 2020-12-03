@@ -237,6 +237,7 @@ class Checklist extends React.Component {
     return this.isNumber(str.charAt(0))
             || str.charAt(0) === 'A'
             || str.charAt(0) === 'B'
+            || str.charAt(0) === 'D'
             || str.charAt(0) === 'G'
             || str.charAt(0) === 'M'
   }

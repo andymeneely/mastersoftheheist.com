@@ -36,10 +36,13 @@ class ScenarioMap extends React.Component {
     );
   }
 
+
+
   renderEventString(){
-    var items = []
-    const h = 10
-    if(this.props.eventStr.length > 0){
+    var items = [];
+    const h = 10;
+    const n = this.props.eventStr.length;
+    if(n > 0){
       items.push(
         <rect
           key="eventLogoRect"
@@ -49,7 +52,7 @@ class ScenarioMap extends React.Component {
           fill={`url(#eventsLogo)`}/>
       )
       // ... because SVG lacks word wrapping...
-      // We'll always have two lines of event text
+      // We'll (almost) always have two lines of event text
       // So let's split it at a comma
       // e.g. 1-8,G1,9-12,G2,13-14,G4,G1,C4,15-20,C1,Z1
       // e.g.              to
@@ -57,34 +60,52 @@ class ScenarioMap extends React.Component {
       // e.g. G4,G1,C4,15-20,C1,Z
       // so split at ~20 characters
       // With splitAt we'll always try to divide it in half
-      const splitAt = this.props.eventStr.length / 2 + 1
-      let str1 = this.props.eventStr.split(',').reduce((str, s) => {
-        if (str.length < splitAt) { str += s + ',' }
-        return str
-      },"");
-      items.push(<text
-          key="eventLogoText"
-          x={this.props.eventX}
-          y={this.props.eventY}
-          className="events"
-          fontFamily="Archivo Narrow"
-          fontSize={h}
-          >{str1}</text>
-      )
-      if(this.props.eventStr.includes(",")){
-        let str2 = this.props.eventStr.replace(str1, '');
-        items.push(<text
-          key="eventLogoText2"
-          x={this.props.eventX}
-          y={this.props.eventY + h}
-          className="events"
-          fontFamily="Archivo Narrow"
-          fontSize={h}
-          >{str2}</text>
-        )
-      }
+      // Only exception is strings at 10 chars or less - just one line
+      items = n >= 10 ? this.render2Lines(items, h) : this.render1Line(items, h)
     }
     return (<g>{items}</g>)
+  }
+
+  render2Lines(items, h){
+    const splitAt = this.props.eventStr.length / 2 + 1
+    let str1 = this.props.eventStr.split(',').reduce((str, s) => {
+      if (str.length < splitAt) { str += s + ',' }
+      return str
+    },"");
+    items.push(<text
+        key="eventLogoText"
+        x={this.props.eventX}
+        y={this.props.eventY}
+        className="events"
+        fontFamily="Archivo Narrow"
+        fontSize={h}
+        >{str1}</text>
+    )
+    if(this.props.eventStr.includes(",")){
+      let str2 = this.props.eventStr.replace(str1, '');
+      items.push(<text
+        key="eventLogoText2"
+        x={this.props.eventX}
+        y={this.props.eventY + h}
+        className="events"
+        fontFamily="Archivo Narrow"
+        fontSize={h}
+        >{str2}</text>
+      )
+    }
+    return items
+  }
+
+  render1Line(items, h){
+    items.push(<text
+      key="eventLogoText"
+      x={this.props.eventX}
+      y={this.props.eventY + 2} // nudge to center
+      className="events"
+      fontFamily="Archivo Narrow"
+      fontSize={h}
+      >{this.props.eventStr}</text>)
+    return items
   }
 
   renderDifficulty(){
