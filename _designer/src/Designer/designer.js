@@ -281,7 +281,7 @@ class Designer extends React.Component {
       width: 360,
       height: 305,
       scale: 5, // so technically ~1500x1500
-      backgroundColor: '#fff'
+      backgroundColor: '#fff0' // transparent
     };
     saveSvgAsPng(svg, `${this.makeFilename()}.png`, opts);
   }
