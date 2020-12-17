@@ -550,15 +550,14 @@ class Designer extends React.Component {
             <SecurityBag counts={this.state.bag}
                          onBagChange={(e) => this.onBagChange(e)}
                          onNudgeBag={(dir, e) => this.onNudgeBag(dir, e)}/>
+            <Checklist tiles={this.state.tiles}
+                       bag={this.state.bag}
+                       events={this.state.eventStr} />
             <Events eventStr={this.state.eventStr}
                     onEventsChange={(e) => this.onEventsChange(e)}
                     onNudgeEvents={(dir, e) => this.onNudgeEvents(dir, e)}
                     onDefaultEvents={() => this.onDefaultEvents()} />
             <EventViewer eventStr={this.state.eventStr} />
-            <Checklist tiles={this.state.tiles}
-                       bag={this.state.bag}
-                       events={this.state.eventStr} />
-
             <Gallery onGalleryClick={(e) => this.onGalleryClick(e)}/>
           </div>
         </div>
