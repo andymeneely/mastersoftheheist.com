@@ -215,7 +215,6 @@ class ScenarioMap extends React.Component {
     const viewBox = `${-hexSize} ${-hexSize} 360 305`
     return (
       <div className="scenariomap"
-           onWheel={this.props.onWheel}
            onMouseLeave={() => this.props.onHoverHex('')} >
         <HexGrid viewBox={viewBox}>
           <Layout size={{ x: hexSize,

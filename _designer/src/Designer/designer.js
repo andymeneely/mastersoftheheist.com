@@ -47,7 +47,7 @@ class Designer extends React.Component {
       },
       bagX: 250,
       bagY: 200,
-      eventStr: '',
+      eventStr: '1-24,Z1',
       eventX: 100,
       eventY: 250,
       difficulty: 'A'
@@ -286,21 +286,6 @@ class Designer extends React.Component {
     saveSvgAsPng(svg, `${this.makeFilename()}.png`, opts);
   }
 
-  onWheel(e){ // cycle through tools
-    let codes = Object.keys(tileData);
-    let i = codes.indexOf(this.state.activeType);
-    if(e.deltaY > 0){
-      i++;
-    } else {
-      i--;
-    }
-    i = (i + codes.length ) % codes.length; // Wrap around
-    this.setState({
-      activeType: codes[i],
-      lastAction: `Use ${tileData[codes[i]]['name']}`
-    });
-  }
-
   // on shifting the entire board up or down
   // We're assuming we have a square board with stride x stride rows/cols
   onShiftClick(dir){
@@ -472,7 +457,6 @@ class Designer extends React.Component {
   }
 
   onNudgeEvents(dir, e){
-    console.log('he')
     const delta = e.ctrlKey ? 25 : 5
     let eventX = this.state.eventX;
     let eventY = this.state.eventY;
@@ -487,6 +471,10 @@ class Designer extends React.Component {
       eventX: eventX,
       eventY: eventY,
     });
+  }
+
+  onDefaultEvents(){
+    this.setState({ eventStr: '1-24,Z1' })
   }
 
   onBagChange(e){
@@ -519,7 +507,6 @@ class Designer extends React.Component {
                    />
           <div className="centerArea">
             <ScenarioMap tiles={this.state.tiles}
-                         onWheel={(e) => this.onWheel(e)}
                          showGrid={this.state.showGrid}
                          onHexClick={(e) => this.onHexClick(e)}
                          onHoverHex={(e) => this.onHoverHex(e)}
@@ -538,7 +525,7 @@ class Designer extends React.Component {
                        hoverHex={this.state.hoverHex}
                        />
           </div>
-          <div className="columnBox">
+          <div className="ui-box">
             <ManageButtons onClearClick={(e) => this.onClearClick(e)}
                            onCopyTTSClick={(e) => this.onCopyTTSClick(e)}
                            onSaveClick={(e) => this.onSaveClick(e)}
@@ -565,7 +552,8 @@ class Designer extends React.Component {
                          onNudgeBag={(dir, e) => this.onNudgeBag(dir, e)}/>
             <Events eventStr={this.state.eventStr}
                     onEventsChange={(e) => this.onEventsChange(e)}
-                    onNudgeEvents={(dir, e) => this.onNudgeEvents(dir, e)} />
+                    onNudgeEvents={(dir, e) => this.onNudgeEvents(dir, e)}
+                    onDefaultEvents={() => this.onDefaultEvents()} />
             <EventViewer eventStr={this.state.eventStr} />
             <Checklist tiles={this.state.tiles}
                        bag={this.state.bag}

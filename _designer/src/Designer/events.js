@@ -26,6 +26,10 @@ class Events extends React.Component {
           <button onClick={(e) => this.props.onNudgeEvents('right', e)}>
             <img src={RightLogo} alt="Nudge name right"/>
           </button>
+          <button onClick={() => this.props.onDefaultEvents()}>
+            Default
+          </button>
+
         </div>
       )
   }

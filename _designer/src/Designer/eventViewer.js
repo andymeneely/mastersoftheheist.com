@@ -78,21 +78,27 @@ class EventViewer extends React.Component {
     }
   }
 
+  renderDescriptionButton() {
+    return (
+      <label title='Descriptions'>
+        <input type="checkbox"
+                checked={this.state.showDescriptions}
+                onChange={() => this.onShowDescriptionsChange()} />
+        Show Descriptions
+      </label>
+    )
+  }
+
   render() {
     return (
       <div className="eventViewer">
-        <label title='Descriptions'>
-          <input type="checkbox"
-            checked={this.state.showDescriptions}
-            onChange={() => this.onShowDescriptionsChange()} />
-          Descriptions
-        </label>
         <label title='Show Deck'>
           <input type="checkbox"
             checked={this.state.showAll}
             onChange={() => this.onShowAllChange()} />
-          Deck
+          Show Event Deck
         </label>
+        {this.state.showAll ? this.renderDescriptionButton() : ''}
         {this.state.showAll ? this.renderDeckList() : ''}
       </div>
     )
