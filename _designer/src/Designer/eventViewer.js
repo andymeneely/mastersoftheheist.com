@@ -65,7 +65,7 @@ class EventViewer extends React.Component {
       return (
         <ul>
           {events.map((e, index) =>
-            <li key={index} >
+            <li key={index} className={this.isCrisis(e.id) ? 'crisis' : ''}>
               <span className="eventID"> {e.id} </span>
               <span className="eventName"> {e.name} </span>
               <span className="eventDesc">

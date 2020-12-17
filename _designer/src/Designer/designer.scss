@@ -7,7 +7,7 @@ h1 {
   margin-bottom: 0.25em;
 }
 
-label {
+label, button,input[type="range"] {
   cursor: pointer;
 }
 
@@ -132,6 +132,10 @@ label {
     align-items: flex-start;
     width: 100%;
     height: 100%;
+    &>div {
+      margin: 0;
+      margin-bottom: 0.15em;
+    }
 
     @media (orientation: landscape) {
       &>div {
@@ -239,8 +243,8 @@ label {
     justify-content: center;
     .shift-buttons {
       position: relative;
-      width: 6em;
-      height: 6em;
+      width: 5em;
+      height: 5em;
 
       button {
         margin: 0.5em;
@@ -250,12 +254,12 @@ label {
         img{
           height: 1em;
         }
-        &.upleft{    transform: translate(0.9em, 0em) rotate(-30deg); }
-        &.upright{   transform: translate(2.8em, 0em) rotate(30deg) ; }
-        &.left{      transform: translate(0em, 1.6em) rotate(-90deg); }
-        &.right{     transform: translate(3.7em, 1.6em) rotate(90deg); }
-        &.downleft{  transform: translate(0.9em, 3.2em) rotate(-150deg); }
-        &.downright{ transform: translate(2.8em, 3.2em) rotate(150deg); }
+        &.upleft{    transform: translate(0.5em, 0em) rotate(-30deg); }
+        &.upright{   transform: translate(2.5em, 0em) rotate(30deg) ; }
+        &.left{      transform: translate(-0.25em, 1.6em) rotate(-90deg); }
+        &.right{     transform: translate(3.3em, 1.6em) rotate(90deg); }
+        &.downleft{  transform: translate(0.5em, 3.2em) rotate(-150deg); }
+        &.downright{ transform: translate(2.5em, 3.2em) rotate(150deg); }
       }
     }
 
@@ -331,12 +335,11 @@ label {
   }
 
   .events {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
     width: 100%;
     max-width: 10em;
     margin-bottom: 0.25em;
     text-align: center;
+
     input {
       width: 100%;
       max-height: 1em;
@@ -375,6 +378,7 @@ label {
       li { margin-bottom: 00em; }
       .eventID{ font-family: 'Archivo Black' }
       .eventName{ font-weight: bold; }
+      .crisis { color: #c00; }
     }
   }
 }
