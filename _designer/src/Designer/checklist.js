@@ -161,7 +161,7 @@ class Checklist extends React.Component {
     const n = this.countKeys(tallies, 'keycard')
                    + parseInt(this.props.bag['keycard'])
     return (
-      <div className={this.good(n <= 1)}>
+      <div className={this.good(n <= 2)}>
         {n} keycards
       </div>
     );
@@ -181,7 +181,7 @@ class Checklist extends React.Component {
     const n = this.countKeys(tallies, 'docs')
                    + parseInt(this.props.bag['docs'])
     return (
-      <div className={this.good(n <= 4)}>
+      <div className={this.good(n <= 2)}>
         {n} documents
       </div>
     );
