@@ -1,4 +1,3 @@
-/* eslint import/no-webpack-loader-syntax: off */
 var tileData = {
   "GP" : {
     'slug': 'gap',
@@ -199,18 +198,18 @@ var tileData = {
     'guardDogs': 1,
     'locks': 1,
   },
-  "G2X" : {
-    'slug': 'security-guard-2x',
-    'name': 'Elite Guard'
-  },
-  "C2X" : {
-    'slug': 'security-camera-2x',
-    'name': 'Elite Camera'
-  },
-  "L2X" : {
-    'slug': 'security-lock-2x',
-    'name': 'Elite Lock'
-  },
+  // "G2X" : {
+  //   'slug': 'security-guard-2x',
+  //   'name': 'Elite Guard'
+  // },
+  // "C2X" : {
+  //   'slug': 'security-camera-2x',
+  //   'name': 'Elite Camera'
+  // },
+  // "L2X" : {
+  //   'slug': 'security-lock-2x',
+  //   'name': 'Elite Lock'
+  // },
   "SX" : {
     'slug': 'server-x',
     'name': 'Server X'
