@@ -1,5 +1,5 @@
 import React from 'react';
-import version from './version';
+import version from '../version';
 
 class StatusBar extends React.Component {
   render() {

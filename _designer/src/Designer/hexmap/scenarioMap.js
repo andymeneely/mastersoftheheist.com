@@ -1,6 +1,6 @@
 import React from 'react';
 import { HexGrid, Layout, Hexagon, GridGenerator } from 'react-hexgrid';
-import tileData from './data/tileData';
+import tileData from '../data/tileData';
 
 class ScenarioMap extends React.Component {
 
@@ -173,7 +173,7 @@ class ScenarioMap extends React.Component {
               id={id} key={id} patternUnits="objectBoundingBox"
               x="0" y="0" width="101%" height="101%" viewBox={viewBox}
               dangerouslySetInnerHTML={{
-                __html: require(`!!raw-loader!./img/${filename}.svg`).default
+                __html: require(`!!raw-loader!../img/${filename}.svg`).default
     }} />)
   }
 

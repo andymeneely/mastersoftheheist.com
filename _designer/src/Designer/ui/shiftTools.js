@@ -1,5 +1,5 @@
 import React from 'react';
-import UpLogo from './img/up.svg';
+import UpLogo from '../img/up.svg';
 
 class ShiftTools extends React.Component {
 

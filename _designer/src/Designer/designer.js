@@ -1,20 +1,20 @@
 import React from 'react';
-import ManageButtons from './manageButtons';
-import ScenarioMap from './scenarioMap';
-import ShiftTools from './shiftTools';
-import Checklist from './checklist';
-import TextMap from './textMap';
-import StatusBar from './statusBar';
-import Namer from './namer';
-import Tilebox from './tilebox';
-import Gallery from './gallery';
-import SecurityBag from './securityBag';
-import Events from './events';
-import EventViewer from './eventViewer';
+import ManageButtons from './ui/manageButtons';
+import ScenarioMap from './hexmap/scenarioMap';
+import ShiftTools from './ui/shiftTools';
+import Checklist from './ui/checklist';
+import TextMap from './ui/textMap';
+import StatusBar from './ui/statusBar';
+import Namer from './ui/namer';
+import Tilebox from './ui/tilebox';
+import Gallery from './ui/gallery';
+import SecurityBag from './ui/securityBag';
+import Events from './ui/events';
+import EventViewer from './ui/eventViewer';
+import tileData from './data/tileData';
 import {decompressFromEncodedURIComponent as decompress} from 'lz-string';
 import {compressToEncodedURIComponent as compress} from 'lz-string';
 import {saveSvgAsPng} from 'save-svg-as-png';
-import tileData from './data/tileData';
 import './designer.scss';
 
 class Designer extends React.Component {

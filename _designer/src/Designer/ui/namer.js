@@ -1,8 +1,8 @@
 import React from 'react';
-import UpLogo from './img/up.svg';
-import DownLogo from './img/down.svg';
-import LeftLogo from './img/left.svg';
-import RightLogo from './img/right.svg';
+import UpLogo from '../img/up.svg';
+import DownLogo from '../img/down.svg';
+import LeftLogo from '../img/left.svg';
+import RightLogo from '../img/right.svg';
 
 class Namer extends React.Component {
   render() {

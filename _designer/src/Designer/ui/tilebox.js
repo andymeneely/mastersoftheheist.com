@@ -1,6 +1,6 @@
 import React from 'react';
 import HexToolButton from './hexToolButton';
-import tileData from './data/tileData';
+import tileData from '../data/tileData';
 
 class Tilebox extends React.Component {
   render() {

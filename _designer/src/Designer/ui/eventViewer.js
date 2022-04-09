@@ -1,5 +1,5 @@
 import React from 'react';
-import { eventData, crisisData } from './data/eventData';
+import { eventData, crisisData } from '../data/eventData';
 
 class EventViewer extends React.Component {
 

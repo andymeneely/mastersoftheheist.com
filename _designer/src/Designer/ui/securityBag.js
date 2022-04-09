@@ -1,17 +1,17 @@
 import React from 'react';
-import GuardImg from './img/guard.svg'
-import CameraImg from './img/camera.svg'
-import LockImg from './img/locked.svg'
-import JewelImg from './img/jewel.svg'
-import KeycardImg from './img/keycard.svg'
-import GuardDogImg from './img/guard-dog.svg'
-import DocsImg from './img/folder.svg'
-import USBKeyImg from './img/usb-key.svg'
+import GuardImg from '../img/guard.svg'
+import CameraImg from '../img/camera.svg'
+import LockImg from '../img/locked.svg'
+import JewelImg from '../img/jewel.svg'
+import KeycardImg from '../img/keycard.svg'
+import GuardDogImg from '../img/guard-dog.svg'
+import DocsImg from '../img/folder.svg'
+import USBKeyImg from '../img/usb-key.svg'
 
-import UpLogo from './img/up.svg';
-import DownLogo from './img/down.svg';
-import LeftLogo from './img/left.svg';
-import RightLogo from './img/right.svg';
+import UpLogo from '../img/up.svg';
+import DownLogo from '../img/down.svg';
+import LeftLogo from '../img/left.svg';
+import RightLogo from '../img/right.svg';
 
 class SecurityBag extends React.Component {
 
