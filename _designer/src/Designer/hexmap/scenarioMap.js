@@ -1,6 +1,8 @@
 import React from 'react';
+import AndyHexGrid from './andyhexgrid';
 import { HexGrid, Layout, Hexagon, GridGenerator } from 'react-hexgrid';
 import tileData from '../data/tileData';
+import AndyHex from './andyhex';
 
 class ScenarioMap extends React.Component {
 
@@ -216,7 +218,8 @@ class ScenarioMap extends React.Component {
     return (
       <div className="scenariomap"
            onMouseLeave={() => this.props.onHoverHex('')} >
-        <HexGrid viewBox={viewBox}>
+             <AndyHexGrid stride={10} />
+        {/* <HexGrid viewBox={viewBox}>
           <Layout size={{ x: hexSize,
                           y: hexSize }}
                   spacing={1.03}
@@ -229,7 +232,7 @@ class ScenarioMap extends React.Component {
             { this.renderDifficulty() }
             { this.createPatterns() }
           </Layout>
-        </HexGrid>
+        </HexGrid> */}
       </div>
     );
   }
